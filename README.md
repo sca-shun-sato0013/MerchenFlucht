@@ -4,3 +4,4 @@
 
 2.developブランチからfeatureブランチを切ってpushするpullreqestをdevelopに送ってマージする。
 
+3.使ったremoteブランチを削除する。
