@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.AddressableAssets;
+using NUnityGameLib.NDesignPattern.NSingleton;
 
+//名前空間
+//この中のclassや関数を使うときはusingをつける
 namespace NUnityGameLib
 {
     interface IUnityGameLib
     {
+        void UpdateLib();
         T[] ArrayAdd<T>(int arrayLength);
         int ShortIf(bool b, int a);
         float ShortIf(bool b, float a);
@@ -15,14 +22,14 @@ namespace NUnityGameLib
         char ShortIf(bool b, char a);
         string ShortIf(bool b, string a);
         T[] ArrayAssignment<T>(T[] arrayReturn, T[] arrayAssigined, int num);
-        void UpdateLib();
+        
     }
 
     /// <summary>
     /// UnityGameLib
-    /// Unityのライブラリ(便利なクラスや関数が入っています)
+    /// Unityのライブラリ 便利なクラスや関数などが入っています
     /// </summary>    
-    public class UnityGameLib : MonoBehaviour, IUnityGameLib
+    public abstract class UnityGameLib : MonoBehaviour, IUnityGameLib
     {
               
         void Update()
@@ -68,7 +75,7 @@ namespace NUnityGameLib
 
         /// <summary>
         /// if文の省略系
-        /// 引数(bool 条件を入力,doble 範囲が大きい小数) 
+        /// 引数(bool 条件を入力,double 範囲が大きい小数) 
         /// </summary> 
         public virtual double ShortIf(bool b, double a)
         {
@@ -127,62 +134,153 @@ namespace NUnityGameLib
         {
             IEnumerable<T> query = array.Where(s => b);
             return query.ToList();
-        }        
+        }
+
+        /// <summary>
+        /// 二つの文字列を連結させる関数
+        /// 引数(string 文字列,string 文字列)
+        /// </summary>
+        public String AddString(string str,string str1)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(str);
+            sb.Append(str1);
+           string s =  sb.ToString();
+            return s;
+        }
+
+        /// <summary>
+        /// 複数の文字列を連結させる関数
+        /// 引数(string[]文字列の配列)
+        /// </summary>
+        public String AddString(string[] str)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach(string word in str)
+            {
+                sb.Append(word);
+            }
+            var text = sb.ToString();
+            return text;
+        }
+
+        /// <summary>
+        /// 画像を指定のフォルダから読み込む関数
+        /// 引数(Image 返される画像, string 画像があるパス,bool 条件があれば)
+        /// </summary>
+        public Image ImageLoadingAsync(Image image, string imagePath, bool check = true)
+        {
+            if (check)
+            {
+                Addressables.LoadAssetAsync<Sprite>(imagePath).Completed += sprite =>
+                {
+                     image.sprite = Instantiate(sprite.Result);                     
+                };
+                return image;
+            }
+            return image;
+        }
     }
 
-    /// <summary>
-    /// クラスのインスタンスを一つに制限する
-    /// グローバルなアクセスポイントを提供する
-    /// </summary>
-    public class Singleton<T> : UnityGameLib where T : Singleton<T>
+    namespace NDesignPattern
     {
-        protected virtual bool DestroyTragetGameObject => false;
-        public static T Instance { get; private set; } = null;
-
-        ///<summary>
-        ///Singletonが有効かどうか
-        /// </summary>
-        public static bool IsValid() => Instance != null;
-
-        private void Awake()
+        namespace NSingleton
         {
-            if (Instance == null)
+            interface ISingleton
             {
-                Instance = this as T;
-                Instance.Init();
-                return;
+                bool DestroyTragetGameObject { get;}
+                void Init();
+                void OnDestroy();
+                void OnRelease();
             }
-            if (DestroyTragetGameObject)
+
+            /// <summary>
+            /// シングルトンクラス
+            /// クラスのインスタンスを一つに制限する
+            /// グローバルなアクセスポイントを提供する
+            /// デザインパターンの一種(Singleton)
+            /// </summary>
+            public abstract class Singleton<T> : UnityGameLib,ISingleton where T : Singleton<T>
             {
-                Destroy(gameObject);
-            }
-            else
-            {
-                Destroy(this);
+                public virtual bool DestroyTragetGameObject => false;
+                public static T Instance { get; private set; } = null;
+
+                ///<summary>
+                ///Singletonが有効かどうか
+                /// </summary>
+                public static bool IsValid() => Instance != null;
+
+                private void Awake()
+                {
+                    if (Instance == null)
+                    {
+                        Instance = this as T;
+                        Instance.Init();
+                        return;
+                    }
+                    if (DestroyTragetGameObject)
+                    {
+                        Destroy(gameObject);
+                    }
+                    else
+                    {
+                        Destroy(this);
+                    }
+                }
+
+                ///<summary>
+                ///派生クラス用のAwake
+                /// </summary>
+                public virtual void Init() { }
+
+                public void OnDestroy()
+                {
+                    if (Instance == this)
+                    {
+                        Instance = null;
+                    }
+                    OnRelease();
+                }
+
+                public virtual void OnRelease() { }
             }
         }
-
-        ///<summary>
-        ///派生クラス用のAwake
-        /// </summary>
-        protected virtual void Init() { }
-
-        private void OnDestroy()
-        {
-            if (Instance == this)
-            {
-                Instance = null;
-            }
-            OnRelease();
-        }
-
-        protected virtual void OnRelease() { }
     }
 
     namespace NPlayerController
     {
         namespace NControllerPC
         {
+            interface IControllerPC
+            {
+                Transform GetKeyPositionMoveUp(GameObject obj, float speed);
+                Transform GetKeyPositionMoveDown(GameObject obj, float speed);
+            }
+
+            /// <summary>
+            /// PCのコントローラークラス
+            /// PCのキー入力関係の関数が入っています
+            /// </summary>
+            public abstract class ControllerPC : UnityGameLib,IUnityGameLib,IControllerPC
+            {
+                public virtual Transform GetKeyPositionMoveUp(GameObject obj, float speed)
+                {
+                    if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+                    {
+                        obj.transform.position += transform.forward * speed * Time.deltaTime;
+                    }
+                    return obj.transform;
+                }
+
+                public virtual Transform GetKeyPositionMoveDown(GameObject obj, float speed)
+                {
+                    if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+                    {
+                        obj.transform.position -= transform.forward * speed * Time.deltaTime;
+                    }
+                    return obj.transform;
+                }
+            }
 
         }
 
@@ -205,7 +303,7 @@ namespace NUnityGameLib
             }
 
             [RequireComponent(typeof(AudioSource))]
-            public class SoundManager : Singleton<SoundManager>,IUnityGameLib,ISoundManager
+            public abstract class SoundManager : Singleton<SoundManager>,IUnityGameLib,ISingleton,ISoundManager
             {
                 [SerializeField]AudioSource audioSource;
                 [SerializeField]AudioClip[] sound;
@@ -230,9 +328,21 @@ namespace NUnityGameLib
 
             }
 
-            public class SceneManager : Singleton<SceneManager>,IUnityGameLib,ISceneManager
+            public abstract class SceneManagerLib : Singleton<SceneManagerLib>,IUnityGameLib,ISingleton,ISceneManager
             {
                 
+            }
+        }
+
+        namespace NScenarioManager
+        {
+            interface IScenarioManager
+            {
+
+            }
+            public abstract class ScenarioManager : Singleton<ScenarioManager>,IUnityGameLib,IScenarioManager
+            {
+
             }
         }
 
@@ -243,14 +353,10 @@ namespace NUnityGameLib
 
             }
 
-            public class DebugManager
+            public abstract class DebugManager : Singleton<DebugManager>,IUnityGameLib,IDebugManager
             {
-                public void Debug()
-                {
-
-                }
+               
             }
         }
     }
 }
-
