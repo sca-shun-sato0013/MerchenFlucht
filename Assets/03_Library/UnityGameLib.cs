@@ -180,6 +180,11 @@ namespace NUnityGameLib
             }
             return image;
         }
+
+        /*void OnTriggerEnter(Collider collider)
+        {
+            this.transform.parent = collider.gameObject.transform;
+        }*/
     }
 
     namespace NDesignPattern
@@ -255,6 +260,8 @@ namespace NUnityGameLib
             {
                 Transform GetKeyPositionMoveUp(GameObject obj, float speed);
                 Transform GetKeyPositionMoveDown(GameObject obj, float speed);
+                Transform GetKeyPositionMoveRight(GameObject obj, float speed);
+                Transform GetKeyPositionMoveLeft(GameObject obj, float speed);
             }
 
             /// <summary>
@@ -267,7 +274,7 @@ namespace NUnityGameLib
                 {
                     if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
                     {
-                        obj.transform.position += transform.forward * speed * Time.deltaTime;
+                        obj.transform.position += Vector3.forward * speed * Time.deltaTime;
                     }
                     return obj.transform;
                 }
@@ -276,7 +283,25 @@ namespace NUnityGameLib
                 {
                     if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                     {
-                        obj.transform.position -= transform.forward * speed * Time.deltaTime;
+                        obj.transform.position += Vector3.back * speed * Time.deltaTime;
+                    }
+                    return obj.transform;
+                }
+
+                public virtual Transform GetKeyPositionMoveRight(GameObject obj, float speed)
+                {
+                    if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+                    {
+                        obj.transform.position += transform.right * speed * Time.deltaTime;
+                    }
+                    return obj.transform;
+                }
+
+                public virtual Transform GetKeyPositionMoveLeft(GameObject obj, float speed)
+                {
+                    if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+                    {
+                        obj.transform.position += Vector3.left * speed * Time.deltaTime;
                     }
                     return obj.transform;
                 }
@@ -325,7 +350,7 @@ namespace NUnityGameLib
         {
             interface ISceneManager
             {
-
+                
             }
 
             public abstract class SceneManagerLib : Singleton<SceneManagerLib>,IUnityGameLib,ISingleton,ISceneManager
