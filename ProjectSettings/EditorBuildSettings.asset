@@ -11,5 +11,23 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/02_Develop/02_Scenes/01_StartScreen/title.unity
     guid: 5761bb7ba6342d34b9d4118ba110e5e7
+  - enabled: 1
+    path: Assets/02_Develop/02_Scenes/02_StageSelectScreen/StageSelectScreen.unity
+    guid: c69c30a5c38bebe4ba41b24c5f29972d
+  - enabled: 1
+    path: Assets/02_Develop/02_Scenes/03_MainGame/01_LittleRedRidingHood/LittleRedRidingHood.unity
+    guid: fc301cbde8b76d048bc0a23a6e2f26b5
+  - enabled: 1
+    path: Assets/02_Develop/02_Scenes/03_MainGame/02_HanselAndGretel/HanselAndGretel.unity
+    guid: a06edfcd4a20ab348a9837263afd7fbe
+  - enabled: 1
+    path: Assets/02_Develop/02_Scenes/03_MainGame/03_PeterPan/PeterPan.unity
+    guid: f5fa10c533328f04585b72b3f35ab89d
+  - enabled: 1
+    path: Assets/02_Develop/02_Scenes/04_EndScreen/EndScreen.unity
+    guid: e1aa89ebbe04b354593dd76740f265f1
+  - enabled: 1
+    path: Assets/02_Develop/02_Scenes/05_EndRollScreen/EndRollScreen.unity
+    guid: 970eddb78b9e0e9419874a2e9534544d
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 9d4dd275b200fbc4d8401346d325596d, type: 2}
