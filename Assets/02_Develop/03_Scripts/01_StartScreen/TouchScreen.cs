@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using NUnityGameLib;
 
-public class TouchScreen : MonoBehaviour
+public class TouchScreen : UnityGameLib, IUnityGameLib
 {
 
     //public
@@ -36,7 +37,7 @@ public class TouchScreen : MonoBehaviour
         }
     }
 
-    void Update()
+    public override void UpdateLib()
     {
         //オブジェクトのAlpha値を更新
         if (thisObjType == ObjType.IMAGE)
