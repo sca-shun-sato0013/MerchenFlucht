@@ -35,7 +35,7 @@ using NUnityGameLib.NPlayerController.NControllerPC;
     private static void Generate()
     {
         // 作成するアセットのパス
-        string filePath = "Assets/Noname.cs";
+        string filePath = "Assets/02_Develop/03_Scripts/Noname.cs";
 
         // もし名前(パス)が重複していた場合に、自動で語尾に「Sample1.cs」みたく数字をつけてくれる
         string assetPath = AssetDatabase.GenerateUniqueAssetPath(filePath);
@@ -45,5 +45,7 @@ using NUnityGameLib.NPlayerController.NControllerPC;
 
         // 変更があったアセットをインポートする(UnityEditorの更新)
         AssetDatabase.Refresh();
+
+        Debug.Log("ControllerPCScriptが03_Scriptフォルダに自動生成されました。");
     }
 }
