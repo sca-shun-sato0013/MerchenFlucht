@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/02_Develop/02_Scenes/01_StartScreen/title.unity
     guid: 5761bb7ba6342d34b9d4118ba110e5e7
   - enabled: 1
-    path: Assets/02_Develop/02_Scenes/02_StageSelectScreen/StageSelectScreen.unity
-    guid: c69c30a5c38bebe4ba41b24c5f29972d
+    path: Assets/02_Develop/02_Scenes/02_StageSelectScreen/StageSelectScene.unity
+    guid: 35e79490460d0ad439d6c2a262ea9c9e
   - enabled: 1
     path: Assets/02_Develop/02_Scenes/03_MainGame/01_LittleRedRidingHood/LittleRedRidingHood.unity
     guid: fc301cbde8b76d048bc0a23a6e2f26b5
