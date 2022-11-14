@@ -20,4 +20,10 @@ public class SceneController : MonoBehaviour
         //ピーターシーン遷移
         SceneManager.LoadScene("PeterPan");
     }
+
+    public void OnTitle()
+    {
+        //タイトルシーン遷移
+        SceneManager.LoadScene("title");
+    }
 }
