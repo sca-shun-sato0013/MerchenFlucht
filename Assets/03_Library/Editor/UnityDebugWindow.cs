@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using NUnityGameLib.NGameManager.NDebugManager;
+
 public class UnityDebugWindow : EditorWindow
 {
- 
+    
+
     string text = "";
     /// <summary>
     /// ‘æˆêŠÖ”unity‚Ìƒƒjƒ…[ã‚É•\¦‚³‚ê‚éŠÖ”
