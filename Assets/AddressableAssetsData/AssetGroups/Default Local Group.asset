@@ -16,7 +16,11 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 06e29e8bd8cff5447911ddbf4f270498
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: f2c453e0f40c6564bb5545726c67868e
+    m_Address: "Assets/02_Develop/01_Pictures/02_Images/05_EndRollScreen/\u8D64\u305A\u304D\u3093.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
   m_SchemaSet:

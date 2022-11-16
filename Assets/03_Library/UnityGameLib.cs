@@ -5,6 +5,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 using UnityEngine.AddressableAssets;
 using NUnityGameLib.NDesignPattern.NSingleton;
 
@@ -22,7 +23,11 @@ namespace NUnityGameLib
         char ShortIf(bool b, char a);
         string ShortIf(bool b, string a);
         T[] ArrayAssignment<T>(T[] arrayReturn, T[] arrayAssigined, int num);
-        
+        T[] WhereLineQ<T>(T[] array, bool b);
+        List<T> WhereLineQ<T>(List<T> array, bool b);
+        String AddString(string str, string str1);
+        String AddString(string[] str);
+        void ImageLoadingAsync(Image image, string imagePath, bool check = true);
     }
 
     /// <summary>
@@ -31,7 +36,8 @@ namespace NUnityGameLib
     /// </summary>    
     public abstract class UnityGameLib : MonoBehaviour, IUnityGameLib
     {
-              
+     
+
         void Update()
         {
             UpdateLib();
@@ -168,7 +174,7 @@ namespace NUnityGameLib
         /// 画像を指定のフォルダから読み込む関数
         /// 引数(Image 返される画像, string 画像があるパス,bool 条件があれば)
         /// </summary>
-        public Image ImageLoadingAsync(Image image, string imagePath, bool check = true)
+        public void ImageLoadingAsync(Image image, string imagePath, bool check = true)
         {
             if (check)
             {
@@ -176,9 +182,8 @@ namespace NUnityGameLib
                 {
                      image.sprite = Instantiate(sprite.Result);                     
                 };
-                return image;
             }
-            return image;
+      
         }
 
         /*void OnTriggerEnter(Collider collider)
@@ -355,7 +360,66 @@ namespace NUnityGameLib
 
             public abstract class SceneManagerLib : Singleton<SceneManagerLib>,IUnityGameLib,ISingleton,ISceneManager
             {
-                
+                [SerializeField, Header("gameObject")] GameObject obj;
+                [SerializeField] Slider slider;
+                [SerializeField] Text text;
+                [SerializeField, Header("すべてのlog表示:")] bool log0 = false;
+                [SerializeField, Header("Sceneの総数:")] bool log1 = false;
+                [SerializeField, Header("Sceneの総数:")] bool log2 = false;
+                public bool Log0 => log0;
+                public bool Log1 => log1;
+                public bool Log2 => log2;
+      
+
+                public void SceneLog(SceneManagerLib sLib)
+                {
+                    if(sLib.Log0 == false){return;}
+
+                    if(sLib.Log1 == true) 
+                    {
+                        string str = AddString("現在ロードされているシーンの総数", SceneManager.sceneCount.ToString());
+                        Debug.Log(str); 
+                    }
+
+                    if(sLib.Log2 == true)
+                    {
+                        string str1 = AddString("ビルド設定のシーン数: ", SceneManager.sceneCountInBuildSettings.ToString());
+                        Debug.Log(str1);
+                    }
+                }
+
+                public void SceneLodingAsync(string str)
+                {
+                    Debug.Log(SceneManager.GetActiveScene().name + "から" + str + "へシーン移動");
+                    obj.SetActive(true);
+                    StartCoroutine(LoadScene(str));
+                }
+
+                /*public static void SceneLodingAsync(string str)
+                {
+                    Debug.Log(SceneManager.GetActiveScene().name + "から" + str + "へシーン移動");
+                    SceneManager.LoadSceneAsync(str);
+                }*/
+
+                IEnumerator LoadScene(string str)
+                {
+                    yield return null;
+
+                    AsyncOperation async = SceneManager.LoadSceneAsync(str);
+                    async.allowSceneActivation = false;
+
+                    while(!async.isDone)
+                    {
+                        slider.value = async.progress;
+
+                        if(async.progress >= 0.9f)
+                        {
+                            text.text = "読み込み完了";
+                            async.allowSceneActivation = true;
+                        }
+                        yield return null;
+                    }
+                }
             }
         }
 
@@ -367,7 +431,7 @@ namespace NUnityGameLib
             }
             public abstract class ScenarioManager : Singleton<ScenarioManager>,IUnityGameLib,IScenarioManager
             {
-
+                
             }
         }
 
@@ -375,13 +439,36 @@ namespace NUnityGameLib
         {
             interface IDebugManager
             {
-
+                void GeneralDebugger(UnityGameLib lib);
             }
 
+            
             public abstract class DebugManager : Singleton<DebugManager>,IUnityGameLib,IDebugManager
             {
-               
+               public void GeneralDebugger(UnityGameLib lib)
+               {
+                    string str = AddString("アタッチされているオブジェクト名 :", lib.gameObject.name);
+                    string str1 = AddString("そのscriptが有効であるか :",lib.enabled.ToString());
+                    string str2 = AddString("ゲームオブジェクトがアクティブでかつscriptが有効であるか :", lib.isActiveAndEnabled.ToString());
+                    string str3 = AddString("使用されているタグ名: ", lib.tag);
+                    string str4 = AddString("position :", lib.transform.position.ToString());
+                    string str5 = AddString("rotation :", lib.transform.rotation.ToString());
+                    string str6 = AddString("scale :", lib.transform.localScale.ToString());
+            
+                    Debug.Log(str);
+                    Debug.Log(str1);
+                    Debug.Log(str2);
+                    Debug.Log(str3);
+                    Debug.Log(str4);
+                    Debug.Log(str5);
+                    Debug.Log(str6);
+               }
+
+                public void IntDebugger()
+                {
+
+                }
             }
         }
-    }
+    } 
 }
