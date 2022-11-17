@@ -8,7 +8,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine.AddressableAssets;
 using NUnityGameLib.NDesignPattern.NSingleton;
-using Cysharp.Threading.Tasks;
+//using Cysharp.Threading.Tasks;
 
 //–¼‘O‹óŠÔ
 //‚±‚Ì’†‚Ìclass‚âŠÖ”‚ğg‚¤‚Æ‚«‚Íusing‚ğ‚Â‚¯‚é
