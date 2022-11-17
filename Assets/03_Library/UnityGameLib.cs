@@ -8,6 +8,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine.AddressableAssets;
 using NUnityGameLib.NDesignPattern.NSingleton;
+using Cysharp.Threading.Tasks;
 
 //名前空間
 //この中のclassや関数を使うときはusingをつける
@@ -363,6 +364,7 @@ namespace NUnityGameLib
                 [SerializeField, Header("gameObject")] GameObject obj;
                 [SerializeField] Slider slider;
                 [SerializeField] Text text;
+                [SerializeField] Fade fade;
                 [SerializeField, Header("すべてのlog表示:")] bool log0 = false;
                 [SerializeField, Header("Sceneの総数:")] bool log1 = false;
                 [SerializeField, Header("Sceneの総数:")] bool log2 = false;
@@ -390,9 +392,9 @@ namespace NUnityGameLib
 
                 public void SceneLodingAsync(string str)
                 {
-                    Debug.Log(SceneManager.GetActiveScene().name + "から" + str + "へシーン移動");
-                    obj.SetActive(true);
+                 　 obj.SetActive(true);
                     StartCoroutine(LoadScene(str));
+                    Debug.Log(SceneManager.GetActiveScene().name + "シーンから" + str + "へシーン遷移");
                 }
 
                 /*public static void SceneLodingAsync(string str)
@@ -416,6 +418,8 @@ namespace NUnityGameLib
                         {
                             text.text = "読み込み完了";
                             async.allowSceneActivation = true;
+                            //fade.FadeIn(1f, () => async.allowSceneActivation = true);
+                            
                         }
                         yield return null;
                     }
