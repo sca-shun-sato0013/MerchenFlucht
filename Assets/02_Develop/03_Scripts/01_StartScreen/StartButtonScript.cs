@@ -9,6 +9,6 @@ public class StartButtonScript : UnityGameLib,IUnityGameLib
     //‹¤“¯ì‹Æ
     public void OnClickStartButton()
     {
-        SceneManager.LoadScene("StageSelectScreen");
+        SceneManager.LoadScene("StageSelectScene");
     }
 }
