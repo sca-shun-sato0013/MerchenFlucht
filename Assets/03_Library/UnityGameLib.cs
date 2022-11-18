@@ -5,6 +5,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.AddressableAssets;
 using NUnityGameLib.NDesignPattern.NSingleton;
@@ -26,7 +27,7 @@ namespace NUnityGameLib
         T[] ArrayAssignment<T>(T[] arrayReturn, T[] arrayAssigined, int num);
         T[] WhereLineQ<T>(T[] array, bool b);
         List<T> WhereLineQ<T>(List<T> array, bool b);
-        String AddString(string str, string str1);
+        String AddString(string str,string str1,string str2="",string str3="",string str4="");
         String AddString(string[] str);
         void ImageLoadingAsync(Image image, string imagePath, bool check = true);
     }
@@ -144,15 +145,17 @@ namespace NUnityGameLib
         }
 
         /// <summary>
-        /// 二つの文字列を連結させる関数
-        /// 引数(string 文字列,string 文字列)
+        /// 文字列を連結させる関数(最大5つまで)
         /// </summary>
-        public String AddString(string str,string str1)
+        public String AddString(string str,string str1,string str2="",string str3="",string str4="")
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(str);
             sb.Append(str1);
-           string s =  sb.ToString();
+            sb.Append(str2);
+            sb.Append(str3);
+            sb.Append(str4);
+            string s =  sb.ToString();
             return s;
         }
 
@@ -210,7 +213,8 @@ namespace NUnityGameLib
             /// クラスのインスタンスを一つに制限する
             /// グローバルなアクセスポイントを提供する
             /// デザインパターンの一種(Singleton)
-            /// </summary>
+            /// </summary>(引用URL）
+            /// https://marunaka-blog.com/cshap-singleton/5433/
             public abstract class Singleton<T> : UnityGameLib,ISingleton where T : Singleton<T>
             {
                 public virtual bool DestroyTragetGameObject => false;
@@ -361,29 +365,30 @@ namespace NUnityGameLib
 
             public abstract class SceneManagerLib : Singleton<SceneManagerLib>,IUnityGameLib,ISingleton,ISceneManager
             {
-                [SerializeField, Header("gameObject")] GameObject obj;
+                [SerializeField, Header("LoadingScreen")] GameObject obj;
                 [SerializeField] Slider slider;
                 [SerializeField] Text text;
                 [SerializeField] Fade fade;
+                [SerializeField] FadeImage fadeImage;
+                [SerializeField, Header("Fadeする時間")] float fadeTime = 0;
                 [SerializeField, Header("すべてのlog表示:")] bool log0 = false;
                 [SerializeField, Header("Sceneの総数:")] bool log1 = false;
                 [SerializeField, Header("Sceneの総数:")] bool log2 = false;
-                public bool Log0 => log0;
-                public bool Log1 => log1;
-                public bool Log2 => log2;
+                bool waitCheck = true;
+            
       
 
                 public void SceneLog(SceneManagerLib sLib)
                 {
-                    if(sLib.Log0 == false){return;}
+                    if(log0 == false){return;}
 
-                    if(sLib.Log1 == true) 
+                    if(log1 == true) 
                     {
                         string str = AddString("現在ロードされているシーンの総数", SceneManager.sceneCount.ToString());
                         Debug.Log(str); 
                     }
 
-                    if(sLib.Log2 == true)
+                    if(log2 == true)
                     {
                         string str1 = AddString("ビルド設定のシーン数: ", SceneManager.sceneCountInBuildSettings.ToString());
                         Debug.Log(str1);
@@ -392,17 +397,15 @@ namespace NUnityGameLib
 
                 public void SceneLodingAsync(string str)
                 {
-                 　 obj.SetActive(true);
-                    StartCoroutine(LoadScene(str));
-                    Debug.Log(SceneManager.GetActiveScene().name + "シーンから" + str + "へシーン遷移");
+                    fade.FadeIn(fadeTime, () => obj.SetActive(true));
+                    StartCoroutine(FadeWait(str));                      
                 }
-
-                /*public static void SceneLodingAsync(string str)
+   
+                IEnumerator FadeWait(string str)
                 {
-                    Debug.Log(SceneManager.GetActiveScene().name + "から" + str + "へシーン移動");
-                    SceneManager.LoadSceneAsync(str);
-                }*/
-
+                    yield return new WaitUntil(() => fadeImage.Range == 1f);
+                    fade.FadeOut(fadeTime, () => StartCoroutine(LoadScene(str)));
+                }
                 IEnumerator LoadScene(string str)
                 {
                     yield return null;
@@ -417,12 +420,19 @@ namespace NUnityGameLib
                         if(async.progress >= 0.9f)
                         {
                             text.text = "読み込み完了";
-                            async.allowSceneActivation = true;
-                            //fade.FadeIn(1f, () => async.allowSceneActivation = true);
-                            
+                            if (waitCheck)StartCoroutine(LoadingWait(async,str));
+                            waitCheck = false;
                         }
                         yield return null;
                     }
+                }
+
+                IEnumerator LoadingWait(AsyncOperation async,string str)
+                {
+                    yield return new WaitForSeconds(1f);
+                    Debug.Log(AddString(AddString("<color=orange><size=13><b>", SceneManager.GetActiveScene().name, "</b></size></color><color=lightblue><size=13><b>シーンから</b></size></color>"), "<color=orange><size=13><b>", str, "</b></size></color><color=lightblue><size=13><b>シーンへ遷移</b></size></color>"));
+
+                    fade.FadeIn(fadeTime, () => async.allowSceneActivation = true);
                 }
             }
         }
@@ -433,9 +443,61 @@ namespace NUnityGameLib
             {
 
             }
-            public abstract class ScenarioManager : Singleton<ScenarioManager>,IUnityGameLib,IScenarioManager
+            public abstract class ScenarioManager : Singleton<ScenarioManager>,IUnityGameLib,IScenarioManager,ISingleton
             {
-                
+               [SerializeField] string SHEET_ID = "IDを入れる";
+               [SerializeField] string SHEET_NAME = "シート名を入れる";
+
+                IEnumerator Method(string _SHEET_NAME)
+                {
+                    UnityWebRequest request = UnityWebRequest.Get("https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=out:csv&sheet=" + _SHEET_NAME);
+                    yield return request.SendWebRequest();
+
+                    switch(request.result)
+                    {
+                        case UnityWebRequest.Result.InProgress:
+                            Debug.Log("<color=Cyan><size=13><b>リクエスト中...</b></size></color>");
+                            break;
+
+                        case UnityWebRequest.Result.Success:
+                            Debug.Log("<color=Lime><size=13><b>リクエスト成功!</b></size></color>");
+                            break;
+
+                        ///<summary>
+                        ///チャネルとは引用URL
+                        /// https://e-words.jp/w/%E3%83%81%E3%83%A3%E3%83%8D%E3%83%AB.html#:~:text=%E3%83%86%E3%83%AC%E3%83%93%E3%81%AE%E3%83%81%E3%83%A3%E3%83%B3%E3%83%8D%E3%83%AB%E3%81%AE%E3%82%88%E3%81%86,%E3%82%92%E8%A1%A8%E3%81%99%E3%81%93%E3%81%A8%E3%82%82%E3%81%82%E3%82%8B%E3%80%82
+                        /// </summary>
+                        case UnityWebRequest.Result.ConnectionError:
+                            Debug.LogError("<color=Red><size=13><b>サーバーとの通信に失敗しました。リクエストが接続できなかったか、安全なチャネルを確率できなかった可能性があります。</b></size></color>");
+                            break;
+
+                        ///<summary>
+                        ///プロトコルとは引用URL(ここでいうhttpsのことです。)
+                        ///　https://www.keyence.co.jp/ss/general/iot-glossary/protocol.jsp#:~:text=%E3%83%97%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB%E3%82%88%E3%81%BF%EF%BC%9A%E3%81%B7%E3%82%8D%E3%81%A8%E3%81%93%E3%82%8B%E3%80%81%E8%8B%B1%E5%AD%97%EF%BC%9A,%E3%81%8C%E5%8F%AF%E8%83%BD%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82
+                        /// </summary>
+                        case UnityWebRequest.Result.ProtocolError:
+                            Debug.LogError("<color=Red><size=13><b>サーバーがエラー応答を返しました。リクエストはサーバーとの通信に成功しましたが、接続プロトコルで定義されているエラーを受け取りました。</b></size></color>");
+                            break;
+
+                        case UnityWebRequest.Result.DataProcessingError:
+                            Debug.LogError("<color=Red><size=13><b>データ処理中にエラーが発生しました。リクエストはサーバーとの通信に成功しましたが、受信したデータの処理中にエラーが発生しました。データが破損しているか、正しい形式ではありません。</b></size></color>");
+                            break;
+
+                        //引数の値が、呼び出されたメソッドで定義されている許容範囲外である場合にスローされる例外。
+                        default: throw new ArgumentOutOfRangeException();
+
+                    }
+
+
+                    string str = request.downloadHandler.text;
+
+                        Debug.Log(request.downloadHandler.text);
+                   
+                }
+                public void ReLoadGoogleSheet()
+                {
+                    StartCoroutine(Method(SHEET_NAME));
+                }
             }
         }
 
@@ -447,11 +509,21 @@ namespace NUnityGameLib
             }
 
             
-            public abstract class DebugManager : Singleton<DebugManager>,IUnityGameLib,IDebugManager
+            public abstract class DebugManager : Singleton<DebugManager>,IUnityGameLib,IDebugManager,ISingleton
             {
-               public void GeneralDebugger(UnityGameLib lib)
-               {
-                    string str = AddString("アタッチされているオブジェクト名 :", lib.gameObject.name);
+                [Header("全てのログ表示:")]
+                [SerializeField, Header("Debugger関数使用時:")] bool log0;
+                [SerializeField, Header("int型ログ表示:")]      bool log1;
+                [SerializeField, Header("float型ログ表示:")]    bool log2;
+                [SerializeField, Header("double型ログ表示:")]   bool log3;
+                [SerializeField, Header("char型ログ表示:")]     bool log4;
+                [SerializeField, Header("string型ログ表示:")]   bool log5;
+                [SerializeField, Header("Vector2型ログ表示:")]  bool log6;
+                [SerializeField, Header("Vector3型ログ表示:")]  bool log7;
+
+                public void GeneralDebugger(UnityGameLib lib)
+                {
+                    string str　= AddString("アタッチされているオブジェクト名 :", lib.gameObject.name);
                     string str1 = AddString("そのscriptが有効であるか :",lib.enabled.ToString());
                     string str2 = AddString("ゲームオブジェクトがアクティブでかつscriptが有効であるか :", lib.isActiveAndEnabled.ToString());
                     string str3 = AddString("使用されているタグ名: ", lib.tag);
@@ -466,11 +538,68 @@ namespace NUnityGameLib
                     Debug.Log(str4);
                     Debug.Log(str5);
                     Debug.Log(str6);
-               }
+                }
 
-                public void IntDebugger()
+                public void Debugger(string s,int i)
                 {
+                    if(log1 && log0)
+                    {
+                        string str = AddString(s, i.ToString());
+                        Debug.Log(str);
+                    }
+                }
 
+                public void Debugger(string s, float f)
+                {
+                    if (log2 && log0)
+                    {
+                        string str = AddString(s, f.ToString());
+                        Debug.Log(str);
+                    }
+                }
+
+                public void Debugger(string s, double d)
+                {
+                    if (log3 && log0)
+                    {
+                        string str = AddString(s, d.ToString());
+                        Debug.Log(str);
+                    }
+                }
+
+                public void Debugger(string s, char c)
+                {
+                    if (log4 && log0)
+                    {
+                        string str = AddString(s, c.ToString());
+                        Debug.Log(str);
+                    }
+                }
+
+                public void Debugger(string s)
+                {
+                    if (log5 && log0)
+                    {
+                        Debug.Log(s);
+                    }
+                }
+
+                public void Debugger(string s,Vector2 v2)
+                {
+                    if (log6 && log0)
+                    {
+                        string str = AddString(s, v2.ToString());
+                        Debug.Log(str);
+                    }
+                }
+
+                public void Debugger(string s, Vector3 v3)
+                {
+                    if (log7 && log0)
+                    {
+                        string str = AddString(s, v3.ToString());
+                        Debug.Log(str);
+                    }
                 }
             }
         }

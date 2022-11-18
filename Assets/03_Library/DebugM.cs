@@ -7,8 +7,8 @@ using NUnityGameLib.NGameManager.NDebugManager;
 
   public class DebugM : DebugManager,IUnityGameLib,IDebugManager,ISingleton
   {
-    [SerializeField, Header("debugのclass数")] int classNumber;
-    [SerializeField,Header("UnityGameLib")] UnityGameLib[] lib;
+    [SerializeField, Header("基本的なデータをdebugするclass数")] int classNumber;
+    [SerializeField,Header("UnityGameLib継承クラスのみ")] UnityGameLib[] lib;
     
       void Start() 
       {
