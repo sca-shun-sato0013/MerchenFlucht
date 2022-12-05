@@ -1,10 +1,12 @@
+#if UNITY_EDITOR
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEditor;
 
-public class ControllerPC : EditorWindow
+public class UnityGamaLibScript : EditorWindow
 {
 
     // @""とすることで、複数行を書ける
@@ -14,9 +16,8 @@ public class ControllerPC : EditorWindow
 using System.Collections.Generic;
 using UnityEngine;
 using NUnityGameLib;
-using NUnityGameLib.NPlayerController.NControllerPC;
 
-  public class Noname : ControllerPC,IUnityGameLib,IControllerPC
+  public class Noname : UnityGameLib,IUnityGameLib
   {
       void Start() 
       {
@@ -31,7 +32,7 @@ using NUnityGameLib.NPlayerController.NControllerPC;
     ";
 
     // メニューの「Tools -> Generate Script」を選択するとGenerateメソッドが呼ばれる
-    [MenuItem("UnityGameLib/Generate/Script/ControllerPC")]
+    [MenuItem("UnityGameLib/Generate/Script/UnityGameLib")]
     private static void Generate()
     {
         // 作成するアセットのパス
@@ -46,6 +47,8 @@ using NUnityGameLib.NPlayerController.NControllerPC;
         // 変更があったアセットをインポートする(UnityEditorの更新)
         AssetDatabase.Refresh();
 
-        Debug.Log("ControllerPCScriptが03_Scriptフォルダに自動生成されました。");
+        Debug.Log("UnityGameLibScriptが03_Scriptフォルダに自動生成されました。");
     }
 }
+
+#endif

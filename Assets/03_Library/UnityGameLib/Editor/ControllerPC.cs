@@ -1,10 +1,13 @@
+
+#if UNITY_EDITOR
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEditor;
 
-public class SceneManagerGenerate : EditorWindow
+public class ControllerPC : EditorWindow
 {
 
     // @""とすることで、複数行を書ける
@@ -13,12 +16,10 @@ public class SceneManagerGenerate : EditorWindow
 @"using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using NUnityGameLib;
-using NUnityGameLib.NDesignPattern.NSingleton;
-using NUnityGameLib.NGameManager.NSceneManager;
+using NUnityGameLib.NPlayerController.NControllerPC;
 
-  public class Noname : SceneManagerLib,IUnityGameLib,ISceneManager,ISingleton
+  public class Noname : ControllerPC,IUnityGameLib,IControllerPC
   {
       void Start() 
       {
@@ -32,8 +33,8 @@ using NUnityGameLib.NGameManager.NSceneManager;
   }
     ";
 
-    // メニューのUnityGameLib選択するとGenerateメソッドが呼ばれる
-    [MenuItem("UnityGameLib/Generate/Script/SceneManager")]
+    // メニューの「Tools -> Generate Script」を選択するとGenerateメソッドが呼ばれる
+    [MenuItem("UnityGameLib/Generate/Script/ControllerPC")]
     private static void Generate()
     {
         // 作成するアセットのパス
@@ -48,6 +49,8 @@ using NUnityGameLib.NGameManager.NSceneManager;
         // 変更があったアセットをインポートする(UnityEditorの更新)
         AssetDatabase.Refresh();
 
-        Debug.Log("SceneManagerScriptが03_Scriptフォルダに自動生成されました。");
+        Debug.Log("ControllerPCScriptが03_Scriptフォルダに自動生成されました。");
     }
 }
+
+#endif

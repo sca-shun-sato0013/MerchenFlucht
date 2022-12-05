@@ -1,10 +1,12 @@
+#if UNITY_EDITOR
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEditor;
 
-public class DebugManagerGenerate : EditorWindow
+public class SoundManagerGenerate : EditorWindow
 {
 
     // @""とすることで、複数行を書ける
@@ -15,9 +17,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using NUnityGameLib;
 using NUnityGameLib.NDesignPattern.NSingleton;
-using NUnityGameLib.NGameManager.NDebugManager;
+using NUnityGameLib.NGameManager.NSoundManager;
 
-  public class Noname : DebugManager,IUnityGameLib,IDebugManager,ISingleton
+  public class Noname : SoundManager,ISoundManager,IUnityGameLib,ISingleton
   {
       void Start() 
       {
@@ -32,7 +34,7 @@ using NUnityGameLib.NGameManager.NDebugManager;
     ";
 
     // メニューのUnityGameLib選択するとGenerateメソッドが呼ばれる
-    [MenuItem("UnityGameLib/Generate/Script/DebugManager")]
+    [MenuItem("UnityGameLib/Generate/Script/SoundManager")]
     private static void Generate()
     {
         // 作成するアセットのパス
@@ -47,6 +49,7 @@ using NUnityGameLib.NGameManager.NDebugManager;
         // 変更があったアセットをインポートする(UnityEditorの更新)
         AssetDatabase.Refresh();
 
-        Debug.Log("DebugManagerScriptが03_Scriptフォルダに自動生成されました。");
+        Debug.Log("SoundManagerScriptが03_Scriptフォルダに自動生成されました。");
     }
 }
+#endif

@@ -1,10 +1,12 @@
+#if UNITY_EDITOR
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEditor;
 
-public class SingletonGenerate : EditorWindow
+public class DebugManagerGenerate : EditorWindow
 {
 
     // @""とすることで、複数行を書ける
@@ -15,8 +17,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using NUnityGameLib;
 using NUnityGameLib.NDesignPattern.NSingleton;
+using NUnityGameLib.NGameManager.NDebugManager;
 
-  public class Noname : Singleton<Noname>,IUnityGameLib
+  public class Noname : DebugManager,IUnityGameLib,IDebugManager,ISingleton
   {
       void Start() 
       {
@@ -31,7 +34,7 @@ using NUnityGameLib.NDesignPattern.NSingleton;
     ";
 
     // メニューのUnityGameLib選択するとGenerateメソッドが呼ばれる
-    [MenuItem("UnityGameLib/Generate/DesignPattern/Singleton")]
+    [MenuItem("UnityGameLib/Generate/Script/DebugManager")]
     private static void Generate()
     {
         // 作成するアセットのパス
@@ -46,6 +49,7 @@ using NUnityGameLib.NDesignPattern.NSingleton;
         // 変更があったアセットをインポートする(UnityEditorの更新)
         AssetDatabase.Refresh();
 
-        Debug.Log("SingletonScriptが03_Scriptフォルダに自動生成されました。");
+        Debug.Log("DebugManagerScriptが03_Scriptフォルダに自動生成されました。");
     }
 }
+#endif
