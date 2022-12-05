@@ -1,10 +1,12 @@
+#if UNITY_EDITOR
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEditor;
 
-public class UnityGamaLibScript : EditorWindow
+public class SceneManagerGenerate : EditorWindow
 {
 
     // @""とすることで、複数行を書ける
@@ -13,9 +15,12 @@ public class UnityGamaLibScript : EditorWindow
 @"using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using NUnityGameLib;
+using NUnityGameLib.NDesignPattern.NSingleton;
+using NUnityGameLib.NGameManager.NSceneManager;
 
-  public class Noname : UnityGameLib,IUnityGameLib
+  public class Noname : SceneManagerLib,IUnityGameLib,ISceneManager,ISingleton
   {
       void Start() 
       {
@@ -29,8 +34,8 @@ using NUnityGameLib;
   }
     ";
 
-    // メニューの「Tools -> Generate Script」を選択するとGenerateメソッドが呼ばれる
-    [MenuItem("UnityGameLib/Generate/Script/UnityGameLib")]
+    // メニューのUnityGameLib選択するとGenerateメソッドが呼ばれる
+    [MenuItem("UnityGameLib/Generate/Script/SceneManager")]
     private static void Generate()
     {
         // 作成するアセットのパス
@@ -45,6 +50,7 @@ using NUnityGameLib;
         // 変更があったアセットをインポートする(UnityEditorの更新)
         AssetDatabase.Refresh();
 
-        Debug.Log("UnityGameLibScriptが03_Scriptフォルダに自動生成されました。");
+        Debug.Log("SceneManagerScriptが03_Scriptフォルダに自動生成されました。");
     }
 }
+#endif

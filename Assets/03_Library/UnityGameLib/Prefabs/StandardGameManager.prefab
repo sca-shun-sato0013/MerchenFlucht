@@ -320,7 +320,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 6734710342780571955}
-  sound: []
+  soundBGM: []
+  soundSE: []
 --- !u!1 &6734710341637391531
 GameObject:
   m_ObjectHideFlags: 0

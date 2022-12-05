@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NUnityGameLib;
+using NUnityGameLib.NDesignPattern.NSingleton;
 using NUnityGameLib.NGameManager.NSceneManager;
   public class ChangeScene : UnityGameLib,IUnityGameLib
   {
-    [SerializeField] SceneManagerLib sLib;
+    
+    bool bol = true;
       void Start() 
       {
           
@@ -13,9 +15,11 @@ using NUnityGameLib.NGameManager.NSceneManager;
 
       public override void UpdateLib()
       {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetMouseButtonDown(0) && bol)
         {
-            sLib.SceneLodingAsync("title");
+            bol = false;
+            Singleton<SceneManagerLib>.Instance.SceneLoadingAsync("title");
+            //sLib.SceneLoadingAsync("title");
         }
       }
   }
