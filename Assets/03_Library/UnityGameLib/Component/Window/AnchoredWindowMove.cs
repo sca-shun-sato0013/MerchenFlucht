@@ -17,6 +17,7 @@ public class AnchoredWindowMove : MonoBehaviour,IUpdateManager
     float speed;
 
     Vector2 vec2;
+
     private void OnDisable()
     {
         rectTransform.anchoredPosition = vec2;

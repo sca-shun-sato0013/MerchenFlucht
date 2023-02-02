@@ -26,17 +26,20 @@ public class ImageTransparencyAnimation : MonoBehaviour,IUpdateManager
 
     private void OnEnable()
     {
+        //UpdateManager.Instance.Bind(this, FrameControl.ON);
         reCount = 0;
         count = 0;
     }
 
     private void OnDisable()
     {
+        //UpdateManager.Instance.UnBind(this, FrameControl.ON);
         reCount = 1f;
     }
+
     void Start() 
     {
-        UpdateManager.Instance.Bind(this,FrameControl.ON);
+        UpdateManager.Instance.Bind(this, FrameControl.ON);
         count = 0;
         reCount = 0;
     }

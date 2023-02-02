@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Loading
+    uniqueID: 3683770921
+    locked: 0
+  - name: Character
+    uniqueID: 715180383
+    locked: 0
+  - name: Object
+    uniqueID: 3610369777
+    locked: 0
