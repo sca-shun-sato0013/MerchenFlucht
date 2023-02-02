@@ -23,9 +23,20 @@ using DesignPattern;
 
 public class Noname : MonoBehaviour,IUpdateManager
 {
+    
+    private void OnEnable()
+    {
+        UpdateManager.Instance.Bind(this, FrameControl.ON);
+    }
+
+    private void OnDisable()
+    {
+        UpdateManager.Instance.UnBind(this,FrameControl.ON);
+    }
+
     void Start() 
     {
-        UpdateManager.Instance.Bind(this,FrameControl.ON);  
+          
     }
 
     public void OnUpdate(double deltaTime)

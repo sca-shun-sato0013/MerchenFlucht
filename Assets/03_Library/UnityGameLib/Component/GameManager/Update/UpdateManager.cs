@@ -86,6 +86,7 @@ namespace GameManager
                         break;
                 }
             }
+
             /// <summary>
             /// OnUpdate関数のフレーム処理を開始
             /// </summary>
