@@ -2,9 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using NUnityGameLib;
 
-public class Transition : UnityGameLib,IUnityGameLib
+
+public class Transition : MonoBehaviour
 {
     [SerializeField]
     private Material transitionIn;
@@ -20,10 +20,6 @@ public class Transition : UnityGameLib,IUnityGameLib
     void Start()
     {
         StartCoroutine(BeginTransition());
-    }
-
-    void Update()
-    {
     }
 
     IEnumerator BeginTransition()

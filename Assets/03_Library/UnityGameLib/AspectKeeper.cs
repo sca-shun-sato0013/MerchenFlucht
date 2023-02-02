@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NUnityGameLib;
-using NUnityGameLib.NDesignPattern.NSingleton;
-
+using DesignPattern;
 
 [ExecuteAlways]//UnityEditor操作中にも動作する属性
-public class AspectKeeper : Singleton<AspectKeeper>,IUnityGameLib,ISingleton
+public class AspectKeeper : Singleton<AspectKeeper>,ISingleton
 {
     [SerializeField]
     private Camera targetCamera; //対象とするカメラ
@@ -14,8 +12,8 @@ public class AspectKeeper : Singleton<AspectKeeper>,IUnityGameLib,ISingleton
     [SerializeField]
     private Vector2 aspectVec; //目的解像度
 
-    public override void UpdateLib()
-    {               
+    public void Update()
+    {
         float screenAspect = Screen.width / (float)Screen.height; //画面のアスペクト比
         float targetAspect = aspectVec.x / aspectVec.y; //目的のアスペクト比
 

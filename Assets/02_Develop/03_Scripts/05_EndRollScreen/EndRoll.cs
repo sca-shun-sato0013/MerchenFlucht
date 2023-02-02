@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NUnityGameLib;
+using CommonlyUsed;
+using GameManager;
 using UnityEngine.UI;
-using NUnityGameLib.NGameManager.NDebugManager;
-using NUnityGameLib.NGameManager.NSoundManager;
 
-  public class EndRoll : UnityGameLib,IUnityGameLib
+
+  public class EndRoll : MonoBehaviour,IUpdateManager
   {
     [SerializeField] Image img;
     [SerializeField] string str;
@@ -21,12 +21,12 @@ using NUnityGameLib.NGameManager.NSoundManager;
 
     [SerializeField] SoundManager soundManager;
       void Start() 
-      { 
-        ImageLoadingAsync(img, str);
+      {
+         UpdateManager.Instance.Bind(this, FrameControl.ON);
+         ImageLoading.ImageLoadingAsync(img, str);
       }
 
-
-    public override void UpdateLib()
+    public void OnUpdate(double deltaTime)
     {
         //MoveTowadsÇ†ÇÈç¿ïWÇ©ÇÁÇ†ÇÈç¿ïWÇ…Ç«ÇÃÇ≠ÇÁÇ¢ÇÃë¨Ç≥Ç≈à⁄ìÆÇ∑ÇÈ
         rectTransform.position += new Vector3(0f, 0.1f, 0);
