@@ -1,26 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NUnityGameLib;
-using NUnityGameLib.NDesignPattern.NSingleton;
-using NUnityGameLib.NGameManager.NSceneManager;
-  public class ChangeScene : UnityGameLib,IUnityGameLib
+using GameManager;
+using DesignPattern;
+
+  public class ChangeScene : MonoBehaviour,IUpdateManager
   {
     
-    bool bol = true;
+      bool bol = true;
+
       void Start() 
       {
-          
+         UpdateManager.Instance.Bind(this,FrameControl.ON);
       }
 
-      public override void UpdateLib()
-      {
-        if(Input.GetMouseButtonDown(0) && bol)
+    public void OnUpdate(double deltaTime)
+    {
+        foreach(Touch touch in Input.touches)
         {
-            bol = false;
-            Singleton<SceneManagerLib>.Instance.SceneLoadingAsync("title");
-            //sLib.SceneLoadingAsync("title");
+            if(touch.phase == TouchPhase.Began && bol)
+            {
+                bol = false;
+                Singleton<SceneManager>.Instance.SceneLoadingAsync("title");
+                //sLib.SceneLoadingAsync("title");
+            }
         }
-      }
+    }      
   }
     

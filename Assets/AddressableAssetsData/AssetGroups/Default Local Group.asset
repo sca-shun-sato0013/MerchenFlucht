@@ -21,6 +21,30 @@ MonoBehaviour:
     m_Address: "Assets/02_Develop/01_Pictures/02_Images/05_EndRollScreen/\u8D64\u305A\u304D\u3093.jpg"
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: d9ab8d951e51a504eb93b78946072a9e
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/\u30A6\u30A8\u30F3\u30C7\u30A3\u30FC\u3046\u304A\u3063.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 07a65c4f5020bb24092adccb9049a7d5
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/\u30A6\u30A8\u30F3\u30C7\u30A3\u30FC\u6050\u6016.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f26f6034a8b1db44699f078604f6e20d
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/\u30A6\u30A8\u30F3\u30C7\u30A3\u30FC\u60A9\u3080.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b5901814452f84f4aafcae350dd94cd1
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/\u30A6\u30A8\u30F3\u30C7\u30A3\u30FC\u666E\u901A.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3875c62739ef79f4995aea54af8ea78e
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/\u30A6\u30A8\u30F3\u30C7\u30A3\u30FC\u7B11\u9854.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2a649397284bd694db52f5d333c1bc0f
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/\u30A6\u30A8\u30F3\u30C7\u30A3\u30FC\u9A5A\u304D.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
   m_SchemaSet:

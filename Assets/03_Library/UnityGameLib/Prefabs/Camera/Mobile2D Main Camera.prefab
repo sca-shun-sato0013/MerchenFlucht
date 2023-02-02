@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2524376834901429963}
   - component: {fileID: 2524376834411801052}
   - component: {fileID: 2524376834411801053}
-  - component: {fileID: 2524376834411801054}
+  - component: {fileID: -8052695483539864098}
   m_Layer: 0
   m_Name: Mobile2D Main Camera
   m_TagString: MainCamera
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &2524376834411801054
+--- !u!114 &-8052695483539864098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,5 +130,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4c25d38c07ffd40b3415060884d9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 2524376834901429963}
-  aspectVec: {x: 1920, y: 1080}
+  targetCamera: {fileID: 0}
+  aspectVec: {x: 0, y: 0}

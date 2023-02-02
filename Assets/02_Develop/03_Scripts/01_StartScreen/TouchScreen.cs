@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using NUnityGameLib;
+using GameManager;
 
-public class TouchScreen : UnityGameLib, IUnityGameLib
-{
-
+public class TouchScreen : MonoBehaviour,IUpdateManager
+{ 
     //public
     public float speed = 1.0f;
 
@@ -20,10 +19,13 @@ public class TouchScreen : UnityGameLib, IUnityGameLib
         TEXT,
         IMAGE
     };
+
     private ObjType thisObjType = ObjType.TEXT;
 
     void Start()
     {
+        UpdateManager.Instance.Bind(this, FrameControl.OFF);
+
         //アタッチしてるオブジェクトを判別
         if (this.gameObject.GetComponent<Image>())
         {
@@ -37,7 +39,7 @@ public class TouchScreen : UnityGameLib, IUnityGameLib
         }
     }
 
-    public override void UpdateLib()
+    public void OnUpdate(double deltaTime)
     {
         //オブジェクトのAlpha値を更新
         if (thisObjType == ObjType.IMAGE)

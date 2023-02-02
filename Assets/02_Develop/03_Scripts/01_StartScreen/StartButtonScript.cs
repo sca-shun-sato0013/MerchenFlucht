@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using NUnityGameLib;
+using CommonlyUsed;
+using GameManager;
 
-public class StartButtonScript : UnityGameLib,IUnityGameLib
+public class StartButtonScript : MonoBehaviour
 {
     //ã§ìØçÏã∆
     public void OnClickStartButton()
     {
-        SceneManager.LoadScene("StageSelectScene");
+        
     }
 }

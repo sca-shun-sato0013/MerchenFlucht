@@ -2,53 +2,92 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using System.IO;
 using UnityEditor;
 
 public class UnityGamaLibScript : EditorWindow
 {
-
+    string script = "";
+    string className = "";
     // @""とすることで、複数行を書ける
     // ただ「"」は「""」として書きます
     private const string CODE =
 @"using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NUnityGameLib;
+using GameManager;
+using CommonlyUsed;
+using DesignPattern;
 
-  public class Noname : UnityGameLib,IUnityGameLib
-  {
-      void Start() 
-      {
-            Debug.Log(""UnityGameStart"");
-      }
+public class Noname : MonoBehaviour,IUpdateManager
+{
+    void Start() 
+    {
+        UpdateManager.Instance.Bind(this,FrameControl.ON);  
+    }
 
-      public override void UpdateLib()
-      {
+    public void OnUpdate(double deltaTime)
+    {
 
-      }
-  }
+    }
+}
     ";
 
-    // メニューの「Tools -> Generate Script」を選択するとGenerateメソッドが呼ばれる
-    [MenuItem("UnityGameLib/Generate/Script/UnityGameLib")]
-    private static void Generate()
+
+
+    [MenuItem("UnityGameLib/TemplateCode/Standard")]
+    [MenuItem("Assets/Create/UnityGameLib/TemplateCode/Standard")]
+    private static void ShowWindow()
+    {
+        UnityGamaLibScript window = (UnityGamaLibScript)GetWindow(typeof(UnityGamaLibScript));
+        window.titleContent = new GUIContent("☆ScriptCreator");
+    }
+
+    private void OnGUI()
+    {
+        GUILayout.Label("ScriptName");
+        className = EditorGUILayout.TextArea(className, GUILayout.Height(20));
+
+        if (GUILayout.Button("ScriptCreate"))
+        {
+            Debug.Log(className);
+            script = CODE.Replace("Noname",className);
+            Generate(className,script);
+        }
+    }
+
+    private static void Generate(string scriptName,string script)
     {
         // 作成するアセットのパス
-        string filePath = "Assets/02_Develop/03_Scripts/Noname.cs";
+        string filePath = GetCurrentDirectory()+"/"+scriptName+".cs";
 
         // もし名前(パス)が重複していた場合に、自動で語尾に「Sample1.cs」みたく数字をつけてくれる
         string assetPath = AssetDatabase.GenerateUniqueAssetPath(filePath);
 
         // アセット(.cs)を作成する
-        File.WriteAllText(assetPath, CODE);
+        File.WriteAllText(assetPath,script);
 
         // 変更があったアセットをインポートする(UnityEditorの更新)
         AssetDatabase.Refresh();
 
-        Debug.Log("UnityGameLibScriptが03_Scriptフォルダに自動生成されました。");
     }
+
+    /// <summary>
+    /// 参考URL
+    /// https://qiita.com/r-ngtm/items/13d609cbd6a30e39f83a
+    /// </summary>
+    /// <returns></returns>
+    static string GetCurrentDirectory()
+    {
+        BindingFlags flag = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance;
+        Assembly asm = Assembly.Load("UnityEditor.dll");
+        System.Type typeProjectBrowser = asm.GetType("UnityEditor.ProjectBrowser");
+        EditorWindow projectBrowserWindow = GetWindow(typeProjectBrowser);
+        return (string)typeProjectBrowser.GetMethod("GetActiveFolderPath", flag).Invoke(projectBrowserWindow, null);
+    }
+
 }
 
 #endif
