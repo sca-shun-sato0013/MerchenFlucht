@@ -12,11 +12,7 @@ using DesignPattern;
 
 public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateManager
 {
-    private enum InputType
-    {
-        InputPC,
-        MobileInput,
-    }
+
 
     [SerializeField,Header("入力端末")]
     InputType inputType;
@@ -35,7 +31,7 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     [SerializeField, Header("話をしているキャラの名前")]
     Text talkingCharaName = null;
     [SerializeField,Header("キャラ画像データ")]
-    SetDisplayCharaImage setImage;
+    SetDisplayImage setImage;
     //googleスプレットシートのデータ保管用
     string[][] arrayTwo;
     //話しているキャラの名前保管用
@@ -46,7 +42,8 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     List<string> soundSe;
     //文章保管用
     List<string> texts;
-
+    //背景画像保管用
+    List<string> backGroundImage;
     //テキスト表示が終わっているかのチェック
     bool checkIfTheStoryIsOver = false;
     //一行の文字数
@@ -55,14 +52,21 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     int currentLineNum = 0;
     //終わりの行
     int lineIsTheEnd = 0;
-
+    //読み込みのチェック
+    bool loadCheck = false;
     public int CurrentLineNum => currentLineNum;
+    public bool LoadCheck 
+    {
+       get {return loadCheck; }
+       internal set {loadCheck = value;}
+    } 
 
     private void Start()
     {
         
         charaName = new List<string>();
         displayCharaImage = new List<string>();
+        backGroundImage = new List<string>();
         soundSe = new List<string>();
         texts = new List<string>();
         UpdateManager.Instance.Bind(this, FrameControl.OFF);
@@ -120,6 +124,8 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
         {
             charaName.Add(arrayTwo[i][0]);
 
+            backGroundImage.Add(arrayTwo[i][1]);
+
             //一人目
             displayCharaImage.Add(arrayTwo[i][2]);
 
@@ -170,6 +176,7 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     {
         StringReader reader = new StringReader(s);
         reader.ReadLine();  //ヘッダ読み飛ばし
+        reader.ReadLine();  //ヘッダ読み飛ばし
         List<string[]> rows = new List<string[]>();
         while (reader.Peek() >= 0)
         {
@@ -187,11 +194,14 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     private void DisplayText()
     {
         if (textInterval <= 0)
-        {
+        {        
             displayText.text += texts[currentLineNum][currentCharNum];
             talkingCharaName.text = charaName[currentLineNum];
 
-            setImage.charaImageDatas[0] = displayCharaImage[currentLineNum];
+            setImage.ImageDatas[0] = backGroundImage[currentLineNum];
+            setImage.ImageDatas[1] = displayCharaImage[currentLineNum];
+            loadCheck = true;
+            Debug.Log(setImage.ImageDatas[0]);
             currentCharNum++;
             textInterval = charaSpeed * Time.deltaTime;
         }
@@ -211,11 +221,13 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
             }
             else
             {
+
+                Debug.Log(setImage.ImageDatas[1]);
+
                 //文字数を0にする
                 currentCharNum = 0;
                 displayText.text = "";
             }
-
         }
     }
 
@@ -224,8 +236,8 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     /// </summary>
     public void PlayScenario(int startLine, int endLine)
     {
-        currentLineNum = startLine - 2;
-        lineIsTheEnd = endLine - 1;
+        currentLineNum = startLine - 3;
+        lineIsTheEnd = endLine - 2;
         StartCoroutine(Method(SHEET_NAME));
     }
 

@@ -24,24 +24,15 @@ using DesignPattern;
 public class Noname : MonoBehaviour,IUpdateManager
 {
     
-    private void OnEnable()
+
+    void Start() 
     {
         UpdateManager.Instance.Bind(this, FrameControl.ON);
     }
 
-    private void OnDisable()
-    {
-        UpdateManager.Instance.UnBind(this,FrameControl.ON);
-    }
-
-    void Start() 
-    {
-          
-    }
-
     public void OnUpdate(double deltaTime)
     {
-
+        if (!this.gameObject.activeInHierarchy) return;
     }
 }
     ";
