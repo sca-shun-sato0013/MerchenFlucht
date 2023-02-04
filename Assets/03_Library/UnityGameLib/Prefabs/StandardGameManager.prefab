@@ -1226,5 +1226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96fcbe4e9840ca4dbad3754e64d129d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputType: 0
   images: []
-  cDatas: []
+  iDatas: []
+  scenarioManager: {fileID: 0}

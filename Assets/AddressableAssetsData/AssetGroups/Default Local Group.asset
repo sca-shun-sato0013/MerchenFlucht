@@ -45,6 +45,18 @@ MonoBehaviour:
     m_Address: "Assets/LoadingDatas/ScenarioDatas/\u30A6\u30A8\u30F3\u30C7\u30A3\u30FC\u9A5A\u304D.png"
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: c80653b024d40264688827f6a1d0b948
+    m_Address: Assets/LoadingDatas/ScenarioDatas/SampleImage.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2b22ae0bc9355f5428f14e0f19de3386
+    m_Address: Assets/LoadingDatas/ScenarioDatas/SampleImage1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1a035df85f9845d468481c83a758f2dd
+    m_Address: Assets/LoadingDatas/ScenarioDatas/SampleImage2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
   m_SchemaSet:
