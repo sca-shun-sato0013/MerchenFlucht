@@ -69,7 +69,7 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
         backGroundImage = new List<string>();
         soundSe = new List<string>();
         texts = new List<string>();
-        UpdateManager.Instance.Bind(this, FrameControl.OFF);
+        UpdateManager.Instance.Bind(this, FrameControl.ON);
     }
 
     public void OnUpdate(double deltaTime)
@@ -194,14 +194,16 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     private void DisplayText()
     {
         if (textInterval <= 0)
-        {        
+        {
+            
             displayText.text += texts[currentLineNum][currentCharNum];
+            Debug.Log(displayText.text);
             talkingCharaName.text = charaName[currentLineNum];
 
             setImage.ImageDatas[0] = backGroundImage[currentLineNum];
             setImage.ImageDatas[1] = displayCharaImage[currentLineNum];
             loadCheck = true;
-            Debug.Log(setImage.ImageDatas[0]);
+           
             currentCharNum++;
             textInterval = charaSpeed * Time.deltaTime;
         }
@@ -222,7 +224,7 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
             else
             {
 
-                Debug.Log(setImage.ImageDatas[1]);
+               
 
                 //ï∂éöêîÇ0Ç…Ç∑ÇÈ
                 currentCharNum = 0;
@@ -243,6 +245,7 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
 
     public bool LineEndCheck()
     {
+        Debug.Log(currentLineNum + 3);
         return lineIsTheEnd > currentLineNum;
     }
 }

@@ -943,6 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5c3fe11ef5d4e45ad24c2e7b7ce5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  switchFadeType: 0
   obj: {fileID: 6734710342855883307}
   fade: {fileID: 6734710342648883766}
 --- !u!1 &6734710342684200889

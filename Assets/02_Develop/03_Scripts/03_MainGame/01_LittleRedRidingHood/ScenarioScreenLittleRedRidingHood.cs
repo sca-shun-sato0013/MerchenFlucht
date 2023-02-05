@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameManager;
 
-public enum ScenarioScene
+public enum ScenarioSceneLittle
 {
     //導入
     introduction,
@@ -39,8 +39,10 @@ public enum ScenarioScene
     examineTheMouseWithTheCheese,
 }
 
-public class ScenarioScreen : MonoBehaviour,IUpdateManager
+public class ScenarioScreenLittleRedRidingHood : MonoBehaviour, IUpdateManager
 {
+    [SerializeField]
+    InputType inputType;
     [SerializeField]
     ScenarioManager scenariosManager;
 
@@ -48,7 +50,7 @@ public class ScenarioScreen : MonoBehaviour,IUpdateManager
     AnchoredWindowMove charaMove;
 
     [SerializeField]
-    ImageTransparencyAnimation charaAnimation,backGround;
+    ImageTransparencyAnimation charaAnimation, backGround;
 
     [SerializeField]
     Fade fade;
@@ -62,10 +64,16 @@ public class ScenarioScreen : MonoBehaviour,IUpdateManager
     [SerializeField]
     SetDisplayImage setDisplayImage;
 
-    [SerializeField,Header("フェードインの時間")]
+    [SerializeField, Header("フェードインの時間")]
     float timer;
-    [SerializeField,Header("シナリオの場面")]
-    ScenarioScene scenarioScene;
+    [SerializeField, Header("シナリオの場面")]
+    ScenarioSceneLittle scenarioScene;
+
+    public ScenarioSceneLittle ScenarioPattarn
+    {
+        get { return scenarioScene; }
+        set{ scenarioScene = value; }
+    }
 
     bool check = true;
     bool flag = false;
@@ -78,97 +86,97 @@ public class ScenarioScreen : MonoBehaviour,IUpdateManager
     {
         switch (scenarioScene)
         {
-            case ScenarioScene.introduction:
+            case ScenarioSceneLittle.introduction:
 
-                scenariosManager.PlayScenario(5,22);
+                scenariosManager.PlayScenario(4,16);
                 
                 break;
             
-            case ScenarioScene.examineTheShelf:
+            case ScenarioSceneLittle.examineTheShelf:
 
                 scenariosManager.PlayScenario(31,31);
 
                 break;
             
-            case ScenarioScene.wallPaper:
+            case ScenarioSceneLittle.wallPaper:
 
                 scenariosManager.PlayScenario(34,35);
 
                 break;
 
-            case ScenarioScene.displayMemo1FromTheItemCcolumn:
+            case ScenarioSceneLittle.displayMemo1FromTheItemCcolumn:
 
                 scenariosManager.PlayScenario(38,38);
 
                 break;
            
-            case ScenarioScene.dontHaveMatch:
+            case ScenarioSceneLittle.dontHaveMatch:
 
                 scenariosManager.PlayScenario(44,46);
 
                 break;
             
-            case ScenarioScene.haveAMatch:
+            case ScenarioSceneLittle.haveAMatch:
 
                 scenariosManager.PlayScenario(49,62);
 
                 break;
             
-            case ScenarioScene.shadowPointing:
+            case ScenarioSceneLittle.shadowPointing:
 
                 scenariosManager.PlayScenario(65,66);
 
                 break;
             
-            case ScenarioScene.examineTheChair:
+            case ScenarioSceneLittle.examineTheChair:
 
                 scenariosManager.PlayScenario(70,78);
 
                 break;
 
-            case ScenarioScene.shadowPointingToTheWall:
+            case ScenarioSceneLittle.shadowPointingToTheWall:
 
                 scenariosManager.PlayScenario(83,84);
 
                 break;
             
-            case ScenarioScene.examineAfterTheShadowAppears:
+            case ScenarioSceneLittle.examineAfterTheShadowAppears:
 
                 scenariosManager.PlayScenario(88,92);
 
                 break;
             
-            case ScenarioScene.examineShadows:
+            case ScenarioSceneLittle.examineShadows:
 
                 scenariosManager.PlayScenario(96,96);
 
                 break;
             
-            case ScenarioScene.examineThePainting:
+            case ScenarioSceneLittle.examineThePainting:
 
                 scenariosManager.PlayScenario(100,101);
 
                 break;
 
-            case ScenarioScene.checkForMistakes:
+            case ScenarioSceneLittle.checkForMistakes:
 
                 scenariosManager.PlayScenario(104,108);
 
                 break;
             
-            case ScenarioScene.examineTheRat:
+            case ScenarioSceneLittle.examineTheRat:
 
                 scenariosManager.PlayScenario(113,114);
 
                 break;
             
-            case ScenarioScene.examineTheKitchenFromRats:
+            case ScenarioSceneLittle.examineTheKitchenFromRats:
 
                 scenariosManager.PlayScenario(118,121);
 
                 break;
             
-            case ScenarioScene.examineTheMouseWithTheCheese:
+            case ScenarioSceneLittle.examineTheMouseWithTheCheese:
 
                 scenariosManager.PlayScenario(125,127);
 
@@ -191,18 +199,28 @@ public class ScenarioScreen : MonoBehaviour,IUpdateManager
     {
         if (!this.gameObject.activeInHierarchy) return;
 
-        OnClickCharaMove();
+        switch (inputType)
+        {
+            case InputType.MobileInput:
+                OnClickCharaMove(MobileInput.InputState(TouchPhase.Began));
+                OnClickBackGroundTransition(MobileInput.InputState(TouchPhase.Began));
+                OnClickText(MobileInput.InputState(TouchPhase.Began));
+                break;
+            case InputType.InputPC:
+                OnClickCharaMove(Input.GetMouseButtonDown(0));
+                OnClickBackGroundTransition(Input.GetMouseButtonDown(0));
+                OnClickText(Input.GetMouseButtonDown(0)); 
+                break;
+        }
 
-        OnClickBackGroundTransition();
-
-        OnClickText();
+        
     }
 
-    private void OnClickCharaMove()
+    private void OnClickCharaMove(bool input)
     {
         if (save + 1 == scenariosManager.CurrentLineNum)
         {
-            if (MobileInput.InputState(TouchPhase.Began))
+            if (input)
             {
                 charaMove.enabled = false;
                 charaMove.enabled = true;
@@ -214,11 +232,11 @@ public class ScenarioScreen : MonoBehaviour,IUpdateManager
         save = scenariosManager.CurrentLineNum;
     }
 
-    private void OnClickBackGroundTransition()
+    private void OnClickBackGroundTransition(bool input)
     {
         imageSave = setDisplayImage.ImageDatas[0];
         
-        if (MobileInput.InputState(TouchPhase.Began) || flag)
+        if (input || flag)
         {
             flag = true;
 
@@ -246,11 +264,12 @@ public class ScenarioScreen : MonoBehaviour,IUpdateManager
         backGround.enabled = true;
     }*/
 
-    private void OnClickText()
+    private void OnClickText(bool input)
     {
         //        MobileInput.InputState(TouchPhase.Began) && !scenariosManager.LineEndCheck()
-        if (MobileInput.InputState(TouchPhase.Began) && !scenariosManager.LineEndCheck())
+        if (input && !scenariosManager.LineEndCheck())
         {
+            Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
             fade.FadeIn(timer,() => 
             {
                 if (fadeImage.CutoutRange == 1f)
