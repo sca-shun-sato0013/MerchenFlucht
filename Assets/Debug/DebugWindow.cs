@@ -71,11 +71,11 @@ public class DebugWindow : MonoBehaviour
             case "system call scene endRoll":
                 SceneManager.Instance.SceneLoadingAsync("EndRollScreen");
                 break;
-            case "system call main peterPan":
+            case "system call main screen":
                 mainScreen.SetActive(true);
                 scenarioScreen.SetActive(false);
                 break;
-            case "system call scenario peterPan":
+            case "system call scenario screen":
                 mainScreen.SetActive(false);
                 scenarioScreen.SetActive(true);
                 break;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameManager;
 
-public enum ScenarioSceneLittle
+public enum ScenarioSceneHansel
 {
     //導入
     introduction,
@@ -39,7 +39,7 @@ public enum ScenarioSceneLittle
     examineTheMouseWithTheCheese,
 }
 
-public class ScenarioScreenLittleRedRidingHood : MonoBehaviour, IUpdateManager
+public class ScenarioScreenHansel: MonoBehaviour, IUpdateManager
 {
     [SerializeField]
     InputType inputType;
@@ -67,9 +67,9 @@ public class ScenarioScreenLittleRedRidingHood : MonoBehaviour, IUpdateManager
     [SerializeField, Header("フェードインの時間")]
     float timer;
     [SerializeField, Header("シナリオの場面")]
-    ScenarioSceneLittle scenarioScene;
+    ScenarioSceneHansel scenarioScene;
 
-    public ScenarioSceneLittle ScenarioPattarn
+    public ScenarioSceneHansel ScenarioPattarn
     {
         get { return scenarioScene; }
         set{ scenarioScene = value; }
@@ -86,97 +86,97 @@ public class ScenarioScreenLittleRedRidingHood : MonoBehaviour, IUpdateManager
     {
         switch (scenarioScene)
         {
-            case ScenarioSceneLittle.introduction:
+            case ScenarioSceneHansel.introduction:
 
-                scenariosManager.PlayScenario(5,16);
+                scenariosManager.PlayScenario(5,22);
                 
                 break;
             
-            case ScenarioSceneLittle.examineTheShelf:
+            case ScenarioSceneHansel.examineTheShelf:
 
                 scenariosManager.PlayScenario(31,31);
 
                 break;
             
-            case ScenarioSceneLittle.wallPaper:
+            case ScenarioSceneHansel.wallPaper:
 
                 scenariosManager.PlayScenario(34,35);
 
                 break;
 
-            case ScenarioSceneLittle.displayMemo1FromTheItemCcolumn:
+            case ScenarioSceneHansel.displayMemo1FromTheItemCcolumn:
 
                 scenariosManager.PlayScenario(38,38);
 
                 break;
            
-            case ScenarioSceneLittle.dontHaveMatch:
+            case ScenarioSceneHansel.dontHaveMatch:
 
                 scenariosManager.PlayScenario(44,46);
 
                 break;
             
-            case ScenarioSceneLittle.haveAMatch:
+            case ScenarioSceneHansel.haveAMatch:
 
                 scenariosManager.PlayScenario(49,62);
 
                 break;
             
-            case ScenarioSceneLittle.shadowPointing:
+            case ScenarioSceneHansel.shadowPointing:
 
                 scenariosManager.PlayScenario(65,66);
 
                 break;
             
-            case ScenarioSceneLittle.examineTheChair:
+            case ScenarioSceneHansel.examineTheChair:
 
                 scenariosManager.PlayScenario(70,78);
 
                 break;
 
-            case ScenarioSceneLittle.shadowPointingToTheWall:
+            case ScenarioSceneHansel.shadowPointingToTheWall:
 
                 scenariosManager.PlayScenario(83,84);
 
                 break;
             
-            case ScenarioSceneLittle.examineAfterTheShadowAppears:
+            case ScenarioSceneHansel.examineAfterTheShadowAppears:
 
                 scenariosManager.PlayScenario(88,92);
 
                 break;
             
-            case ScenarioSceneLittle.examineShadows:
+            case ScenarioSceneHansel.examineShadows:
 
                 scenariosManager.PlayScenario(96,96);
 
                 break;
             
-            case ScenarioSceneLittle.examineThePainting:
+            case ScenarioSceneHansel.examineThePainting:
 
                 scenariosManager.PlayScenario(100,101);
 
                 break;
 
-            case ScenarioSceneLittle.checkForMistakes:
+            case ScenarioSceneHansel.checkForMistakes:
 
                 scenariosManager.PlayScenario(104,108);
 
                 break;
             
-            case ScenarioSceneLittle.examineTheRat:
+            case ScenarioSceneHansel.examineTheRat:
 
                 scenariosManager.PlayScenario(113,114);
 
                 break;
             
-            case ScenarioSceneLittle.examineTheKitchenFromRats:
+            case ScenarioSceneHansel.examineTheKitchenFromRats:
 
                 scenariosManager.PlayScenario(118,121);
 
                 break;
             
-            case ScenarioSceneLittle.examineTheMouseWithTheCheese:
+            case ScenarioSceneHansel.examineTheMouseWithTheCheese:
 
                 scenariosManager.PlayScenario(125,127);
 
@@ -269,7 +269,6 @@ public class ScenarioScreenLittleRedRidingHood : MonoBehaviour, IUpdateManager
         //        MobileInput.InputState(TouchPhase.Began) && !scenariosManager.LineEndCheck()
         if (input && !scenariosManager.LineEndCheck())
         {
-            Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
             fade.FadeIn(timer,() => 
             {
                 if (fadeImage.CutoutRange == 1f)
