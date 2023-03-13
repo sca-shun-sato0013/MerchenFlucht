@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: HanselAndGretel_MainGame_Character
+  m_EditorClassIdentifier: 
+  m_GroupName: HanselAndGretel_MainGame_Character
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5f68a7d3db92014489cb65c200de788a
+  m_SerializeEntries:
+  - m_GUID: 0eb6b9ec987be9a43bcb38a6797eb8b0
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/\u30B0\u30EC\u30FC\u30C6\u30EB\u7ACB\u3061\u7D75(\u30CE\u30FC\u30DE\u30EB).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e56a365b52958214e9bc57c672609e0d
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/\u30B0\u30EC\u30FC\u30C6\u30EB\u7ACB\u3061\u7D75(\u559C\u3073).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0685ad4469aacba42b65ce7e1fc5c28d
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/\u30B0\u30EC\u30FC\u30C6\u30EB\u7ACB\u3061\u7D75(\u6050\u6016).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: aeab8de4dfec72940bd027a56ee4b0ff
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/\u30B0\u30EC\u30FC\u30C6\u30EB\u7ACB\u3061\u7D75(\u95C7).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 16800c53b7a1e5b42bc782907fce08c4
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/\u30B0\u30EC\u30FC\u30C6\u30EB\u7ACB\u3061\u7D75(\u9A5A\u6115).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 292ea99a0cc329f4daef6a19dc4a94ae
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/\u30D8\u30F3\u30BC\u30EB\u7ACB\u3061\u7D75(\u30CE\u30FC\u30DE\u30EB).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2974056752e87bd4d93359cd46795ec9
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/\u30D8\u30F3\u30BC\u30EB\u7ACB\u3061\u7D75(\u559C\u3073).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 820572404e4e5184681bc903e157b633
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/\u30D8\u30F3\u30BC\u30EB\u7ACB\u3061\u7D75(\u6050\u6016).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 17199721e72c76e42a781b0f7838b115
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/\u30D8\u30F3\u30BC\u30EB\u7ACB\u3061\u7D75(\u95C7).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 29354fc42a14d0b419a15ba039fd3df4
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/\u30D8\u30F3\u30BC\u30EB\u7ACB\u3061\u7D75(\u9A5A\u6115).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d64d90301c67e08448bc71a556dac3f4
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/H&G\u304A\u3070\u3042\u3055\u3093\u7ACB\u3061\u7D75(\u30CE\u30FC\u30DE\u30EB).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c7e8e39aa1a7d9c46b86d1363dfc8b29
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/H&G\u304A\u3070\u3042\u3055\u3093\u7ACB\u3061\u7D75(\u6012\u308A).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b0195f89511e71e4391b806b58904dfe, type: 2}
+    - {fileID: 11400000, guid: 1d918b478ae98434d8318e9c9a3970bb, type: 2}

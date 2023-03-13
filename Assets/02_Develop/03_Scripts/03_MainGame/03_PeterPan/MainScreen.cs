@@ -37,7 +37,7 @@ public class MainScreen : MonoBehaviour,IUpdateManager
 
     public void OnUpdate(double deltaTime)
     {
-        
+
     }
 }
     

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: PeterPan
+  m_EditorClassIdentifier: 
+  m_GroupName: PeterPan
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6bc13ad23be59a64283fc2a2d381d774
+  m_SerializeEntries:
+  - m_GUID: 1221d2aecf5daaa4997d1819d439116c
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u30D4\u30FC\u30BF\u30FC\u30D1\u30F3\u5C0E\u5165\u4FEE\u6B63.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4568cbeb51194fa4ab18ebb9bba146ef
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u30D4\u30FC\u30BF\u30FC\u30D1\u30F3\u30B0\u30C3\u30C9\u30A8\u30F3\u30C9.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b919c6424d04b244ca447a0a59bf2d4f
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u30D4\u30FC\u30BF\u30FC\u30D1\u30F3
+      \u30D0\u30C3\u30C9\u30A8\u30F3\u30C9.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3413f50994153d841b404969513105cf
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u30D4\u30FC\u30BF\u30FC\u30D1\u30F3
+      \u30C8\u30A5\u30EB\u30FC\u30A8\u30F3\u30C9\u4FEE\u6B63.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 86341972a6234774ba13173a97e7f901, type: 2}
+    - {fileID: 11400000, guid: eb0c1c42273890b4d9ab1436fdad524f, type: 2}
