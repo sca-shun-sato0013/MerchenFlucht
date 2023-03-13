@@ -12,11 +12,17 @@ public class SetDisplayImage : MonoBehaviour,IUpdateManager
     [SerializeField,Header("入力端末")]
     InputType inputType;
 
+    [SerializeField,Header("Addressablesの読み込みフォルダのpath")]
+    string pathName;
+
     [SerializeField,Header("表示させる画像数")]
     Image[] images;
 
     [SerializeField,Header("画像のファイル名取得")]
     string[] iDatas;
+
+    [SerializeField, Header("キャラの表示、非表示")]
+    GameObject charaImage;
 
     [SerializeField]
     ScenarioManager scenarioManager;
@@ -56,10 +62,19 @@ public class SetDisplayImage : MonoBehaviour,IUpdateManager
             for (int i = 0; i < images.Length; i++)
             {
                 Debug.Log("sdf");
-                if (iDatas[i] != "")
+                if (iDatas[i] != "" && iDatas[i] != "NONE")
                 {
                     Debug.Log(StringComponent.AddString("Assets/LoadingDatas/ScenarioDatas/", iDatas[i]));
-                    ImageLoading.ImageLoadingAsync(images[i], StringComponent.AddString("Assets/LoadingDatas/ScenarioDatas/", iDatas[i]));
+                    ImageLoading.ImageLoadingAsync(images[i], StringComponent.AddString(pathName,iDatas[i]));
+                }
+
+                if (iDatas[i] == "NONE")
+                {
+                    charaImage.SetActive(false);
+                }
+                else
+                {
+                    charaImage.SetActive(true);
                 }
             }
         }       

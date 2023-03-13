@@ -19,6 +19,7 @@ namespace CommonlyUsed
                 Addressables.LoadAssetAsync<Sprite>(imagePath).Completed += sprite =>
                 {
                     image.sprite = Object.Instantiate(sprite.Result);
+                    
                 };
             }
         }

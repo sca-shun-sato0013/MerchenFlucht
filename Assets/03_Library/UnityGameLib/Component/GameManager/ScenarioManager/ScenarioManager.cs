@@ -59,16 +59,17 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     {
        get {return loadCheck; }
        internal set {loadCheck = value;}
-    } 
+    }
 
     private void Start()
     {
         
         charaName = new List<string>();
-        displayCharaImage = new List<string>();
-        backGroundImage = new List<string>();
-        soundSe = new List<string>();
+        displayCharaImage = new List<string>();        
+        backGroundImage = new List<string>();       
+        soundSe = new List<string>();       
         texts = new List<string>();
+        
         UpdateManager.Instance.Bind(this, FrameControl.ON);
     }
 
@@ -214,7 +215,7 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     {
         if (input && !checkIfTheStoryIsOver)
         {
-
+            SoundManager.Instance.PlaySE(0);
             currentLineNum++;
 
             if (currentLineNum >= lineIsTheEnd)
@@ -240,6 +241,10 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     {
         currentLineNum = startLine - 3;
         lineIsTheEnd = endLine - 2;
+        currentCharNum = 0;
+        displayText.text = "";
+        checkIfTheStoryIsOver = false;
+        
         StartCoroutine(Method(SHEET_NAME));
     }
 

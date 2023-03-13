@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
-  m_DefaultGroup: 06e29e8bd8cff5447911ddbf4f270498
+  m_DefaultGroup: bc2409804ee49464dad4ca9e4199c2fa
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
   m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
@@ -22,7 +22,7 @@ MonoBehaviour:
   m_UniqueBundleIds: 0
   m_NonRecursiveBuilding: 0
   m_maxConcurrentWebRequests: 500
-  m_ContiguousBundles: 0
+  m_ContiguousBundles: 1
   m_StripUnityVersionFromBundleBuild: 0
   m_DisableVisibleSubAssetRepresentations: 0
   m_ShaderBundleNaming: 0
@@ -30,14 +30,27 @@ MonoBehaviour:
   m_MonoScriptBundleNaming: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: 3923ffde1c3abb14f8b373ddf81960a4
   m_RemoteCatalogLoadPath:
-    m_Id: 
+    m_Id: b8eaa0bd8770289489e42a717d3b2da2
   m_ContentStateBuildPath: 
-  m_overridePlayerVersion: 
+  m_overridePlayerVersion: 0
   m_GroupAssets:
   - {fileID: 11400000, guid: 65a8fe33b93128b4d8aa0b5416c4ebcc, type: 2}
-  - {fileID: 11400000, guid: eee92be01a1bcc441aeead6122dc50e6, type: 2}
+  - {fileID: 11400000, guid: d8403adca5e5011448e78d2d3f275ea2, type: 2}
+  - {fileID: 11400000, guid: c0fefcbc5b738a74a9cc9ae7500768a5, type: 2}
+  - {fileID: 11400000, guid: 16a97385c9f435540945f252c3460c9b, type: 2}
+  - {fileID: 11400000, guid: d081272cc6ddb3b4fbe475cda123fbc4, type: 2}
+  - {fileID: 11400000, guid: 86bfddc70228d2b4ba706a0c788dfb6c, type: 2}
+  - {fileID: 11400000, guid: c42f02665bed25a49b25d29211fbcd35, type: 2}
+  - {fileID: 11400000, guid: cf0795017530ca54089cd61899442c90, type: 2}
+  - {fileID: 11400000, guid: 8766b6213aaceb2468d0a5d8a43e5c5f, type: 2}
+  - {fileID: 11400000, guid: b4d081c7daecc964c8f4c7d46fccb78c, type: 2}
+  - {fileID: 11400000, guid: 34d8cbdfc972c8b428135661b440e81e, type: 2}
+  - {fileID: 11400000, guid: e2e2fd0d86802f3418c55429f3e6af8e, type: 2}
+  - {fileID: 11400000, guid: 6c6725d18152d4c478371cc967a4119b, type: 2}
+  - {fileID: 11400000, guid: a806bf599b5c7af4699b39b974a0c982, type: 2}
+  - {fileID: 11400000, guid: 021b7944f65c69148a6198319083c45e, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -58,7 +71,21 @@ MonoBehaviour:
       - m_Id: 3923ffde1c3abb14f8b373ddf81960a4
         m_Value: ServerData/[BuildTarget]
       - m_Id: b8eaa0bd8770289489e42a717d3b2da2
-        m_Value: http://localhost/[BuildTarget]
+        m_Value: http://gameseisaku.html.xdomain.jp/MerchenFlucht
+    - m_InheritedParent: 
+      m_Id: aba3dab74d50cf24a9f88e6c9a00dab7
+      m_ProfileName: New Profile
+      m_Values:
+      - m_Id: f832173e5dcb35648bbe66a44462cfbe
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 6e79faf551eeb9440a34ac0c8fbc3d8c
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: 3198bebd5c171fe428cf5c0190fb32f5
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 3923ffde1c3abb14f8b373ddf81960a4
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: b8eaa0bd8770289489e42a717d3b2da2
+        m_Value: http://gameseisaku.html.xdomain.jp/MerchenFlucht
     m_ProfileEntryNames:
     - m_Id: f832173e5dcb35648bbe66a44462cfbe
       m_Name: BuildTarget

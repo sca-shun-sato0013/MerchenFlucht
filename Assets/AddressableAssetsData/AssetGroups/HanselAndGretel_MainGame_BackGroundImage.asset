@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: HanselAndGretel_MainGame_BackGroundImage
+  m_EditorClassIdentifier: 
+  m_GroupName: HanselAndGretel_MainGame_BackGroundImage
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 37a8b4db82421ea46ace5b81d3c2bdab
+  m_SerializeEntries:
+  - m_GUID: e9dd322a5eac75c49a5cc45e4fe97a32
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/H&G\u30C8\u30A5\u30EB\u30FC\u30A8\u30F3\u30C9\u30B9\u30C1\u30EB.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 454eb7160f9833e4f9d7080b7a61db8b
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/H&G\u30CF\u30C3\u30D4\u30FC\u30A8\u30F3\u30C9\u30B9\u30C1\u30EB.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 138cc0daa074ae6479d2ed949cb754ac
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/H&G\u30D0\u30C3\u30C9\u30A8\u30F3\u30C9\u30B9\u30C1\u30EB.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7be82259bc24b6748922c9d1299eb0b5
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/H&G\u5C0E\u5165\u30B9\u30C1\u30EB.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 0e20429c12dc1284ebe41f0f7ad47a03, type: 2}
+    - {fileID: 11400000, guid: 0e0a126328357434c8490a4111754da5, type: 2}

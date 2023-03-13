@@ -12,6 +12,7 @@ public class Change : MonoBehaviour,IUpdateManager
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(Application.persistentDataPath);
         UpdateManager.Instance.Bind(this,FrameControl.ON);   
     }
 

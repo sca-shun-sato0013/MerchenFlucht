@@ -327,6 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 6734710342780571955}
+  fadeTime: 0
   soundBGM: []
   soundSE: []
 --- !u!1 &6734710341637391531
@@ -1228,6 +1229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputType: 0
+  pathName: 
   images: []
   iDatas: []
+  charaImage: {fileID: 0}
   scenarioManager: {fileID: 0}

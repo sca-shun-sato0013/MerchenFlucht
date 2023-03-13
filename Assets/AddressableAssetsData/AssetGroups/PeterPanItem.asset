@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: PeterPanItem
+  m_EditorClassIdentifier: 
+  m_GroupName: PeterPanItem
+  m_Data:
+    m_SerializedData: []
+  m_GUID: caa1b13405abdbf45ad576672b5dead6
+  m_SerializeEntries:
+  - m_GUID: 8f10f9e9a7dd87843bcc31b897b2da82
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u30DE\u30C3\u30C1.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 02092de6d1256dd4fb87b3d776e65a0c
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u30C1\u30FC\u30BA\u753B\u50CF.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 36d45402e05a3b34997be5bacbb0ade3
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u30C1\u30FC\u30BA.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b7ff2077ae83cc04aac60908b2934023
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u30DE\u30C3\u30C1.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a7f775b663f84da4d8c50cf687e460b1
+    m_Address: Assets/LoadingDatas/ScenarioDatas/PeterPan/Black.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f68f2739a67c9c445bf04c78a6a0d4a2
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u9593\u9055\u3044\u63A2\u3057.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2c62892a7806a994087e2298e39e6b76
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u30CD\u30BA\u30DF(\u7D19\u6301\u3061).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d2818d05dd2fd58488b14fafc9ae8976
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u30CD\u30BA\u30DF(\u7D19\u7121\u3057).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0bb3e35ae6a3f0b408c521fe8907de32
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u30D4\u30FC\u30BF\u30FC\u65E5\u8A18(\u9589).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0bf83560fec31c44b943478cde17cd7b
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u30D4\u30FC\u30BF\u30FC\u65E5\u8A18(\u958B).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 21c641802dbab8645896bf5eccd25cb4
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u30A4\u30B9\u306E\u30AE\u30DF\u30C3\u30AF
+      1.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b8d9536541c57bd46acd5de48dbde00e, type: 2}
+    - {fileID: 11400000, guid: 9b8674eed8ec07a4b957ff46640ca884, type: 2}

@@ -21,8 +21,7 @@ using DesignPattern;
             if(touch.phase == TouchPhase.Began && bol)
             {
                 bol = false;
-                Singleton<SceneManager>.Instance.SceneLoadingAsync("title");
-                //sLib.SceneLoadingAsync("title");
+                SceneManager.Instance.SceneLoadingAsync("title");
             }
         }
     }      
