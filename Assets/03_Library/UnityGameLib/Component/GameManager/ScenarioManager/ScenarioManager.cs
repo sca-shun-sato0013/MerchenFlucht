@@ -250,7 +250,7 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
 
     public bool LineEndCheck()
     {
-        Debug.Log(currentLineNum + 3);
+        //Debug.Log(currentLineNum + 3);
         return lineIsTheEnd > currentLineNum;
     }
 }

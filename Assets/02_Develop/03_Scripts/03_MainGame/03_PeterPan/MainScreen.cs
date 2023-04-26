@@ -5,6 +5,7 @@ using GameManager;
 using CommonlyUsed;
 using DesignPattern;
 using UnityEngine.Rendering;
+using UnityEngine.Playables;
 
 public class MainScreen : MonoBehaviour,IUpdateManager
 {
@@ -12,10 +13,18 @@ public class MainScreen : MonoBehaviour,IUpdateManager
     float timer;
 
     [SerializeField]
+    ShaftRotation_Hansel direction;
+    [SerializeField]
+    PlayableDirector kitchenMove;
+
+    [SerializeField]
     Fade fade;
 
     [SerializeField]
     GameObject fadeCanvas;
+
+    [SerializeField]
+    GameObject kitchenMoveButton, kitchenReMoveButton;
 
     [SerializeField]
     GameObject scenarioManager;
@@ -37,7 +46,18 @@ public class MainScreen : MonoBehaviour,IUpdateManager
 
     public void OnUpdate(double deltaTime)
     {
+/*        if(kitchenMoveButton.activeSelf == false)
+        {
+            if(direction.Count == -1 || direction.Count == 3)
+            {
+                kitchenReMoveButton.SetActive(true);
+            }
+            else
+            {
+                kitchenReMoveButton.SetActive(false);
+            }
 
+        }*/
     }
 }
     

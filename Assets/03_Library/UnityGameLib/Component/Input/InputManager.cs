@@ -7,7 +7,3 @@ public enum InputType
     InputPC,
     MobileInput,
 }
-public class InputManager 
-{
-
-}

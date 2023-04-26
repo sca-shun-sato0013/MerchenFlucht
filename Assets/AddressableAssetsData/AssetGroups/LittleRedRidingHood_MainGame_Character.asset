@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: LittleRedRidingHood_MainGame_Character
+  m_EditorClassIdentifier: 
+  m_GroupName: LittleRedRidingHood_MainGame_Character
+  m_Data:
+    m_SerializedData: []
+  m_GUID: d2c900480d9f5fb40948162c28c26353
+  m_SerializeEntries:
+  - m_GUID: c16b44be00028c241a1fb5b757f236c7
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u8D64\u305A\u304D\u3093_\u7ACB\u3061\u7D75_\u30CF\u30A4\u30E9\u30A4\u30C8\u306A\u3057\u306E\u6016\u3044\u9854.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d0429eb28a24e2948bf4e8c5cadee1b5
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u8D64\u305A\u304D\u3093_\u7ACB\u3061\u7D75_\u30D3\u30C3\u30AF\u30EA.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 154ef9c706b484b4b8bb7667b81a0d22
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u8D64\u305A\u304D\u3093_\u7ACB\u3061\u7D75_\u6050\u6016.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 208049f19efba8040917d075242526a7
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u8D64\u305A\u304D\u3093_\u7ACB\u3061\u7D75_\u60B2\u3057\u3044.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 29d438c1d2912fd41bfe0383b1443614
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u8D64\u305A\u304D\u3093_\u7ACB\u3061\u7D75_\u666E\u901A.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2a66a9fd738b75d4aa31091ed117037b
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u30AA\u30AA\u30AB\u30DF_\u7ACB\u3061\u7D75.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 749c350139de2c9419b6f050f4b29c55
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u6A2A\u304B\u3089\u898B\u305F\u30AA\u30AA\u30AB\u30DF.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c9327c545bfbc474c89fcb9ca430c779, type: 2}
+    - {fileID: 11400000, guid: 2aaa332198c146a44b21814f312c37c6, type: 2}

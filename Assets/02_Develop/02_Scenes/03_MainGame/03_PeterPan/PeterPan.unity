@@ -1641,11 +1641,6 @@ MonoBehaviour:
   downArrow: {fileID: 1209821091}
   leftArrow: {fileID: 272042592}
   rightArrow: {fileID: 1682516374}
-  shadowHumanChair: {fileID: 2031989014}
-  keyBox: {fileID: 328231715}
-  painting: {fileID: 145929688}
-  window: {fileID: 218781857}
-  shadowHumanStandUp: {fileID: 214543018}
   downArrowTimeLine: {fileID: 81756695}
   down2ArrowTimeLine: {fileID: 911222849}
   upArrowTimeLine: {fileID: 791772613}
@@ -3784,6 +3779,7 @@ MonoBehaviour:
   countDowntimer: {fileID: 974733470}
   scenarioState:
     scenarioScenePeter: 0
+    scenarioSceneHansel: 0
     happyEnd: 0
     trueEnd: 0
   fade: {fileID: 140941225}
@@ -5789,6 +5785,10 @@ PrefabInstance:
     - target: {fileID: 2524376834411801059, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
+      propertyPath: m_HDR
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: field of view
@@ -10660,7 +10660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: a729673fe115f2145bd43c067ee1c138, type: 2}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
