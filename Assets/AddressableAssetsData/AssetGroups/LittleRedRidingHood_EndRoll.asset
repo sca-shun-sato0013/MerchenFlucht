@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: LittleRedRidingHood_EndRoll
+  m_EditorClassIdentifier: 
+  m_GroupName: LittleRedRidingHood_EndRoll
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ee7b3352d575a544da31bf3eeb081ac6
+  m_SerializeEntries:
+  - m_GUID: 06fc554aeb97f10479d57c4b4a60787e
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u30A8\u30F3\u30C9\u30ED\u30FC\u30EB\uFF11.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 030d2efcb85009449886eb812082eaff
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u30A8\u30F3\u30C9\u30ED\u30FC\u30EB\uFF11\u7DDA\u753B.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 437ec95e4f6dcb44a8ea102bce671390
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u30A8\u30F3\u30C9\u30ED\u30FC\u30EB\uFF12.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8bbb50e4f57e96a429b39ace59010ee1
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u30A8\u30F3\u30C9\u30ED\u30FC\u30EB\uFF12\u7DDA\u753B.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dd74fb151f3c7674eb92b6d4016801df
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u30A8\u30F3\u30C9\u30ED\u30FC\u30EB\uFF13.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b79f360787893e244b3d4a8c5a608196
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u30A8\u30F3\u30C9\u30ED\u30FC\u30EB\uFF13\u7DDA\u753B.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 53af421ee07699640b4817f1127ab403, type: 2}
+    - {fileID: 11400000, guid: a8f7013f47b313e4c87033c217f79bf2, type: 2}

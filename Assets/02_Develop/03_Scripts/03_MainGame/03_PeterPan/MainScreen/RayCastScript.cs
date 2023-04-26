@@ -8,15 +8,7 @@ using NJsonLoader;
 using UnityEngine.UI;
 using UnityEngine.Playables;
 
-[System.Serializable]
-public class ScenarioState
-{
-    public ScenarioScenePeter scenarioScenePeter;
-    public bool happyEnd = false;
-    public bool trueEnd = false;
-}
-
-public class RayCastScript : MonoBehaviour,IUpdateManager
+public class RayCastScript : MonoBehaviour, IUpdateManager
 {
     [SerializeField]
     ScenarioScreenPeterPan peterPan;
@@ -51,8 +43,8 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
     GameObject chesse;
 
     [SerializeField]
-    Image item2,item5;
-    
+    Image item2, item5;
+
     [SerializeField]
     Fade fade;
     [SerializeField]
@@ -63,9 +55,9 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
     ImageLoadings imageLoadings;
 
     [SerializeField]
-    BoxCollider keyBox_Collider,window;
+    BoxCollider keyBox_Collider, window;
     [SerializeField]
-    PlayableDirector 
+    PlayableDirector
     keyBox_TimeLine,
     keyBoxRe_TimeLine,
     cipherScreenOpen_TimeLine,
@@ -74,10 +66,10 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
 
     ScenarioState scenarioState;
 
-    void Start() 
+    void Start()
     {
         UpdateManager.Instance.Bind(this, FrameControl.ON);
-        
+
         scenarioState = new ScenarioState();
     }
 
@@ -91,10 +83,10 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
             Ray ray = Camera.main.ScreenPointToRay(touch.position); // Rayを生成
             Debug.Log(touch.position);
             RaycastHit hit;
-            
+
             if (Physics.Raycast(ray, out hit)) // Rayを投射
             {
-                if(hit.collider.gameObject.name == "match")
+                if (hit.collider.gameObject.name == "match")
                 {
                     if (memo1.activeSelf == false)
                     {
@@ -103,8 +95,6 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
                         fade.FadeIn(2f);
 
                         imageLoadings.AddList(items[0], "Assets/LoadingDatas/ScenarioDatas/PeterPan/マッチ.png");
-                        imageLoadings.enabled = false;
-                        imageLoadings.enabled = true;
 
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheShelf;
                         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -120,8 +110,6 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
                     fade.FadeIn(2f);
 
                     imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ1.png");
-                    imageLoadings.enabled = false;
-                    imageLoadings.enabled = true;
 
                     scenarioState.scenarioScenePeter = ScenarioScenePeter.wallPaper;
                     ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -134,8 +122,8 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
                 {
 
                     fade.FadeIn(2f);
-                    
-                    if(clickScenario.DiaryFlag)
+
+                    if (clickScenario.DiaryFlag)
                     {
                         if (countDownTimer.TimerFlag)
                         {
@@ -179,7 +167,7 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
                                 }
                             }
                         }
-                    }                    
+                    }
                 }
 
                 if (hit.collider.gameObject.name == "shadowHumanChair")
@@ -202,48 +190,44 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
                     {
                         fade.FadeIn(2f);
                         imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ2.png");
-                        imageLoadings.enabled = false;
-                        imageLoadings.enabled = true;
 
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheChair;
                         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                        StartCoroutine(Change_MainScreen(shadowHumanWall,shadowHumanChair));
+                        StartCoroutine(Change_MainScreen(shadowHumanWall, shadowHumanChair));
                     }
 
                 }
 
                 if (hit.collider.gameObject.name == "shadowHumanWall")
-                {                 
-                        fade.FadeIn(2f);
+                {
+                    fade.FadeIn(2f);
 
-                        scenarioState.scenarioScenePeter = ScenarioScenePeter.shadowPointingToTheWall;
-                        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                        StartCoroutine(Change_MainScreen());
-                    
+                    scenarioState.scenarioScenePeter = ScenarioScenePeter.shadowPointingToTheWall;
+                    ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
+                    StartCoroutine(Change_MainScreen());
+
                 }
 
                 if (hit.collider.gameObject.name == "Crack")
                 {
-                    if(shadowHumanWall.activeSelf == true)
+                    if (shadowHumanWall.activeSelf == true)
                     {
                         fade.FadeIn(2f);
 
                         imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ3.png");
-                        imageLoadings.enabled = false;
-                        imageLoadings.enabled = true;
 
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.examineAfterTheShadowAppears;
                         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                        StartCoroutine(Change_MainScreen(shadowHumanStandUp,shadowHumanWall));
+                        StartCoroutine(Change_MainScreen(shadowHumanStandUp, shadowHumanWall));
                     }
 
                 }
 
                 if (hit.collider.gameObject.name == "shadowHumanStandUp")
-                {                    
-                        fade.FadeIn(2f);
+                {
+                    fade.FadeIn(2f);
 
-                    if(clickScenario.DiaryFlag)
+                    if (clickScenario.DiaryFlag)
                     {
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.afterReadingTheDiary;
                         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -262,11 +246,9 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
                     if (shadowHumanStandUp.activeSelf == true)
                     {
                         fade.FadeIn(2f);
-                        
+
                         imageLoadings.SetImage(3, "Assets/LoadingDatas/ScenarioDatas/PeterPan/ネズミ(紙持ち).png");
                         imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ4.png");
-                        imageLoadings.enabled = false;
-                        imageLoadings.enabled = true;
 
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.checkForMistakes;
                         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -286,7 +268,7 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
 
                 if (hit.collider.gameObject.name == "MouseOrCat")
                 {
-                    if(shadowHumanWall.activeSelf == false)
+                    if (shadowHumanWall.activeSelf == false)
                     {
                         if (mouseOrCatImage.sprite.name == "ネズミ(紙持ち)(Clone)")
                         {
@@ -317,8 +299,6 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
                         fade.FadeIn(2f);
 
                         imageLoadings.AddList(items[2], "Assets/LoadingDatas/ScenarioDatas/PeterPan/チーズ.png");
-                        imageLoadings.enabled = false;
-                        imageLoadings.enabled = true;
 
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheKitchenFromRats;
                         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -330,12 +310,12 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
                 }
 
                 if (hit.collider.gameObject.name == "shadowHumanWindow")
-                {                    
-                        fade.FadeIn(2f);
+                {
+                    fade.FadeIn(2f);
 
-                        scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheShadowPointingWindow;
-                        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                        StartCoroutine(Change_MainScreen());
+                    scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheShadowPointingWindow;
+                    ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
+                    StartCoroutine(Change_MainScreen());
                 }
 
                 if (hit.collider.gameObject.name == "Cube.001")//窓
@@ -346,12 +326,10 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
 
                         window.enabled = false;
                         imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ5.png");
-                        imageLoadings.enabled = false;
-                        imageLoadings.enabled = true;
 
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.checkTheWindowAfter;
                         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                        StartCoroutine(Change_MainScreen(shadowHumanStandUp,shadowHumanWindow));
+                        StartCoroutine(Change_MainScreen(shadowHumanStandUp, shadowHumanWindow));
                     }
 
                 }
@@ -376,14 +354,12 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
 
                 if (hit.collider.gameObject.name == "DevilBook")
                 {
-                    if(keyBox_TimeLine.enabled == true)
+                    if (keyBox_TimeLine.enabled == true)
                     {
                         hit.collider.gameObject.SetActive(false);
                         fade.FadeIn(2f);
 
                         imageLoadings.AddList(items[2], "Assets/LoadingDatas/ScenarioDatas/PeterPan/悪魔の本(閉).png");
-                        imageLoadings.enabled = false;
-                        imageLoadings.enabled = true;
 
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.ExamineTheOpenBookshelf;
                         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -395,7 +371,7 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
 
                 if (hit.collider.gameObject.name == "Books2")
                 {
-  
+
                     fade.FadeIn(2f);
 
                     scenarioState.scenarioScenePeter = ScenarioScenePeter.tapTheAppropriateBookshelf;
@@ -410,8 +386,6 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
                     fade.FadeIn(2f);
 
                     imageLoadings.AddList(items[3], "Assets/LoadingDatas/ScenarioDatas/PeterPan/絵本(閉).png");
-                    imageLoadings.enabled = false;
-                    imageLoadings.enabled = true;
 
                     scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheBook;
                     ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -421,13 +395,11 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
 
                 if (hit.collider.gameObject.name == "KeyLock")
                 {
-                    if(item5.sprite.name == "絵本に挟まってる鍵(Clone)")
+                    if (item5.sprite.name == "絵本に挟まってる鍵(Clone)")
                     {
                         fade.FadeIn(2f);
 
-                        imageLoadings.AddList(items[5],"Assets/LoadingDatas/ScenarioDatas/PeterPan/ピーター日記(閉).png");
-                        imageLoadings.enabled = false;
-                        imageLoadings.enabled = true;
+                        imageLoadings.AddList(items[5], "Assets/LoadingDatas/ScenarioDatas/PeterPan/ピーター日記(閉).png");
 
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.ifYouHaveTheKey;
                         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -462,7 +434,7 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
                     {
                         countDownTimer.TimerFlag = true;
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.ifYouHaventReadTheDiary;
-                        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState,"ScenarioState");
+                        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
 
                         StartCoroutine(Change_MainScreen());
                     }
@@ -472,12 +444,12 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
         }
     }
 
-    
+
     public IEnumerator Change_MainScreen()
     {
-        Debug.Log("フェードイン"+ fadeImage.CutoutRange);
+        Debug.Log("フェードイン" + fadeImage.CutoutRange);
         yield return new WaitUntil(() => fadeImage.CutoutRange == 1f);
-       
+
         scenarioScreen.SetActive(true);
         peterPan.enabled = true;
     }
@@ -492,7 +464,7 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
         peterPan.enabled = true;
     }
 
-    public IEnumerator Change_MainScreen(GameObject obj,GameObject obj2)
+    public IEnumerator Change_MainScreen(GameObject obj, GameObject obj2)
     {
         Debug.Log("フェードイン" + fadeImage.CutoutRange);
         yield return new WaitUntil(() => fadeImage.CutoutRange == 1f);
@@ -534,4 +506,3 @@ public class RayCastScript : MonoBehaviour,IUpdateManager
 
     }
 }
-    

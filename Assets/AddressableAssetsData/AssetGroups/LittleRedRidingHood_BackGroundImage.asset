@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: LittleRedRidingHood_BackGroundImage
+  m_EditorClassIdentifier: 
+  m_GroupName: LittleRedRidingHood_BackGroundImage
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 54f6b41dcf68ccb47822692f350c2c06
+  m_SerializeEntries:
+  - m_GUID: defeb8d8ea2502c47a91946b3cd0c4a1
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u8D64\u305A\u304D\u3093_\u5C0E\u5165.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1ebc5fd5b7525654d94ce92423d03582
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u8D64\u305A\u304D\u3093_\u30C8\u30A5\u30EB\u30FC\u30A8\u30F3\u30C9.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 054674933e1583142b1f160fed3a04c0
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u8D64\u305A\u304D\u3093_\u30CF\u30C3\u30D4\u30FC\u30A8\u30F3\u30C9.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c4423f6708f9c5140bfc5cd59bac4c94
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/\u8D64\u305A\u304D\u3093_\u30D0\u30C3\u30C9\u30A8\u30F3\u30C9.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ec98b23ffbb83e1499801e5fb50845db
+    m_Address: Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/Black.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4e64b1b441aa0374f96fe0866036ea2d, type: 2}
+    - {fileID: 11400000, guid: a46b03761f0252549905abff1721ffc4, type: 2}

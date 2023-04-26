@@ -65,6 +65,14 @@ MonoBehaviour:
     m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/H&G\u304A\u3070\u3042\u3055\u3093\u7ACB\u3061\u7D75(\u6012\u308A).png"
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 9f6b6bd31061b2842a615f80faf02e6d
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/H&G\u304A\u3070\u3042\u3055\u3093(\u7ACB\u3061\u59FF)(\u4EEE).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b126367e27508ba4a8f2a5c99c40eab5
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/H&G\u304A\u3070\u3042\u3055\u3093(\u3057\u3083\u304C\u307F)(\u4EEE).png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
   m_SchemaSet:

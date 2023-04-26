@@ -33,6 +33,10 @@ MonoBehaviour:
     m_Address: "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/H&G\u5C0E\u5165\u30B9\u30C1\u30EB.png"
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 167d29a4db8da564f9520d26c3ec410e
+    m_Address: Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/Black.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
   m_SchemaSet:

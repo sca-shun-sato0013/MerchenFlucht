@@ -19,8 +19,8 @@ public class ShaftRotation : MonoBehaviour,IUpdateManager
     [SerializeField] float step = 5;
     [SerializeField] 
     GameObject upArrow,downArrow,leftArrow,rightArrow;
-    [SerializeField]
-    BoxCollider shadowHumanChair,keyBox,painting,window,shadowHumanStandUp;
+    //[SerializeField]
+    //BoxCollider shadowHumanChair,keyBox,painting,window,shadowHumanStandUp;
     [SerializeField] 
     PlayableDirector downArrowTimeLine, down2ArrowTimeLine, upArrowTimeLine, up2ArrowTimeLine;
 
@@ -64,7 +64,7 @@ public class ShaftRotation : MonoBehaviour,IUpdateManager
 
     public void OnClickLeft()
     {
-        shadowHumanChair.enabled = false;
+        //shadowHumanChair.enabled = false;
         flag = true;
         Debug.Log(mobile2DMainCamera.transform.eulerAngles.y);
         count--;
@@ -72,40 +72,40 @@ public class ShaftRotation : MonoBehaviour,IUpdateManager
            targetRot = Quaternion.AngleAxis(angleLeft, axisY) * mobile2DMainCamera.transform.rotation;
         StartCoroutine(Wait());
 
-        if (count == -5 || count == 3) shadowHumanStandUp.enabled = true;
-        else shadowHumanStandUp.enabled = false;
+/*        if (count == -5 || count == 3) shadowHumanStandUp.enabled = true;
+        else shadowHumanStandUp.enabled = false;*/
 
 /*        if (count == 4 || count == -4) window.enabled = true;
         else window.enabled = false;*/
 
-        if (count == 8 || count == -8 || count == 0) painting.enabled = true;
+/*        if (count == 8 || count == -8 || count == 0) painting.enabled = true;
         else painting.enabled = false;
 
         if (count == 2 || count == -6) keyBox.enabled = true;
-        else keyBox.enabled = false;
+        else keyBox.enabled = false;*/
     }
 
     public void OnClickRight()
     {
 
 
-        shadowHumanChair.enabled = false;
+        //shadowHumanChair.enabled = false;
         flag = true;
         count++;
            targetRot = Quaternion.AngleAxis(angleRight, axisY) * mobile2DMainCamera.transform.rotation;
         StartCoroutine(Wait());
 
-        if (count == -5 || count == 3) shadowHumanStandUp.enabled = true;
-        else shadowHumanStandUp.enabled = false;
+/*        if (count == -5 || count == 3) shadowHumanStandUp.enabled = true;
+        else shadowHumanStandUp.enabled = false;*/
 
 /*        if (count == 4 || count == -4) window.enabled = true;
         else window.enabled = false;*/
 
-        if (count == 8 || count == -8 || count == 0) painting.enabled = true;
+/*        if (count == 8 || count == -8 || count == 0) painting.enabled = true;
         else painting.enabled = false;
 
         if (count == 2 || count == -6) keyBox.enabled = true;
-        else keyBox.enabled = false;
+        else keyBox.enabled = false;*/
     }
 
     public void OnClickUp()
@@ -170,8 +170,8 @@ public class ShaftRotation : MonoBehaviour,IUpdateManager
 
         count2++;
 
-        painting.enabled = false;
-        shadowHumanChair.enabled = true;
+        //painting.enabled = false;
+        //shadowHumanChair.enabled = true;
 
         if (count2 == 0)
         {
@@ -265,8 +265,8 @@ public class ShaftRotation : MonoBehaviour,IUpdateManager
 
         count2--;
 
-        painting.enabled = false;
-        shadowHumanChair.enabled = true;
+        //painting.enabled = false;
+        //shadowHumanChair.enabled = true;
 
         if (count2 == 0)
         {

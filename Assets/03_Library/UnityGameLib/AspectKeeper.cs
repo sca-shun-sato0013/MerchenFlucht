@@ -12,6 +12,8 @@ public class AspectKeeper : Singleton<AspectKeeper>,ISingleton
     [SerializeField]
     private Vector2 aspectVec; //目的解像度
 
+    public Rect TargetCamera => targetCamera.rect;
+
     public void Update()
     {
         float screenAspect = Screen.width / (float)Screen.height; //画面のアスペクト比
