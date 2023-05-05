@@ -30,6 +30,10 @@ MonoBehaviour:
     m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u8868\u7D19.png"
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 82165a5d99e37c541ab6ae267ab4b8b5
+    m_Address: "Assets/LoadingDatas/ScenarioDatas/PeterPan/\u7D75\u672C\u306B\u631F\u307E\u3063\u3066\u308B\u9375.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
   m_SchemaSet:

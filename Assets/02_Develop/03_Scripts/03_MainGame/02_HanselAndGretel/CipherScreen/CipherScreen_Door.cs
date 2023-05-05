@@ -39,7 +39,8 @@ public class CipherScreen_Door : MonoBehaviour,IUpdateManager
         if (!this.gameObject.activeInHierarchy) return;
 
 
-        if(candles_Array[1].activeSelf == true 
+
+        if (candles_Array[1].activeSelf == true 
           && candles_Array[3].activeSelf == true
           && candles_Array[5].activeSelf == false
           && candles_Array[7].activeSelf == false
