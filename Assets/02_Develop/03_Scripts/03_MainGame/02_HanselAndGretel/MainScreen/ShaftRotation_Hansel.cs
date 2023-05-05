@@ -22,6 +22,9 @@ public class ShaftRotation_Hansel : MonoBehaviour, IUpdateManager
     GameObject upArrow, downArrow, leftArrow, rightArrow;
 
     [SerializeField]
+    GameObject mainCamera;
+
+    [SerializeField]
     Image kitchenMoveButton, kitchenReMoveButton;
 
     [SerializeField]
@@ -29,6 +32,8 @@ public class ShaftRotation_Hansel : MonoBehaviour, IUpdateManager
     [SerializeField]
     PlayableDirector downArrowTimeLine, down2ArrowTimeLine, upArrowTimeLine, up2ArrowTimeLine;
 
+    [SerializeField, Header("シャンデリアのカメラ移動")]
+    PlayableDirector chandelier,reChandelier;
     [SerializeField]
     PlayableDirector kitchenMove, kitchenReMove;
 
@@ -58,6 +63,7 @@ public class ShaftRotation_Hansel : MonoBehaviour, IUpdateManager
         targetRot = transform.rotation;
         wait = new WaitForSeconds(0.05f);
         UpdateManager.Instance.Bind(this, FrameControl.ON);
+        downArrow.SetActive(false);
         //targetRot = Quaternion.AngleAxis(angle, axis) * mobile2DMainCamera.transform.rotation;
     }
 
@@ -72,22 +78,27 @@ public class ShaftRotation_Hansel : MonoBehaviour, IUpdateManager
         Debug.Log(count);
         mobile2DMainCamera.transform.rotation = Quaternion.RotateTowards(mobile2DMainCamera.transform.rotation, targetRot, step);        
 
-        if (count == 0 && flag)
+        if (count == 1 || count == -3 )
         {
-            downArrow.SetActive(true);
+            upArrow.SetActive(true);
         }
-        else if (count != 0 && flag)
+        else
         {
             upArrow.SetActive(false);
-            downArrow.SetActive(false);
         }
 
-        rayCastON = targetRot == mobile2DMainCamera.transform.rotation;
+        if (mainCamera.transform.position.y >= 2.0f)
+        {
+            rayCastON = false;
+        }
+        else
+        {
+            rayCastON = targetRot == mobile2DMainCamera.transform.rotation;
+        }
     }
 
     public void OnClickLeft()
     {
-       
 
         if (targetRot == mobile2DMainCamera.transform.rotation)
         {
@@ -193,75 +204,20 @@ public class ShaftRotation_Hansel : MonoBehaviour, IUpdateManager
 
     public void OnClickUp()
     {
-        /*        if (count == 0)
-                {
-                    axis.x = -1f;
-                    axis.y = 0f;
-                    axis.z = 0f;
-                }
+        chandelier.enabled = false;
+        chandelier.enabled = true;
 
-                if (count == -1 || count == 7)
-                {
-                    axis.x = -1f;
-                    axis.y = 0f;
-                    axis.z = -1f;
-                }
-
-                if (count == -2 || count == 6)
-                {
-                    axis.x = 0f;
-                    axis.y = 0f;
-                    axis.z = -1f;
-                }
-
-                if (count == -3 || count == 5)
-                {
-                    axis.x = 1f;
-                    axis.y = 0f;
-                    axis.z = -1f;
-                }
-
-                if (count == -4 || count == 4)
-                {
-                    axis.x = 1f;
-                    axis.y = 0f;
-                    axis.z = 0f;
-                }
-
-                if (count == -5 || count == 3)
-                {
-                    axis.x = 1f;
-                    axis.y = 0f;
-                    axis.z = 1f;
-                }
-
-                if (count == -6 || count == 2)
-                {
-                    axis.x = 0f;
-                    axis.y = 0f;
-                    axis.z = 1f;
-                }
-
-                if (count == -7 || count == 1)
-                {
-                    axis.x = -1f;
-                    axis.y = 0f;
-                    axis.z = 1f;
-                }
-                targetRot = Quaternion.AngleAxis(angleUp, axis) * mobile2DMainCamera.transform.rotation;
-        */
-
-        //count2++;
-
-        //painting.enabled = false;
-        //shadowHumanChair.enabled = true;
-
-
-
+        downArrow.SetActive(true);
+        upArrow.SetActive(false);
     }
 
     public void OnClickDown()
     {
+        reChandelier.enabled = false;
+        reChandelier.enabled = true;
+
+        upArrow.SetActive(true);
+        downArrow.SetActive(false);
 
         /*        if (count == 0)
                 {
@@ -325,9 +281,6 @@ public class ShaftRotation_Hansel : MonoBehaviour, IUpdateManager
 
         //painting.enabled = false;
         //shadowHumanChair.enabled = true;
-
-
-
     }
     IEnumerator Wait()
     {

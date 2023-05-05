@@ -6,10 +6,10 @@ using CommonlyUsed;
 using DesignPattern;
 using NJsonLoader;
 
-public class GameOver : MonoBehaviour,IUpdateManager
+public class GameOver_Hansel : MonoBehaviour, IUpdateManager
 {
     [SerializeField]
-    Timer countDowntimer;
+    Timer_Hansel countDowntimer;
     [SerializeField]
     ScenarioState scenarioState;
     [SerializeField]
@@ -19,42 +19,43 @@ public class GameOver : MonoBehaviour,IUpdateManager
     [SerializeField]
     GameObject scenarioScreen;
     [SerializeField]
-    ScenarioScreenPeterPan peterPan;
+    ScenarioScreenHansel hansel;
 
     bool gameOver = false;
 
     bool justOnce = true;
     public bool GameEnd => gameOver;
 
-    void Start() 
+    void Start()
     {
         UpdateManager.Instance.Bind(this, FrameControl.ON);
+
+        countDowntimer.TimerFlag = true;
     }
 
     public void OnUpdate(double deltaTime)
     {
         if (!this.gameObject.activeInHierarchy) return;
 
-        if(countDowntimer.TimeOut && justOnce)
+        if (countDowntimer.TimeOut && justOnce)
         {
             justOnce = false;
 
             fade.FadeIn(1f);
-            scenarioState.scenarioScenePeter = ScenarioScenePeter.ifTimeRunsOut;
+            scenarioState.scenarioSceneHansel = ScenarioSceneHansel.badEnd;
             ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
             StartCoroutine(Change_MainScreen());
-           
-            gameOver = true; 
+
+            gameOver = true;
         }
     }
 
-     IEnumerator Change_MainScreen()
-     {
+    IEnumerator Change_MainScreen()
+    {
         Debug.Log("フェードイン" + fadeImage.CutoutRange);
         yield return new WaitUntil(() => fadeImage.CutoutRange == 1f);
 
         scenarioScreen.SetActive(true);
-        peterPan.enabled = true;
-     }
+        hansel.enabled = true;
+    }
 }
-    

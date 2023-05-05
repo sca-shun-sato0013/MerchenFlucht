@@ -23,6 +23,34 @@ public enum ScenarioSceneHansel
     checkBucket,
 
     pokerGet,
+
+    grannykitchen,
+    //水窯
+    waterKiln,
+
+    bucketGet,
+
+    bucketOfWater,
+
+    bonFire,
+
+    fireFighting,
+
+    grandMatherFurnace,
+
+    noMatch,
+
+    keyGet,
+
+    happyEnd,
+
+    matchGet,
+
+    haveAMatch,
+
+    trueEnd,
+
+    badEnd,
 }
 public class ScenarioScreenHansel : MonoBehaviour, IUpdateManager
 {
@@ -53,7 +81,7 @@ public class ScenarioScreenHansel : MonoBehaviour, IUpdateManager
         Volume volume;
 
         [SerializeField]
-        GameOver gameOver;
+        GameOver_Hansel gameOver;
 
         [SerializeField, Header("フェードインの時間")]
         float timer;
@@ -129,6 +157,7 @@ public class ScenarioScreenHansel : MonoBehaviour, IUpdateManager
 
                 switch (scenarioScene)
                 {
+
                     case ScenarioSceneHansel.introduction:
 
                         scenariosManager.PlayScenario(5,22);
@@ -165,19 +194,104 @@ public class ScenarioScreenHansel : MonoBehaviour, IUpdateManager
 
                         break;
 
+                    case ScenarioSceneHansel.grannykitchen:
+
+                        scenariosManager.PlayScenario(126,126);
+
+                        break;
+
+
                     case ScenarioSceneHansel.checkBucket:
 
                         scenariosManager.PlayScenario(111,113);
 
                         break;
 
+    
                     case ScenarioSceneHansel.pokerGet:
 
                         scenariosManager.PlayScenario(150,150);
 
                         break;
-            }
-            
+
+                    case ScenarioSceneHansel.waterKiln:
+
+                        scenariosManager.PlayScenario(156,156);
+
+                        break;
+
+                    case ScenarioSceneHansel.bucketGet:
+
+                        scenariosManager.PlayScenario(116,117);
+
+                        break;
+
+                    case ScenarioSceneHansel.bucketOfWater:
+
+                        scenariosManager.PlayScenario(159,159);
+
+                        break;
+
+                    case ScenarioSceneHansel.bonFire:
+
+                        scenariosManager.PlayScenario(165,166);
+
+                        break;
+
+                    case ScenarioSceneHansel.fireFighting:
+
+                        scenariosManager.PlayScenario(169,174);
+
+                        break;
+
+                    case ScenarioSceneHansel.grandMatherFurnace:
+
+                        scenariosManager.PlayScenario(186,192);
+
+                        break;
+
+                    case ScenarioSceneHansel.noMatch:
+
+                        scenariosManager.PlayScenario(198,200);
+
+                       break;
+
+                    case ScenarioSceneHansel.keyGet:
+
+                        scenariosManager.PlayScenario(210,211);
+
+                        break;
+
+                     case ScenarioSceneHansel.happyEnd:
+
+                        scenariosManager.PlayScenario(241, 253);
+                        
+                        break;
+
+                    case ScenarioSceneHansel.matchGet:
+
+                        scenariosManager.PlayScenario(133,135);
+
+                        break;
+
+                    case ScenarioSceneHansel.haveAMatch:
+
+                        scenariosManager.PlayScenario(203,206);
+
+                        break;
+
+                    case ScenarioSceneHansel.trueEnd:
+
+                        scenariosManager.PlayScenario(258,281);
+
+                        break;
+
+                    case ScenarioSceneHansel.badEnd:
+
+                        scenariosManager.PlayScenario(290,311);
+
+                        break;
+                }
             }
         }
 
@@ -231,23 +345,24 @@ public class ScenarioScreenHansel : MonoBehaviour, IUpdateManager
 
         private void OnClickText(bool input)
         {
-            //        MobileInput.InputState(TouchPhase.Began) && !scenariosManager.LineEndCheck()
-            if (input && !scenariosManager.LineEndCheck())
+            
+        //        MobileInput.InputState(TouchPhase.Began) && !scenariosManager.LineEndCheck()
+        if (input && !scenariosManager.LineEndCheck())
             {
                 if (gameOver.GameEnd && justOnce2)
                 {
                     justOnce2 = false;
                     SceneManager.Instance.SceneLoadingAsync("title");
                 }
-                else if (scenarioState.happyEnd && justOnce2)
+                else if (scenarioState.happyEndHansel && justOnce2)
                 {
                     justOnce2 = false;
                     SceneManager.Instance.SceneLoadingAsync("title");
                 }
-                else if (scenarioState.trueEnd && justOnce2)
+                else if (scenarioState.trueEndHansel && justOnce2)
                 {
                     justOnce2 = false;
-                    SceneManager.Instance.SceneLoadingAsync("EndRollScreen");
+                    SceneManager.Instance.SceneLoadingAsync("EndRollScreen_Hansel");
                 }
                 else
                 {
@@ -269,4 +384,4 @@ public class ScenarioScreenHansel : MonoBehaviour, IUpdateManager
             yield return new WaitForSeconds(1f);
             fade.FadeOut(1f);
         }
-    }
+}

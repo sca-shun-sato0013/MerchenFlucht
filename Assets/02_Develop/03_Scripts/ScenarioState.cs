@@ -7,4 +7,7 @@ public class ScenarioState
 
     public bool happyEnd = false;
     public bool trueEnd = false;
+
+    public bool happyEndHansel = false;
+    public bool trueEndHansel = false;
 }
