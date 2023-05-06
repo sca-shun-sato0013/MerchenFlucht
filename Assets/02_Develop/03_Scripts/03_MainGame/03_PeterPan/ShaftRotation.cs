@@ -24,6 +24,9 @@ public class ShaftRotation : MonoBehaviour,IUpdateManager
     [SerializeField] 
     PlayableDirector downArrowTimeLine, down2ArrowTimeLine, upArrowTimeLine, up2ArrowTimeLine;
 
+    [SerializeField]
+    BoxCollider painting;
+
     int count = 0;
     int count2 = 1;
 
@@ -46,10 +49,19 @@ public class ShaftRotation : MonoBehaviour,IUpdateManager
 
         if (count == 8 || count == -8) count = 0;
 
-
+        if(count == 0 && count2 == 1)
+        {
+            painting.enabled = true;
+        }
+        else
+        {
+            painting.enabled = false;
+        }
 
         Debug.Log(count);
-        if(flag) mobile2DMainCamera.transform.rotation = Quaternion.RotateTowards(mobile2DMainCamera.transform.rotation, targetRot, step);
+        Debug.Log(count2);
+
+        if (flag) mobile2DMainCamera.transform.rotation = Quaternion.RotateTowards(mobile2DMainCamera.transform.rotation, targetRot, step);
 
         if(count == 0 && flag)
         {
@@ -69,7 +81,7 @@ public class ShaftRotation : MonoBehaviour,IUpdateManager
         Debug.Log(mobile2DMainCamera.transform.eulerAngles.y);
         count--;
 
-           targetRot = Quaternion.AngleAxis(angleLeft, axisY) * mobile2DMainCamera.transform.rotation;
+        targetRot = Quaternion.AngleAxis(angleLeft, axisY) * mobile2DMainCamera.transform.rotation;
         StartCoroutine(Wait());
 
 /*        if (count == -5 || count == 3) shadowHumanStandUp.enabled = true;

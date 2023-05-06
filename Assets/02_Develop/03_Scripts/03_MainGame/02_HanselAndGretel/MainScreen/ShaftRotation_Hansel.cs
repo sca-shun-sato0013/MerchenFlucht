@@ -47,6 +47,8 @@ public class ShaftRotation_Hansel : MonoBehaviour, IUpdateManager
 
     bool flag = true;
 
+    bool justOnce = true;
+
     bool rayCastON = false;
 
     Quaternion targetRot;
@@ -94,6 +96,22 @@ public class ShaftRotation_Hansel : MonoBehaviour, IUpdateManager
         else
         {
             rayCastON = targetRot == mobile2DMainCamera.transform.rotation;
+        }
+
+        if (!(mobile2DMainCamera.transform.position.x > -1f))
+        {
+            upArrow.SetActive(false);
+        }
+
+        if(mobile2DMainCamera.transform.position.y > 2f)
+        {
+            justOnce = true;
+            kitchenMoveButton.enabled = false;
+        }
+        else if(justOnce)
+        {
+            justOnce = false;
+            kitchenMoveButton.enabled = true;
         }
     }
 
@@ -204,11 +222,14 @@ public class ShaftRotation_Hansel : MonoBehaviour, IUpdateManager
 
     public void OnClickUp()
     {
+        
+
         chandelier.enabled = false;
         chandelier.enabled = true;
 
         downArrow.SetActive(true);
         upArrow.SetActive(false);
+
     }
 
     public void OnClickDown()
