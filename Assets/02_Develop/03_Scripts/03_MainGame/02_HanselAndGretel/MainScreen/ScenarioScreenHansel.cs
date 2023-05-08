@@ -160,135 +160,135 @@ public class ScenarioScreenHansel : MonoBehaviour, IUpdateManager
 
                     case ScenarioSceneHansel.introduction:
 
-                        scenariosManager.PlayScenario(5,22);
+                        scenariosManager.PlayScenario(5,21);
 
                         break;
 
                     case ScenarioSceneHansel.inspectFrontDoor:
 
-                        scenariosManager.PlayScenario(29,30);
+                        scenariosManager.PlayScenario(28,29);
 
                         break;
 
                     case ScenarioSceneHansel.shelfCipherAnswer:
 
-                        scenariosManager.PlayScenario(54,56);
+                        scenariosManager.PlayScenario(53,55);
 
                         break;
 
                     case ScenarioSceneHansel.examineTheDiary:
 
-                        scenariosManager.PlayScenario(62,91);
+                        scenariosManager.PlayScenario(61,90);
 
                         break;
 
                     case ScenarioSceneHansel.examineThePhoto:
 
-                        scenariosManager.PlayScenario(95,96);
+                        scenariosManager.PlayScenario(94,95);
 
                         break;
 
                     case ScenarioSceneHansel.examineShelf2:
 
-                    scenariosManager.PlayScenario(100,105);
+                    scenariosManager.PlayScenario(99,104);
 
                         break;
 
                     case ScenarioSceneHansel.grannykitchen:
 
-                        scenariosManager.PlayScenario(126,126);
+                        scenariosManager.PlayScenario(125,125);
 
                         break;
 
 
                     case ScenarioSceneHansel.checkBucket:
 
-                        scenariosManager.PlayScenario(111,113);
+                        scenariosManager.PlayScenario(110,112);
 
                         break;
 
     
                     case ScenarioSceneHansel.pokerGet:
 
-                        scenariosManager.PlayScenario(150,150);
+                        scenariosManager.PlayScenario(149,149);
 
                         break;
 
                     case ScenarioSceneHansel.waterKiln:
 
-                        scenariosManager.PlayScenario(156,156);
+                        scenariosManager.PlayScenario(155,155);
 
                         break;
 
                     case ScenarioSceneHansel.bucketGet:
 
-                        scenariosManager.PlayScenario(116,117);
+                        scenariosManager.PlayScenario(115,116);
 
                         break;
 
                     case ScenarioSceneHansel.bucketOfWater:
 
-                        scenariosManager.PlayScenario(159,159);
+                        scenariosManager.PlayScenario(158,158);
 
                         break;
 
                     case ScenarioSceneHansel.bonFire:
 
-                        scenariosManager.PlayScenario(165,166);
+                        scenariosManager.PlayScenario(164,165);
 
                         break;
 
                     case ScenarioSceneHansel.fireFighting:
 
-                        scenariosManager.PlayScenario(169,174);
+                        scenariosManager.PlayScenario(168,173);
 
                         break;
 
                     case ScenarioSceneHansel.grandMatherFurnace:
 
-                        scenariosManager.PlayScenario(186,192);
+                        scenariosManager.PlayScenario(185,191);
 
                         break;
 
                     case ScenarioSceneHansel.noMatch:
 
-                        scenariosManager.PlayScenario(198,200);
+                        scenariosManager.PlayScenario(197,199);
 
                        break;
 
                     case ScenarioSceneHansel.keyGet:
 
-                        scenariosManager.PlayScenario(210,211);
+                        scenariosManager.PlayScenario(209,210);
 
                         break;
 
                      case ScenarioSceneHansel.happyEnd:
 
-                        scenariosManager.PlayScenario(241, 253);
+                        scenariosManager.PlayScenario(240, 252);
                         
                         break;
 
                     case ScenarioSceneHansel.matchGet:
 
-                        scenariosManager.PlayScenario(133,135);
+                        scenariosManager.PlayScenario(132,134);
 
                         break;
 
                     case ScenarioSceneHansel.haveAMatch:
 
-                        scenariosManager.PlayScenario(203,206);
+                        scenariosManager.PlayScenario(202,205);
 
                         break;
 
                     case ScenarioSceneHansel.trueEnd:
 
-                        scenariosManager.PlayScenario(258,281);
+                        scenariosManager.PlayScenario(257,280);
 
                         break;
 
                     case ScenarioSceneHansel.badEnd:
 
-                        scenariosManager.PlayScenario(290,311);
+                        scenariosManager.PlayScenario(289,310);
 
                         break;
                 }
