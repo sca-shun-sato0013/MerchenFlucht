@@ -1273,7 +1273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6734710341306632623, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6734710342027933524, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_Camera
@@ -1302,7 +1302,7 @@ PrefabInstance:
     - target: {fileID: 6734710342027933528, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a31275ae3b11c5944b5e819999459eff, type: 3}
+      objectReference: {fileID: 21300000, guid: 9c5529ac1cc94cc49b120c281ddc2d34, type: 3}
     - target: {fileID: 6734710342027933528, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1313,11 +1313,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6734710342290569989, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6734710342331204137, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6734710342648883725, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: switchFadeType
