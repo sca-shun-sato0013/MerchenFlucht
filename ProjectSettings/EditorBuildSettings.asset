@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/02_Develop/02_Scenes/03_MainGame/01_LittleRedRidingHood/LittleRedRidingHood.unity
     guid: b665ecc0c476bc24ea90ca0bbed821ae
   - enabled: 1
-    path: Assets/02_Develop/02_Scenes/03_MainGame/02_HanselAndGretel/HanselAndGretel.unity
+    path: Assets/02_Develop/02_Scenes/03_MainGame/01_LittleRedRidingHood/LittleRedRidingHood.unity
     guid: 6d3f3fd2656aafe4584a17b7ae577a37
   - enabled: 1
     path: Assets/02_Develop/02_Scenes/03_MainGame/03_PeterPan/PeterPan.unity
