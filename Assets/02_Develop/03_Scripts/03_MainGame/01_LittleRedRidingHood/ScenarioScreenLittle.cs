@@ -10,47 +10,11 @@ public enum ScenarioSceneLittle
 {
     introduction,
 
-    inspectFrontDoor,
+    frontDoor,
 
-    shelfCipherAnswer,
+    window,
 
-    examineTheDiary,
-
-    examineThePhoto,
-
-    examineShelf2,
-
-    checkBucket,
-
-    pokerGet,
-
-    grannykitchen,
-    //êÖóq
-    waterKiln,
-
-    bucketGet,
-
-    bucketOfWater,
-
-    bonFire,
-
-    fireFighting,
-
-    grandMatherFurnace,
-
-    noMatch,
-
-    keyGet,
-
-    happyEnd,
-
-    matchGet,
-
-    haveAMatch,
-
-    trueEnd,
-
-    badEnd,
+    basket,
 }
 public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
 {
@@ -161,6 +125,24 @@ public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
                 case ScenarioSceneLittle.introduction:
 
                     scenariosManager.PlayScenario(5,15);
+
+                    break;
+
+                case ScenarioSceneLittle.frontDoor:
+
+                    scenariosManager.PlayScenario(22,23);
+
+                    break;
+
+                case ScenarioSceneLittle.window:
+
+                    scenariosManager.PlayScenario(27,27);
+
+                    break;
+
+                case ScenarioSceneLittle.basket:
+
+                    scenariosManager.PlayScenario(31,31);
 
                     break;
             }
