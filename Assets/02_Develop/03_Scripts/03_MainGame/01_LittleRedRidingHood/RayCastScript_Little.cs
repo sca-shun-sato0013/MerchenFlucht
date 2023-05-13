@@ -23,6 +23,9 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
     [SerializeField]
     ScenarioScreenLittle little;
 
+    [SerializeField,Header("BoxColider")]
+    BoxCollider frontDoor_BoxCol;
+
     [SerializeField]
     Image item3, item4, item5, item6;
 
@@ -59,45 +62,64 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
                 {
                     if (hit.collider.gameObject.name == "FrontDoor")
                     {
-                        if (item6.sprite.name == "絵本に挟まってる鍵(Clone)")
-                        {
-                            if (item5.sprite.name == "マッチ(Clone)")
-                            {
-                                fade.FadeIn(2f);
+                        ScenarioLoad(ScenarioSceneLittle.frontDoor);
 
-                                scenarioState.trueEndHansel = true;
-                                scenarioState.scenarioSceneHansel = ScenarioSceneHansel.trueEnd;
-                                ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                                StartCoroutine(Change_MainScreen());
-                            }
-                            else
-                            {
-                                fade.FadeIn(2f);
+                        /*                        if (item6.sprite.name == "絵本に挟まってる鍵(Clone)")
+                                                {
+                                                    if (item5.sprite.name == "マッチ(Clone)")
+                                                    {
+                                                        fade.FadeIn(2f);
 
-                                //imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ1.png");
-                                scenarioState.happyEndHansel = true;
-                                scenarioState.scenarioSceneHansel = ScenarioSceneHansel.happyEnd;
-                                ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                                StartCoroutine(Change_MainScreen());
+                                                        scenarioState.trueEndHansel = true;
+                                                        scenarioState.scenarioSceneHansel = ScenarioSceneHansel.trueEnd;
+                                                        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
+                                                        StartCoroutine(Change_MainScreen());
+                                                    }
+                                                    else
+                                                    {
+                                                        fade.FadeIn(2f);
 
-                            }
-                        }
-                        else
-                        {
-                            fade.FadeIn(2f);
+                                                        //imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ1.png");
+                                                        scenarioState.happyEndHansel = true;
+                                                        scenarioState.scenarioSceneHansel = ScenarioSceneHansel.happyEnd;
+                                                        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
+                                                        StartCoroutine(Change_MainScreen());
 
-                            //imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ1.png")
-                            scenarioState.scenarioSceneHansel = ScenarioSceneHansel.inspectFrontDoor;
-                            ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                            StartCoroutine(Change_MainScreen());
-                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    fade.FadeIn(2f);
 
+                                                    //imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ1.png")
+                                                    scenarioState.scenarioSceneHansel = ScenarioSceneHansel.inspectFrontDoor;
+                                                    ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
+                                                    StartCoroutine(Change_MainScreen());
+                                                }
+                                                */
                     }
+
+                    if(hit.collider.CompareTag("Window"))
+                    {
+                        ScenarioLoad(ScenarioSceneLittle.window);
+                    }
+
+                    if (hit.collider.gameObject.name == "basket")
+                    {
+                        ScenarioLoad(ScenarioSceneLittle.basket);
+                    } 
                 }
             }
         }
     }
 
+    private void ScenarioLoad(ScenarioSceneLittle scene)
+    {
+        fade.FadeIn(1f);
+        scenarioState.scenarioSceneLittle = scene;
+        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
+        StartCoroutine(Change_MainScreen());
+    }
 
     public void Scenario(ScenarioSceneHansel scenario)
     {

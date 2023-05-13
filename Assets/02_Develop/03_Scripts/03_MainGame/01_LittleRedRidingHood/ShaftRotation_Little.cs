@@ -24,6 +24,9 @@ public class ShaftRotation_Little : MonoBehaviour, IUpdateManager
     [SerializeField]
     GameObject mainCamera;
 
+    [SerializeField,Header("BoxColider")]
+    BoxCollider frontDoor_BoxCol;
+
     int count = 0;
 
     bool flag = true;
@@ -68,6 +71,14 @@ public class ShaftRotation_Little : MonoBehaviour, IUpdateManager
             rayCastON = targetRot == mobile2DMainCamera.transform.rotation;
         }
 
+        if(count == 0)
+        {
+            frontDoor_BoxCol.enabled = true;
+        }
+        else
+        {
+            frontDoor_BoxCol.enabled = false;
+        }
     }
 
     public void OnClickLeft()
