@@ -15,6 +15,12 @@ public enum ScenarioSceneLittle
     window,
 
     basket,
+
+    kichenShelf,
+
+    pot,
+
+    grandMatherDiary,
 }
 public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
 {
@@ -143,6 +149,24 @@ public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
                 case ScenarioSceneLittle.basket:
 
                     scenariosManager.PlayScenario(31,31);
+
+                    break;
+
+                case ScenarioSceneLittle.kichenShelf:
+
+                    scenariosManager.PlayScenario(39,39);
+
+                    break;
+
+                case ScenarioSceneLittle.pot:
+
+                    scenariosManager.PlayScenario(43,43);
+
+                    break;
+
+                case ScenarioSceneLittle.grandMatherDiary:
+
+                    scenariosManager.PlayScenario(62,62);
 
                     break;
             }
