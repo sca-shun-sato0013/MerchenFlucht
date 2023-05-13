@@ -18,10 +18,13 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
     Fade fade;
     [SerializeField]
     FadeImage fadeImage;
-    [SerializeField]
-    GameObject scenarioScreen;
+    [SerializeField,Header("ÉXÉNÉäÅ[Éìån")]
+    GameObject scenarioScreen,cabinetScreen;
     [SerializeField]
     ScenarioScreenLittle little;
+
+    [SerializeField]
+    PlayableDirector cabinet_Open;
 
     [SerializeField,Header("BoxColider")]
     BoxCollider frontDoor_BoxCol;
@@ -107,7 +110,24 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
                     if (hit.collider.gameObject.name == "basket")
                     {
                         ScenarioLoad(ScenarioSceneLittle.basket);
-                    } 
+                    }
+
+                    if (hit.collider.gameObject.name == "KichenShelf")
+                    {
+                        ScenarioLoad(ScenarioSceneLittle.kichenShelf);
+                    }
+
+                    if (hit.collider.gameObject.name == "pot")
+                    {
+                        ScenarioLoad(ScenarioSceneLittle.pot);
+                    }
+
+                    if (hit.collider.gameObject.name == "Cabinet")
+                    {
+                        cabinetScreen.SetActive(true);
+                        cabinet_Open.enabled = false;
+                        cabinet_Open.enabled = true;
+                    }
                 }
             }
         }
@@ -119,6 +139,14 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
         scenarioState.scenarioSceneLittle = scene;
         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
         StartCoroutine(Change_MainScreen());
+    }
+
+    public void ScenarioLoad_ItemGet(ScenarioSceneLittle scene,Image getItem,string str)
+    {
+        fade.FadeIn(1f);
+        scenarioState.scenarioSceneLittle = scene;
+        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
+        StartCoroutine(Change_MainScreen(getItem,str));
     }
 
     public void Scenario(ScenarioSceneHansel scenario)
