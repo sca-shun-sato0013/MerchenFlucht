@@ -21,6 +21,12 @@ public enum ScenarioSceneLittle
     pot,
 
     grandMatherDiary,
+
+    grandMatherDiary_Loading,
+
+    familyPhptoGet,
+
+    familyPhpto_Load,
 }
 public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
 {
@@ -167,6 +173,24 @@ public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
                 case ScenarioSceneLittle.grandMatherDiary:
 
                     scenariosManager.PlayScenario(62,62);
+
+                    break;
+
+                case ScenarioSceneLittle.grandMatherDiary_Loading:
+
+                    scenariosManager.PlayScenario(69,81);
+
+                    break;
+
+                case ScenarioSceneLittle.familyPhptoGet:
+
+                    scenariosManager.PlayScenario(102,105);
+
+                    break;
+
+                case ScenarioSceneLittle.familyPhpto_Load:
+
+                    scenariosManager.PlayScenario(109,110);
 
                     break;
             }
