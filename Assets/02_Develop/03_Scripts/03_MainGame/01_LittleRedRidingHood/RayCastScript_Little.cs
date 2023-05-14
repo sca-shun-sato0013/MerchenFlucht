@@ -24,18 +24,20 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
     ScenarioScreenLittle little;
 
     [SerializeField]
-    PlayableDirector cabinet_Open;
+    PlayableDirector cabinet_Open,carpetMove,carpetReMove;
 
     [SerializeField,Header("BoxColider")]
     BoxCollider frontDoor_BoxCol;
 
     [SerializeField]
-    Image item3, item4, item5, item6;
+    Image item1,item3, item4, item5, item6;
 
     [SerializeField]
     ShaftRotation_Little check;
 
     ScenarioState scenarioState;
+
+    int count = 1;
 
     void Start()
     {
@@ -58,11 +60,12 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
                 Ray ray = Camera.main.ScreenPointToRay(touch.position); // Rayを生成
 
-
+                
                 RaycastHit hit;
 
                 if (Physics.Raycast(ray, out hit)) // Rayを投射
                 {
+
                     if (hit.collider.gameObject.name == "FrontDoor")
                     {
                         ScenarioLoad(ScenarioSceneLittle.frontDoor);
@@ -114,7 +117,7 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
                     if (hit.collider.gameObject.name == "KichenShelf")
                     {
-                        ScenarioLoad(ScenarioSceneLittle.kichenShelf);
+                        ScenarioLoad_ItemGet(ScenarioSceneLittle.kichenShelf, item1, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/エンドロール１.png");
                     }
 
                     if (hit.collider.gameObject.name == "pot")
@@ -128,12 +131,36 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
                         cabinet_Open.enabled = false;
                         cabinet_Open.enabled = true;
                     }
+
+                    if(hit.collider.gameObject.name == "FamilyPhoto")
+                    {
+                        ScenarioLoad_ItemGet(ScenarioSceneLittle.familyPhptoGet,item4, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/家族写真表.png");
+                    }
+
+                    if (hit.collider.gameObject.name == "Carpet")
+                    {
+                        count++;
+
+                        if(count % 2 == 0)
+                        {
+                            fade.FadeIn(1f);
+
+                            StartCoroutine(CarpetMove(carpetMove));
+                        }
+                        else
+                        {
+                            fade.FadeIn(1f);
+
+                            StartCoroutine(CarpetMove(carpetReMove));
+                        }                    
+                    }
                 }
             }
         }
     }
 
-    private void ScenarioLoad(ScenarioSceneLittle scene)
+
+    public void ScenarioLoad(ScenarioSceneLittle scene)
     {
         fade.FadeIn(1f);
         scenarioState.scenarioSceneLittle = scene;
@@ -149,15 +176,6 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
         StartCoroutine(Change_MainScreen(getItem,str));
     }
 
-    public void Scenario(ScenarioSceneHansel scenario)
-    {
-        fade.FadeIn(2f);
-
-        scenarioState.scenarioSceneHansel = scenario;
-        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-        StartCoroutine(Change_MainScreen());
-    }
-
     public void ScenarioItemGet(ScenarioSceneHansel scenario, Image img, string str)
     {
         fade.FadeIn(2f);
@@ -167,6 +185,15 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
         StartCoroutine(Change_MainScreen(img, str));
     }
 
+    private IEnumerator CarpetMove(PlayableDirector p)
+    {
+        yield return new WaitUntil(() => fadeImage.CutoutRange == 1f);
+
+        p.enabled = false;
+        p.enabled = true;
+
+        fade.FadeOut(1f);
+    }
     private IEnumerator Change_MainScreen()
     {
         yield return new WaitUntil(() => fadeImage.CutoutRange == 1f);

@@ -14,7 +14,7 @@ public class ItemBox_Little : MonoBehaviour, IUpdateManager
     GameObject scenarioScreen;
 
     [SerializeField]
-    Image item1, item2;
+    Image item1, item2,item4;
 
     [SerializeField]
     Fade fade;
@@ -25,19 +25,37 @@ public class ItemBox_Little : MonoBehaviour, IUpdateManager
     [SerializeField]
     ScenarioScreenLittle little;
 
+    [SerializeField]
+    PlayableDirector diaryLoading_Open;
 
-    ScenarioState scenarioState;
+    [SerializeField]
+    RayCastScript_Little rayCastScript_Little;
 
     void Start()
     {
         UpdateManager.Instance.Bind(this, FrameControl.ON);
-
-        scenarioState = new ScenarioState();
     }
 
     public void OnUpdate(double deltaTime)
     {
         if (!this.gameObject.activeInHierarchy) return;
 
+    }
+
+    public void GrandMatherDiaryLoading()
+    {
+        if(item2.sprite.name == "ê‘Ç∏Ç´ÇÒì˙ãL(ï¬)(Clone)")
+        {
+            diaryLoading_Open.enabled = false;
+            diaryLoading_Open.enabled = true;
+        }
+    }
+
+    public void FamilyPhotoLoading()
+    {
+        if(item4.sprite.name == "â∆ë∞é ê^ï\(Clone)")
+        {
+            rayCastScript_Little.ScenarioLoad(ScenarioSceneLittle.familyPhpto_Load);
+        }
     }
 }

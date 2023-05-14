@@ -18,8 +18,8 @@ public class CabinetScreen : MonoBehaviour,IUpdateManager
     [SerializeField]
     RayCastScript_Little rayCastScript_Little;
 
-    [SerializeField,Header("Item1")]
-    Image item1;
+    [SerializeField,Header("Item2")]
+    Image item2;
 
     [SerializeField]
     Text[] texts;
@@ -72,7 +72,7 @@ public class CabinetScreen : MonoBehaviour,IUpdateManager
 
         if (str == "THREE")
         {
-            rayCastScript_Little.ScenarioLoad_ItemGet(ScenarioSceneLittle.grandMatherDiary,item1, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/Ô‚¸‚«‚ñ“ú‹L(•Â).png");
+            rayCastScript_Little.ScenarioLoad_ItemGet(ScenarioSceneLittle.grandMatherDiary,item2, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/Ô‚¸‚«‚ñ“ú‹L(•Â).png");
         }
 
         yield return new WaitForSeconds(1.5f);
