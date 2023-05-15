@@ -27,6 +27,8 @@ public enum ScenarioSceneLittle
     familyPhptoGet,
 
     familyPhpto_Load,
+
+    underFloorStorage_Sucess,
 }
 public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
 {
@@ -191,6 +193,12 @@ public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
                 case ScenarioSceneLittle.familyPhpto_Load:
 
                     scenariosManager.PlayScenario(109,110);
+
+                    break;
+
+                case ScenarioSceneLittle.underFloorStorage_Sucess:
+
+                    scenariosManager.PlayScenario(122,126);
 
                     break;
             }

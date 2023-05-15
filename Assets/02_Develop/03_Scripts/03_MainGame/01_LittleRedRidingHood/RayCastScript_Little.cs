@@ -24,7 +24,7 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
     ScenarioScreenLittle little;
 
     [SerializeField]
-    PlayableDirector cabinet_Open,carpetMove,carpetReMove;
+    PlayableDirector cabinet_Open,carpetMove,carpetReMove,underFloorStorageScreen_Open;
 
     [SerializeField,Header("BoxColider")]
     BoxCollider frontDoor_BoxCol;
@@ -153,6 +153,12 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
                             StartCoroutine(CarpetMove(carpetReMove));
                         }                    
+                    }
+
+                    if(hit.collider.gameObject.name == "UnderFloorStorage")
+                    {
+                        underFloorStorageScreen_Open.enabled = false;
+                        underFloorStorageScreen_Open.enabled = true;
                     }
                 }
             }
