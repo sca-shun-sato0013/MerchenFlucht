@@ -20,11 +20,12 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
     FadeImage fadeImage;
     [SerializeField,Header("スクリーン系")]
     GameObject scenarioScreen,cabinetScreen;
+
     [SerializeField]
     ScenarioScreenLittle little;
 
     [SerializeField]
-    PlayableDirector cabinet_Open,carpetMove,carpetReMove,underFloorStorageScreen_Open;
+    PlayableDirector cabinet_Open,carpetMove,carpetReMove,underFloorStorageScreen_Open,woodenBoxScreen_Open;
 
     [SerializeField,Header("BoxColider")]
     BoxCollider frontDoor_BoxCol;
@@ -105,39 +106,44 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
                                                 */
                     }
 
-                    if(hit.collider.CompareTag("Window"))
+                    else if (hit.collider.gameObject.name == "Wolf")
+                    {
+                        ScenarioLoad(ScenarioSceneLittle.wolf_Normal);
+                    }
+
+                    else if(hit.collider.CompareTag("Window"))
                     {
                         ScenarioLoad(ScenarioSceneLittle.window);
                     }
 
-                    if (hit.collider.gameObject.name == "basket")
+                    else if (hit.collider.gameObject.name == "basket")
                     {
                         ScenarioLoad(ScenarioSceneLittle.basket);
                     }
 
-                    if (hit.collider.gameObject.name == "KichenShelf")
+                    else if (hit.collider.gameObject.name == "KichenShelf")
                     {
                         ScenarioLoad_ItemGet(ScenarioSceneLittle.kichenShelf, item1, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/エンドロール１.png");
                     }
 
-                    if (hit.collider.gameObject.name == "pot")
+                    else if (hit.collider.gameObject.name == "pot")
                     {
                         ScenarioLoad(ScenarioSceneLittle.pot);
                     }
 
-                    if (hit.collider.gameObject.name == "Cabinet")
+                    else if (hit.collider.gameObject.name == "Cabinet")
                     {
                         cabinetScreen.SetActive(true);
                         cabinet_Open.enabled = false;
                         cabinet_Open.enabled = true;
                     }
 
-                    if(hit.collider.gameObject.name == "FamilyPhoto")
+                    else if(hit.collider.gameObject.name == "FamilyPhoto")
                     {
                         ScenarioLoad_ItemGet(ScenarioSceneLittle.familyPhptoGet,item4, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/家族写真表.png");
                     }
 
-                    if (hit.collider.gameObject.name == "Carpet")
+                    else if (hit.collider.gameObject.name == "Carpet")
                     {
                         count++;
 
@@ -155,10 +161,16 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
                         }                    
                     }
 
-                    if(hit.collider.gameObject.name == "UnderFloorStorage")
+                    else if(hit.collider.gameObject.name == "UnderFloorStorage")
                     {
                         underFloorStorageScreen_Open.enabled = false;
                         underFloorStorageScreen_Open.enabled = true;
+                    }
+
+                    else if(hit.collider.gameObject.name == "WoodenBox")
+                    {
+                        woodenBoxScreen_Open.enabled = false;
+                        woodenBoxScreen_Open.enabled = true;
                     }
                 }
             }
@@ -174,21 +186,20 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
         StartCoroutine(Change_MainScreen());
     }
 
+    public void ScenarioLoad_ObjectActiv(ScenarioSceneLittle scene,GameObject obj)
+    {
+        fade.FadeIn(1f);
+        scenarioState.scenarioSceneLittle = scene;
+        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
+        StartCoroutine(Change_MainScreen(obj));
+    }
+
     public void ScenarioLoad_ItemGet(ScenarioSceneLittle scene,Image getItem,string str)
     {
         fade.FadeIn(1f);
         scenarioState.scenarioSceneLittle = scene;
         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
         StartCoroutine(Change_MainScreen(getItem,str));
-    }
-
-    public void ScenarioItemGet(ScenarioSceneHansel scenario, Image img, string str)
-    {
-        fade.FadeIn(2f);
-
-        scenarioState.scenarioSceneHansel = scenario;
-        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-        StartCoroutine(Change_MainScreen(img, str));
     }
 
     private IEnumerator CarpetMove(PlayableDirector p)

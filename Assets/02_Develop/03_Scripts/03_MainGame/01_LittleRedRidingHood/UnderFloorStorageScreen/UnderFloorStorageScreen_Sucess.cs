@@ -13,6 +13,9 @@ public class UnderFloorStorageScreen_Sucess : MonoBehaviour,IUpdateManager
     RayCastScript_Little rayCastScript_Little;
 
     [SerializeField]
+    GameObject woodenBox;
+
+    [SerializeField]
     Text numberCount1,numberCount2,numberCount3,numberCount4;
 
     bool flag = true;
@@ -35,7 +38,7 @@ public class UnderFloorStorageScreen_Sucess : MonoBehaviour,IUpdateManager
         {
             flag = false;
 
-            rayCastScript_Little.ScenarioLoad(ScenarioSceneLittle.underFloorStorage_Sucess);
+            rayCastScript_Little.ScenarioLoad_ObjectActiv(ScenarioSceneLittle.underFloorStorage_Sucess,woodenBox);
         }
     }
 

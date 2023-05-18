@@ -6,7 +6,7 @@ using CommonlyUsed;
 using DesignPattern;
 using NJsonLoader;
 
-public class reset : MonoBehaviour
+public class ResetSaveData : MonoBehaviour
 {
 
     ScenarioState scenarioState;
@@ -14,19 +14,11 @@ public class reset : MonoBehaviour
     void Start()
     {
         scenarioState = new ScenarioState();
-    }
-
-    /*    public void OnUpdate(double deltaTime)
-        {
-            if (!this.gameObject.activeInHierarchy) return;
-
-        }
-    */
-    public void OnClick()
-    {
         scenarioState.scenarioScenePeter = ScenarioScenePeter.introduction;
+        scenarioState.scenarioSceneHansel = ScenarioSceneHansel.introduction;
+        scenarioState.scenarioSceneLittle = ScenarioSceneLittle.introduction;
+
         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-        Debug.Log("êMÇ∂ÇÈ");
     }
 }
     

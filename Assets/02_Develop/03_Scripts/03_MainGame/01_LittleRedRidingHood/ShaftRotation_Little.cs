@@ -25,7 +25,7 @@ public class ShaftRotation_Little : MonoBehaviour, IUpdateManager
     GameObject mainCamera;
 
     [SerializeField,Header("BoxColider")]
-    BoxCollider frontDoor_BoxCol;
+    BoxCollider frontDoor_BoxCol,wolf_BoxCol;
 
     int count = 0;
 
@@ -78,6 +78,15 @@ public class ShaftRotation_Little : MonoBehaviour, IUpdateManager
         else
         {
             frontDoor_BoxCol.enabled = false;
+        }
+
+        if(count == -2 || count == 2)
+        {
+            wolf_BoxCol.enabled = true;
+        }
+        else
+        {
+            wolf_BoxCol.enabled = false;
         }
     }
 
