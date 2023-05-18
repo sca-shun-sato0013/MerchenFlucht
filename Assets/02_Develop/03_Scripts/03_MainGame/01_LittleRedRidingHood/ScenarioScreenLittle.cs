@@ -29,6 +29,10 @@ public enum ScenarioSceneLittle
     familyPhpto_Load,
 
     underFloorStorage_Sucess,
+
+    woodenBoxScreen_Sucess,
+
+    wolf_Normal,
 }
 public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
 {
@@ -199,6 +203,18 @@ public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
                 case ScenarioSceneLittle.underFloorStorage_Sucess:
 
                     scenariosManager.PlayScenario(122,126);
+
+                    break;
+                
+                case ScenarioSceneLittle.woodenBoxScreen_Sucess:
+
+                    scenariosManager.PlayScenario(136,138);
+
+                    break;
+
+                case ScenarioSceneLittle.wolf_Normal:
+
+                    scenariosManager.PlayScenario(145,146);
 
                     break;
             }
