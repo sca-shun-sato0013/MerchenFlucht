@@ -29,8 +29,7 @@ public class WoodenBoxScreen_Sucess : MonoBehaviour,IUpdateManager
     {
         if (!this.gameObject.activeInHierarchy) return;
 
-        Debug.Log(flag);
-
+     
         if(!(design1.enabled == true)) return;
         if (!(design2.enabled == true)) return;
         if (!(design3.enabled == true)) return;

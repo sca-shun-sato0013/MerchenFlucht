@@ -6,16 +6,15 @@ using CommonlyUsed;
 using DesignPattern;
 using UnityEngine.UI;
 
-public class YesButton : MonoBehaviour,IUpdateManager
+public class GlassBottle_Click : MonoBehaviour, IUpdateManager
 {
     [SerializeField]
     RayCastScript_Little rayCastScript_Little;
 
-    bool diaryLoadCheck = false;
-
-    public bool DiaryLoadCheck => diaryLoadCheck;
-
-    void Start() 
+    [SerializeField]
+    Image item3;
+    
+    void Start()
     {
         UpdateManager.Instance.Bind(this, FrameControl.ON);
     }
@@ -27,8 +26,8 @@ public class YesButton : MonoBehaviour,IUpdateManager
 
     public void OnClick()
     {
-        diaryLoadCheck = true;
-        rayCastScript_Little.ScenarioLoad(ScenarioSceneLittle.grandMatherDiary_Loading);
+       Debug.Log("toote");
+       rayCastScript_Little.ScenarioLoad_ItemGet(ScenarioSceneLittle.sleepingPills_Get,item3,"Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/–ò•r.png");   
     }
 }
     

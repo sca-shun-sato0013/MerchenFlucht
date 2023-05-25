@@ -33,6 +33,10 @@ public enum ScenarioSceneLittle
     woodenBoxScreen_Sucess,
 
     wolf_Normal,
+
+    sleepingPills_Get,
+
+    lockdKey_shelf,
 }
 public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
 {
@@ -215,6 +219,18 @@ public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
                 case ScenarioSceneLittle.wolf_Normal:
 
                     scenariosManager.PlayScenario(145,146);
+
+                    break;
+
+                case ScenarioSceneLittle.sleepingPills_Get:
+
+                    scenariosManager.PlayScenario(98,98);
+
+                    break;
+
+                case ScenarioSceneLittle.lockdKey_shelf:
+
+                    scenariosManager.PlayScenario(87,87);
 
                     break;
             }

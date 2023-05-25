@@ -4,16 +4,13 @@ using UnityEngine;
 using GameManager;
 using CommonlyUsed;
 using DesignPattern;
-using UnityEngine.UI;
+using UnityEngine.Playables;
 
-public class YesButton : MonoBehaviour,IUpdateManager
+public class MedicineBoxScreen_ReturnButton : MonoBehaviour,IUpdateManager
 {
+    
     [SerializeField]
-    RayCastScript_Little rayCastScript_Little;
-
-    bool diaryLoadCheck = false;
-
-    public bool DiaryLoadCheck => diaryLoadCheck;
+    PlayableDirector medicineBoxScreen_Close;
 
     void Start() 
     {
@@ -25,10 +22,10 @@ public class YesButton : MonoBehaviour,IUpdateManager
         if (!this.gameObject.activeInHierarchy) return;
     }
 
-    public void OnClick()
+    public void OnClick_ReturnButton()
     {
-        diaryLoadCheck = true;
-        rayCastScript_Little.ScenarioLoad(ScenarioSceneLittle.grandMatherDiary_Loading);
+        medicineBoxScreen_Close.enabled = false;
+        medicineBoxScreen_Close.enabled = true;
     }
 }
     
