@@ -42,6 +42,8 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
     int count = 1;
 
+    int basketCount = 0;
+
     bool diaryLoadCheck = false;
 
     void Start()
@@ -78,6 +80,13 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
                     else if (hit.collider.gameObject.name == "Wolf")
                     {
+                        if(item5.sprite.name == "エンドロール３")
+                        {
+                            if(item6.sprite.name == "オオカミ_立ち絵(Clone)")
+                            {
+
+                            }
+                        }
                         ScenarioLoad(ScenarioSceneLittle.wolf_Normal);
                     }
 
@@ -88,7 +97,16 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
                     else if (hit.collider.gameObject.name == "basket")
                     {
-                        ScenarioLoad(ScenarioSceneLittle.basket);
+                        basketCount++;
+
+                        if(basketCount > 2)
+                        {
+                            ScenarioLoad_ItemGet(ScenarioSceneLittle.kitchenKnife,item6, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/オオカミ_立ち絵.png");
+                        }
+                        else
+                        {
+                            ScenarioLoad(ScenarioSceneLittle.basket);
+                        }
                     }
 
                     else if (hit.collider.gameObject.name == "KichenShelf")
@@ -98,7 +116,14 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
                     else if (hit.collider.gameObject.name == "pot")
                     {
-                        ScenarioLoad(ScenarioSceneLittle.pot);
+                        if(item1.sprite.name == "エンドロール１(Clone)" && item3.sprite.name == "薬瓶(Clone)")
+                        {
+                           ScenarioLoad_ItemGet(ScenarioSceneLittle.sleepingPillsTea,item5, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/エンドロール３.png");
+                        }
+                        else
+                        {
+                            ScenarioLoad(ScenarioSceneLittle.pot);
+                        }
                     }
 
                     else if (hit.collider.gameObject.name == "Cabinet")

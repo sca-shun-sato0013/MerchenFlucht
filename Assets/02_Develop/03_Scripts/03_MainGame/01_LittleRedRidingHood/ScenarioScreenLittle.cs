@@ -37,6 +37,10 @@ public enum ScenarioSceneLittle
     sleepingPills_Get,
 
     lockdKey_shelf,
+
+    sleepingPillsTea,
+
+    kitchenKnife,
 }
 public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
 {
@@ -231,6 +235,18 @@ public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
                 case ScenarioSceneLittle.lockdKey_shelf:
 
                     scenariosManager.PlayScenario(87,87);
+
+                    break;
+
+                case ScenarioSceneLittle.sleepingPillsTea:
+
+                    scenariosManager.PlayScenario(46,48);
+
+                    break;
+
+                case ScenarioSceneLittle.kitchenKnife:
+
+                    scenariosManager.PlayScenario(33,34);
 
                     break;
             }
