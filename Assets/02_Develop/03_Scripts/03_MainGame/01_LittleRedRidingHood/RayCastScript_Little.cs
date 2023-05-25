@@ -25,7 +25,7 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
     ScenarioScreenLittle little;
 
     [SerializeField]
-    PlayableDirector cabinet_Open,carpetMove,carpetReMove,underFloorStorageScreen_Open,woodenBoxScreen_Open;
+    PlayableDirector cabinet_Open,carpetMove,carpetReMove,underFloorStorageScreen_Open,woodenBoxScreen_Open,medicineBoxScrenn_Open;
 
     [SerializeField,Header("BoxColider")]
     BoxCollider frontDoor_BoxCol;
@@ -35,10 +35,14 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
     [SerializeField]
     ShaftRotation_Little check;
+    [SerializeField]
+    YesButton yesButton;
 
     ScenarioState scenarioState;
 
     int count = 1;
+
+    bool diaryLoadCheck = false;
 
     void Start()
     {
@@ -70,40 +74,6 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
                     if (hit.collider.gameObject.name == "FrontDoor")
                     {
                         ScenarioLoad(ScenarioSceneLittle.frontDoor);
-
-                        /*                        if (item6.sprite.name == "絵本に挟まってる鍵(Clone)")
-                                                {
-                                                    if (item5.sprite.name == "マッチ(Clone)")
-                                                    {
-                                                        fade.FadeIn(2f);
-
-                                                        scenarioState.trueEndHansel = true;
-                                                        scenarioState.scenarioSceneHansel = ScenarioSceneHansel.trueEnd;
-                                                        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                                                        StartCoroutine(Change_MainScreen());
-                                                    }
-                                                    else
-                                                    {
-                                                        fade.FadeIn(2f);
-
-                                                        //imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ1.png");
-                                                        scenarioState.happyEndHansel = true;
-                                                        scenarioState.scenarioSceneHansel = ScenarioSceneHansel.happyEnd;
-                                                        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                                                        StartCoroutine(Change_MainScreen());
-
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    fade.FadeIn(2f);
-
-                                                    //imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ1.png")
-                                                    scenarioState.scenarioSceneHansel = ScenarioSceneHansel.inspectFrontDoor;
-                                                    ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                                                    StartCoroutine(Change_MainScreen());
-                                                }
-                                                */
                     }
 
                     else if (hit.collider.gameObject.name == "Wolf")
@@ -171,6 +141,19 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
                     {
                         woodenBoxScreen_Open.enabled = false;
                         woodenBoxScreen_Open.enabled = true;
+                    }
+
+                    else if (hit.collider.gameObject.name == "medicineBox")
+                    {
+                        if(yesButton.DiaryLoadCheck)
+                        {
+                            medicineBoxScrenn_Open.enabled = false;
+                            medicineBoxScrenn_Open.enabled = true;
+                        }
+                        else
+                        {
+                            ScenarioLoad(ScenarioSceneLittle.lockdKey_shelf);
+                        }
                     }
                 }
             }
