@@ -1949,7 +1949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6c2c20d80b09f479fc7c54f0844361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 6000
+  timeLimit: 600
   timerText: {fileID: 853988959}
   timerFlag: 0
 --- !u!114 &194396312
@@ -2761,7 +2761,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9dd4a62a14e80af45807458c9391d7ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27dfaaa37709d044ca77b9f79dcee187, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3216,7 +3216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: a729673fe115f2145bd43c067ee1c138, type: 2}
+  m_Material: {fileID: 2100000, guid: 18b46dd3348602341ab0cd894fb3cbea, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3299,7 +3299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 156815a9060af2246a48157a2febed3d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c67065585ae71a429179429990d28d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4603,7 +4603,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: T
+  m_Text: 
 --- !u!222 &434943032
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6183,7 +6183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8986d619b3c002846923eaa3cd7f372a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6e791a4bcd959ea42bde0f401db21033, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6823,7 +6823,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: r
+  m_Text: 
 --- !u!222 &612191919
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7098,7 +7098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6734710342648883725, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: switchFadeType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6734710342648883761, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_Enabled
@@ -8552,7 +8552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: a729673fe115f2145bd43c067ee1c138, type: 2}
+  m_Material: {fileID: 2100000, guid: 18b46dd3348602341ab0cd894fb3cbea, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -9035,7 +9035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7146521406498821007, guid: 77db5e63f63b6a947a99e7cd473dce6a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7146521406498821007, guid: 77db5e63f63b6a947a99e7cd473dce6a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9649,7 +9649,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: e
+  m_Text: 
 --- !u!222 &856340640
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9928,7 +9928,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8986d619b3c002846923eaa3cd7f372a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6e791a4bcd959ea42bde0f401db21033, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10591,7 +10591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: a729673fe115f2145bd43c067ee1c138, type: 2}
+  m_Material: {fileID: 2100000, guid: 18b46dd3348602341ab0cd894fb3cbea, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -11496,7 +11496,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: e
+  m_Text: 
 --- !u!222 &1015784204
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12028,7 +12028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 156815a9060af2246a48157a2febed3d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c67065585ae71a429179429990d28d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12178,7 +12178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9dd4a62a14e80af45807458c9391d7ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27dfaaa37709d044ca77b9f79dcee187, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12993,7 +12993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1209821092
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13164,7 +13164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8986d619b3c002846923eaa3cd7f372a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6e791a4bcd959ea42bde0f401db21033, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14384,7 +14384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9dd4a62a14e80af45807458c9391d7ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27dfaaa37709d044ca77b9f79dcee187, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14734,7 +14734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1395466237
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15780,7 +15780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: a729673fe115f2145bd43c067ee1c138, type: 2}
+  m_Material: {fileID: 2100000, guid: 18b46dd3348602341ab0cd894fb3cbea, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -16003,7 +16003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: a729673fe115f2145bd43c067ee1c138, type: 2}
+  m_Material: {fileID: 2100000, guid: 18b46dd3348602341ab0cd894fb3cbea, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -17182,7 +17182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: a729673fe115f2145bd43c067ee1c138, type: 2}
+  m_Material: {fileID: 2100000, guid: 18b46dd3348602341ab0cd894fb3cbea, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -17257,7 +17257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: a729673fe115f2145bd43c067ee1c138, type: 2}
+  m_Material: {fileID: 2100000, guid: 18b46dd3348602341ab0cd894fb3cbea, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -18477,7 +18477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 393b44ef70f0460498f1297e5af4f51c, type: 2}
+  m_Material: {fileID: 2100000, guid: 18b46dd3348602341ab0cd894fb3cbea, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -19808,7 +19808,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: h
+  m_Text: 
 --- !u!222 &1810803609
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20093,7 +20093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: a729673fe115f2145bd43c067ee1c138, type: 2}
+  m_Material: {fileID: 2100000, guid: 18b46dd3348602341ab0cd894fb3cbea, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -21692,7 +21692,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 156815a9060af2246a48157a2febed3d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c67065585ae71a429179429990d28d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

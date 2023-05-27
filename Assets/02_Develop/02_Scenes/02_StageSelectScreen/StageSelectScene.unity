@@ -7822,22 +7822,22 @@ PrefabInstance:
     - target: {fileID: 6734710342027933528, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 02092de6d1256dd4fb87b3d776e65a0c, type: 3}
+      objectReference: {fileID: 21300000, guid: d685bbd7ec268374bab644cddfff5fd1, type: 3}
     - target: {fileID: 6734710342027933528, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6734710342027933534, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6734710342290569989, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6734710342331204137, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6734710342648883725, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: fadeImage

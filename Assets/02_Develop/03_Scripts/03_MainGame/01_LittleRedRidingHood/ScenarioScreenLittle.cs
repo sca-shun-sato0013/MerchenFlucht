@@ -45,6 +45,8 @@ public enum ScenarioSceneLittle
     trueEnd,
 
     happyEnd,
+
+    badEnd,
 }
 public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
 {
@@ -263,6 +265,12 @@ public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
                 case ScenarioSceneLittle.happyEnd:
 
                     scenariosManager.PlayScenario(217,231);
+
+                    break;
+
+                case ScenarioSceneLittle.badEnd:
+
+                    scenariosManager.PlayScenario(202,215);
 
                     break;
             }

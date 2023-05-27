@@ -42,7 +42,7 @@ public class GameOver_Little : MonoBehaviour, IUpdateManager
             justOnce = false;
 
             fade.FadeIn(1f);
-            scenarioState.scenarioSceneHansel = ScenarioSceneHansel.badEnd;
+            scenarioState.scenarioSceneLittle = ScenarioSceneLittle.badEnd;
             ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
             StartCoroutine(Change_MainScreen());
 
