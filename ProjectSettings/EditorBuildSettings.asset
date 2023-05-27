@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/02_Develop/02_Scenes/05_EndRollScreen/EndRollScreen_Hansel.unity
     guid: 6d64be970fed1094ea534d90410b7edf
+  - enabled: 1
+    path: Assets/02_Develop/02_Scenes/05_EndRollScreen/EndRollScreen_Little.unity
+    guid: 80661b984f5b5944cbeca72f695a7147
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 9d4dd275b200fbc4d8401346d325596d, type: 2}
