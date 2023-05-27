@@ -41,6 +41,10 @@ public enum ScenarioSceneLittle
     sleepingPillsTea,
 
     kitchenKnife,
+
+    trueEnd,
+
+    happyEnd,
 }
 public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
 {
@@ -249,9 +253,22 @@ public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
                     scenariosManager.PlayScenario(33,34);
 
                     break;
+
+                case ScenarioSceneLittle.trueEnd:
+
+                    scenariosManager.PlayScenario(183,200);
+
+                    break;
+
+                case ScenarioSceneLittle.happyEnd:
+
+                    scenariosManager.PlayScenario(217,231);
+
+                    break;
             }
         }
     }
+
 
     private void OnClickCharaMove(bool input)
     {
@@ -302,15 +319,15 @@ public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
                 justOnce2 = false;
                 SceneManager.Instance.SceneLoadingAsync("title");
             }
-            else if (scenarioState.happyEndHansel && justOnce2)
+            else if (scenarioState.happyEndLittle && justOnce2)
             {
                 justOnce2 = false;
                 SceneManager.Instance.SceneLoadingAsync("title");
             }
-            else if (scenarioState.trueEndHansel && justOnce2)
+            else if (scenarioState.trueEndLittle && justOnce2)
             {
                 justOnce2 = false;
-                SceneManager.Instance.SceneLoadingAsync("EndRollScreen_Hansel");
+                SceneManager.Instance.SceneLoadingAsync("EndRollScreen_Little");
             }
             else
             {

@@ -72,29 +72,40 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
                 if (Physics.Raycast(ray, out hit)) // Rayを投射
                 {
-
+                    //玄関
                     if (hit.collider.gameObject.name == "FrontDoor")
                     {
                         ScenarioLoad(ScenarioSceneLittle.frontDoor);
                     }
-
+                    //狼
                     else if (hit.collider.gameObject.name == "Wolf")
                     {
-                        if(item5.sprite.name == "エンドロール３")
+                        if(item5.sprite.name == "エンドロール３(Clone)")
                         {
                             if(item6.sprite.name == "オオカミ_立ち絵(Clone)")
                             {
-
+                                //trueエンド
+                                scenarioState.trueEndLittle = true;
+                                ScenarioLoad(ScenarioSceneLittle.trueEnd);
+                            }
+                            else
+                            {
+                                //happyエンド
+                                scenarioState.happyEndLittle = true;
+                                ScenarioLoad(ScenarioSceneLittle.happyEnd);
                             }
                         }
-                        ScenarioLoad(ScenarioSceneLittle.wolf_Normal);
+                        else
+                        {
+                            ScenarioLoad(ScenarioSceneLittle.wolf_Normal);
+                        }
                     }
-
+                    //部屋の窓
                     else if(hit.collider.CompareTag("Window"))
                     {
                         ScenarioLoad(ScenarioSceneLittle.window);
                     }
-
+                    //籠
                     else if (hit.collider.gameObject.name == "basket")
                     {
                         basketCount++;
@@ -108,12 +119,12 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
                             ScenarioLoad(ScenarioSceneLittle.basket);
                         }
                     }
-
+                    //キッチンの棚
                     else if (hit.collider.gameObject.name == "KichenShelf")
                     {
                         ScenarioLoad_ItemGet(ScenarioSceneLittle.kichenShelf, item1, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/エンドロール１.png");
                     }
-
+                    //ポット
                     else if (hit.collider.gameObject.name == "pot")
                     {
                         if(item1.sprite.name == "エンドロール１(Clone)" && item3.sprite.name == "薬瓶(Clone)")
@@ -125,19 +136,19 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
                             ScenarioLoad(ScenarioSceneLittle.pot);
                         }
                     }
-
+                    //キャビネット
                     else if (hit.collider.gameObject.name == "Cabinet")
                     {
                         cabinetScreen.SetActive(true);
                         cabinet_Open.enabled = false;
                         cabinet_Open.enabled = true;
                     }
-
+                    //家族写真
                     else if(hit.collider.gameObject.name == "FamilyPhoto")
                     {
                         ScenarioLoad_ItemGet(ScenarioSceneLittle.familyPhptoGet,item4, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/家族写真表.png");
                     }
-
+                    //カーペット
                     else if (hit.collider.gameObject.name == "Carpet")
                     {
                         count++;
@@ -155,19 +166,19 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
                             StartCoroutine(CarpetMove(carpetReMove));
                         }                    
                     }
-
+                    //床下倉庫
                     else if(hit.collider.gameObject.name == "UnderFloorStorage")
                     {
                         underFloorStorageScreen_Open.enabled = false;
                         underFloorStorageScreen_Open.enabled = true;
                     }
-
+                    //木箱
                     else if(hit.collider.gameObject.name == "WoodenBox")
                     {
                         woodenBoxScreen_Open.enabled = false;
                         woodenBoxScreen_Open.enabled = true;
                     }
-
+                    //薬箱
                     else if (hit.collider.gameObject.name == "medicineBox")
                     {
                         if(yesButton.DiaryLoadCheck)
