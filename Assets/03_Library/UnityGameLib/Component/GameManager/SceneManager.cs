@@ -27,8 +27,14 @@ namespace GameManager
         [SerializeField, Header("すべてのlog表示:")] bool log0 = false;
         [SerializeField, Header("Sceneの総数:")] bool log1 = false;
         [SerializeField, Header("Sceneの総数:")] bool log2 = false;
+        [SerializeField,Header("")]Material material;
         bool waitCheck = true;
 
+
+        private void Start()
+        {
+           material.SetFloat("_Float",0f);   
+        }
 
         /// <summary>
         /// シーンの状態表示ログ
@@ -82,6 +88,7 @@ namespace GameManager
             while (!async.isDone)
             {
                 slider.value = async.progress;
+                material.SetFloat("_Float",async.progress*2);
 
                 if (async.progress >= 0.9f)
                 {
