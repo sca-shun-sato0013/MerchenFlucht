@@ -16941,7 +16941,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1096652274}
   m_HandleRect: {fileID: 1096652273}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -17540,6 +17540,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6734710342290569988, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734710342290569988, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
@@ -17551,6 +17555,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6734710342290569988, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: dad01f76dcf63ee49ad4b4450e96a4c4, type: 2}
     - target: {fileID: 6734710342290569989, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -17926,19 +17934,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.08925751
-      objectReference: {fileID: 0}
-    - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.12499997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.821485
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.75000006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
