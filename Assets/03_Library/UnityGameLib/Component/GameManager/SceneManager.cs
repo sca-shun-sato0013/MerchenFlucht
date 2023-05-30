@@ -88,7 +88,7 @@ namespace GameManager
             while (!async.isDone)
             {
                 slider.value = async.progress;
-                material.SetFloat("_Float",async.progress*2);
+                material.SetFloat("_Float",async.progress*1.5f);
 
                 if (async.progress >= 0.9f)
                 {
