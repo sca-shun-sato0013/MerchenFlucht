@@ -80,9 +80,9 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
                     //狼
                     else if (hit.collider.gameObject.name == "Wolf")
                     {
-                        if(item5.sprite.name == "エンドロール３(Clone)")
+                        if(item5.sprite.name == "TeaSleepingPills(Clone)")
                         {
-                            if(item6.sprite.name == "オオカミ_立ち絵(Clone)")
+                            if(item6.sprite.name == "Knife(Clone)")
                             {
                                 //trueエンド
                                 scenarioState.trueEndLittle = true;
@@ -112,7 +112,7 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
                         if(basketCount > 2)
                         {
-                            ScenarioLoad_ItemGet(ScenarioSceneLittle.kitchenKnife,item6, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/オオカミ_立ち絵.png");
+                            ScenarioLoad_ItemGet(ScenarioSceneLittle.kitchenKnife,item6, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/Knife.png");
                         }
                         else
                         {
@@ -120,16 +120,16 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
                         }
                     }
                     //キッチンの棚
-                    else if (hit.collider.gameObject.name == "KichenShelf")
+                    else if (hit.collider.gameObject.name == "teaCup")
                     {
-                        ScenarioLoad_ItemGet(ScenarioSceneLittle.kichenShelf, item1, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/エンドロール１.png");
+                        ScenarioLoad_ItemGet(ScenarioSceneLittle.kichenShelf, item1, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/TeaCup.png");
                     }
                     //ポット
                     else if (hit.collider.gameObject.name == "pot")
                     {
-                        if(item1.sprite.name == "エンドロール１(Clone)" && item3.sprite.name == "薬瓶(Clone)")
+                        if(item1.sprite.name == "TeaCup(Clone)" && item3.sprite.name == "薬瓶(Clone)")
                         {
-                           ScenarioLoad_ItemGet(ScenarioSceneLittle.sleepingPillsTea,item5, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/エンドロール３.png");
+                           ScenarioLoad_ItemGet(ScenarioSceneLittle.sleepingPillsTea,item5, "Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/TeaSleepingPills.png");
                         }
                         else
                         {

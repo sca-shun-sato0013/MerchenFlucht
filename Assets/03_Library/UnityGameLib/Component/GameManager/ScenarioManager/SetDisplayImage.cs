@@ -7,18 +7,18 @@ using UnityEngine.UI;
 
 
 
-public class SetDisplayImage : MonoBehaviour,IUpdateManager
+public class SetDisplayImage : MonoBehaviour, IUpdateManager
 {
-    [SerializeField,Header("入力端末")]
+    [SerializeField, Header("入力端末")]
     InputType inputType;
 
-    [SerializeField,Header("Addressablesの読み込みフォルダのpath")]
+    [SerializeField, Header("Addressablesの読み込みフォルダのpath")]
     string pathName;
 
-    [SerializeField,Header("表示させる画像数")]
+    [SerializeField, Header("表示させる画像数")]
     Image[] images;
 
-    [SerializeField,Header("画像のファイル名取得")]
+    [SerializeField, Header("画像のファイル名取得")]
     string[] iDatas;
 
     [SerializeField, Header("キャラの表示、非表示")]
@@ -27,16 +27,24 @@ public class SetDisplayImage : MonoBehaviour,IUpdateManager
     [SerializeField]
     ScenarioManager scenarioManager;
 
-    bool If = true;
+    bool fadeCheck = false;
 
+    WaitForSeconds w;
     public string[] ImageDatas
     {
         get { return iDatas; }
-       internal set { iDatas = value; }
+        internal set { iDatas = value; }
+    }
+
+    public bool FadeCheck { 
+        
+        get => fadeCheck; 
+        set => fadeCheck = value; 
     }
 
     void Start()
     {
+        w = new WaitForSeconds(0.3f);
         iDatas = new string[images.Length];
         UpdateManager.Instance.Bind(this, FrameControl.ON);
     }
@@ -61,11 +69,11 @@ public class SetDisplayImage : MonoBehaviour,IUpdateManager
 
             for (int i = 0; i < images.Length; i++)
             {
-                Debug.Log("sdf");
                 if (iDatas[i] != "" && iDatas[i] != "NONE")
                 {
-                    Debug.Log(StringComponent.AddString("Assets/LoadingDatas/ScenarioDatas/", iDatas[i]));
+                    
                     ImageLoading.ImageLoadingAsync(images[i], StringComponent.AddString(pathName,iDatas[i]));
+                    StartCoroutine(WaitFadeTime());
                 }
 
                 if (iDatas[i] == "NONE")
@@ -78,5 +86,11 @@ public class SetDisplayImage : MonoBehaviour,IUpdateManager
                 }
             }
         }       
+    }
+
+    private IEnumerator WaitFadeTime()
+    {
+        yield return w;
+        fadeCheck = true;
     }
 }

@@ -13,13 +13,18 @@ public class FadeCheck : MonoBehaviour
 
     [SerializeField] SwitchFadeType switchFadeType;
     [SerializeField] GameObject obj = null;
-    [SerializeField ] Fade fade = null;
+    [SerializeField] Fade fade = null;
+    [SerializeField] SetDisplayImage setDisplayImage;
+
+    WaitUntil w;
     //[SerializeField] FadeImage fadeImage = null;
     // Start is called before the first frame update
 
     void Start()
     {
-        switch(switchFadeType)
+        w = new WaitUntil(()=> setDisplayImage.FadeCheck);
+
+        switch (switchFadeType)
         {
             case SwitchFadeType.Normal:
                 
@@ -44,7 +49,8 @@ public class FadeCheck : MonoBehaviour
     IEnumerator FadeIn()
     {
         obj.SetActive(true);
-        yield return new WaitUntil(()=> ScenarioManager.Instance.LoadCheck);      
+        yield return w;
+        setDisplayImage.FadeCheck = false;
         Invoke("wait", 0.1f);
         fade.FadeIn(0, () => fade.FadeOut(2));
     }
