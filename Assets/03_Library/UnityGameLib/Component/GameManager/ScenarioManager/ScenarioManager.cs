@@ -54,6 +54,8 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     int lineIsTheEnd = 0;
     //読み込みのチェック
     bool loadCheck = false;
+
+    bool flag = false;
     public int CurrentLineNum => currentLineNum;
     public bool LoadCheck 
     {
@@ -75,7 +77,8 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
 
     public void OnUpdate(double deltaTime)
     {
-       if(LineEndCheck()) TextController();
+       if(LineEndCheck() && flag) TextController();
+       else flag = false;
     }
 
     private IEnumerator Method(string _SHEET_NAME)
@@ -91,6 +94,7 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
                 break;
 
             case UnityWebRequest.Result.Success:
+                flag = true;
                 Debug.Log("<color=Lime><size=13><b>リクエスト成功!</b></size></color>");
                 break;
 
@@ -198,7 +202,7 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
         {
             
             displayText.text += texts[currentLineNum][currentCharNum];
-            Debug.Log(displayText.text);
+            
             talkingCharaName.text = charaName[currentLineNum];
 
             setImage.ImageDatas[0] = backGroundImage[currentLineNum];
@@ -224,9 +228,6 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
             }
             else
             {
-
-               
-
                 //文字数を0にする
                 currentCharNum = 0;
                 displayText.text = "";
@@ -250,7 +251,6 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
 
     public bool LineEndCheck()
     {
-        //Debug.Log(currentLineNum + 3);
         return lineIsTheEnd > currentLineNum;
     }
 }

@@ -24,7 +24,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
     ScenarioScreenHansel hansel;
 
     [SerializeField]
-    Image item3,item4,item5,item6;
+    Image item3,item4,item5,item6,item7;
 
     [SerializeField]
     GameObject cipherScreen_Door,shelf,poker;
@@ -109,74 +109,13 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
 
                 RaycastHit hit;
 
-                /*            RaycastHit2D hit2D = Physics2D.Raycast(ray.origin, (Vector2)ray.direction);
-                            Debug.Log(hit2D.collider.gameObject.name);
-                            if (hit2D.collider)
-                            {
-                                for (int i = 0; i < candles.Length; i++)
-                                {
-                                    if (hit2D.collider.gameObject.name == "Candle" + (i + 1).ToString())
-                                    {
-                                        candles[i].gameObject.SetActive(true);
-                                        flagCandles[i] = false;
-                                    }
-
-                                    if (hit2D.collider.gameObject.name == StringComponent.AddString("Candle", (i + 1).ToString(), "Fire"))
-                                    {
-                                        candles[i].gameObject.SetActive(false);
-                                        flagCandles[i] = true;
-                                    }
-                                }
-                            }*/
-
-
-
-                /*            if (hit2D.collider.gameObject.name == "Candle2")
-                            {
-
-                                    flag = false;
-                                    Debug.Log("通った");
-                                    candles[1].gameObject.SetActive(true);
-
-
-
-                            }
-
-                            if (hit2D.collider.gameObject.name == "Candle2Fire")
-                            {
-
-                                    flag = false;
-                                    Debug.Log("通った");
-                                    candles[1].gameObject.SetActive(false);
-
-
-
-                            }*/
-
-                /*            if (hit2D.collider.gameObject.name == "Candle3")
-                            {
-                                candles[2].gameObject.SetActive(true);
-                            }
-                            if (hit2D.collider.gameObject.name == "Candle4")
-                            {
-                                candles[3].gameObject.SetActive(true);
-                            }
-                            if (hit2D.collider.gameObject.name == "Candle5")
-                            {
-                                candles[4].gameObject.SetActive(true);
-                            }
-                            if (hit2D.collider.gameObject.name == "Candle6")
-                            {
-                                candles[5].gameObject.SetActive(true);
-                            }*/
-
                 if (Physics.Raycast(ray, out hit)) // Rayを投射
                 {
                     if (hit.collider.gameObject.name == "FrontDoor")
                     {
                         if(item6.sprite.name == "絵本に挟まってる鍵(Clone)")
                         {
-                            if(item5.sprite.name == "マッチ(Clone)")
+                            if(item7.sprite.name == "マッチ(Clone)")
                             {
                                 fade.FadeIn(2f);
 
@@ -372,7 +311,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                     {
                         fade.FadeIn(2f);
 
-                        imageLoadings.AddList(item5, "Assets/LoadingDatas/ScenarioDatas/PeterPan/マッチ.png");
+                        imageLoadings.AddList(item7, "Assets/LoadingDatas/ScenarioDatas/PeterPan/マッチ.png");
 
                         match.SetActive(false);
                         scenarioState.scenarioSceneHansel = ScenarioSceneHansel.matchGet;

@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: LittleRedRidingHood_BackGroundImage2
+  m_EditorClassIdentifier: 
+  m_GroupName: LittleRedRidingHood_BackGroundImage2
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 1dcef6e003f287b4eb620261bc47dc6e
+  m_SerializeEntries:
+  - m_GUID: 3d261c52318e52240a097503ff4150b9
+    m_Address: Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/BlackTea.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bba4710b67b71994bbde26781aa97110
+    m_Address: Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/BlackTea_Item.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 935b2d6dc0ee5744c82913d6a77edda1
+    m_Address: Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/FruitBasket.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4c22a3dda7622204aa9269cee86ac262
+    m_Address: Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/Knife.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 03d919c5a5b738d4db07025d40679f4f
+    m_Address: Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/TeaCup.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dc4f9c829a9372c4bb5e01ed9066091b
+    m_Address: Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/TeaSleepingPills.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a8998a25be44ff340870795a9060e7a9
+    m_Address: Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/window.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 26278ee5641ab2345bc89ebfbeadc3f1
+    m_Address: Assets/LoadingDatas/ScenarioDatas/LittleRedRidingHood/WolfKey.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d10e172e707cc944eb0f6b154e27ca98, type: 2}
+    - {fileID: 11400000, guid: 61328514ae20d9e46bbee0392cbf2215, type: 2}

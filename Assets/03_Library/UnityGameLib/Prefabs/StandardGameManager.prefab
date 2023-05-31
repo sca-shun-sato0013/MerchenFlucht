@@ -948,6 +948,7 @@ MonoBehaviour:
   switchFadeType: 0
   obj: {fileID: 6734710342855883307}
   fade: {fileID: 6734710342648883766}
+  setDisplayImage: {fileID: 0}
 --- !u!1 &6734710342684200889
 GameObject:
   m_ObjectHideFlags: 0
