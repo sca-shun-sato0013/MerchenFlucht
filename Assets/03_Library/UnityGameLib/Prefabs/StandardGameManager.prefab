@@ -1235,4 +1235,5 @@ MonoBehaviour:
   images: []
   iDatas: []
   charaImage: {fileID: 0}
+  charaAnimation: {fileID: 0}
   scenarioManager: {fileID: 0}

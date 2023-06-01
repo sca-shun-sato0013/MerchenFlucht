@@ -5,6 +5,7 @@ using GameManager;
 using DesignPattern;
 using NJsonLoader;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public enum ScenarioSceneLittle
 {
@@ -59,7 +60,7 @@ public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
     AnchoredWindowMove charaMove;
 
     [SerializeField]
-    ImageTransparencyAnimation charaAnimation, backGround;
+    ImageTransparencyAnimation backGround;
 
     [SerializeField]
     Fade fade;
@@ -286,8 +287,6 @@ public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
             {
                 charaMove.enabled = false;
                 charaMove.enabled = true;
-                charaAnimation.enabled = false;
-                charaAnimation.enabled = true;
             }
         }
 
@@ -316,6 +315,7 @@ public class ScenarioScreenLittle : MonoBehaviour, IUpdateManager
 
         pastImage = setDisplayImage.ImageDatas[0];
     }
+
 
     private void OnClickText(bool input)
     {

@@ -210,7 +210,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1820815337}
   m_HandleRect: {fileID: 1820815336}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3031,7 +3031,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301067296}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d93c9b72d8ec56f4baef1b330224c597, type: 3}
   m_Name: 
@@ -3074,14 +3074,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 167d29a4db8da564f9520d26c3ec410e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5289,7 +5289,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1096652274}
   m_HandleRect: {fileID: 1096652273}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5419,7 +5419,11 @@ PrefabInstance:
     - target: {fileID: 1444033934948674018, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: charaImage
       value: 
-      objectReference: {fileID: 301067296}
+      objectReference: {fileID: 301067301}
+    - target: {fileID: 1444033934948674018, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
+      propertyPath: charaAnimation
+      value: 
+      objectReference: {fileID: 301067298}
     - target: {fileID: 1444033934948674018, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: scenarioManager
       value: 
@@ -6085,19 +6089,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.08925751
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.12499997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.821485
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.75000006
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
