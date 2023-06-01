@@ -7161,7 +7161,11 @@ PrefabInstance:
     - target: {fileID: 1444033934948674018, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: charaImage
       value: 
-      objectReference: {fileID: 1252886102}
+      objectReference: {fileID: 1252886106}
+    - target: {fileID: 1444033934948674018, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
+      propertyPath: charaAnimation
+      value: 
+      objectReference: {fileID: 1252886104}
     - target: {fileID: 1444033934948674018, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: scenarioManager
       value: 
@@ -7467,6 +7471,10 @@ PrefabInstance:
       value: LittleRedRidingHood
       objectReference: {fileID: 0}
     - target: {fileID: 7549464071349476872, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
+      propertyPath: charaImage
+      value: 
+      objectReference: {fileID: 1252886106}
+    - target: {fileID: 7549464071349476872, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: charaSpeed
       value: 0
       objectReference: {fileID: 0}
@@ -7474,6 +7482,10 @@ PrefabInstance:
       propertyPath: displayText
       value: 
       objectReference: {fileID: 412332297}
+    - target: {fileID: 7549464071349476872, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
+      propertyPath: charaAnimation
+      value: 
+      objectReference: {fileID: 1252886104}
     - target: {fileID: 7549464071349476872, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: talkingCharaName
       value: 
@@ -7661,19 +7673,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.08925751
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.12499997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.821485
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.75000006
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
@@ -11934,7 +11946,6 @@ MonoBehaviour:
   inputType: 1
   scenariosManager: {fileID: 72765130}
   charaMove: {fileID: 1252886105}
-  charaAnimation: {fileID: 1252886104}
   backGround: {fileID: 1445270317}
   fade: {fileID: 140941225}
   fadeImage: {fileID: 829167527}
@@ -14275,7 +14286,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252886102}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d93c9b72d8ec56f4baef1b330224c597, type: 3}
   m_Name: 
@@ -14310,14 +14321,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a54d9eb8188096640a5486f6ac760f9e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

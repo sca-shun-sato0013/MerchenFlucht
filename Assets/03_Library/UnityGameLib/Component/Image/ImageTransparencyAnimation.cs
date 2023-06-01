@@ -25,15 +25,13 @@ public class ImageTransparencyAnimation : MonoBehaviour,IUpdateManager
     public float Speed => speed;
 
     private void OnEnable()
-    {
-        //UpdateManager.Instance.Bind(this, FrameControl.ON);
+    {    
         reCount = 0;
         count = 0;
     }
 
     private void OnDisable()
     {
-        //UpdateManager.Instance.UnBind(this, FrameControl.ON);
         reCount = 1f;
     }
 
@@ -46,28 +44,40 @@ public class ImageTransparencyAnimation : MonoBehaviour,IUpdateManager
 
     public void OnUpdate(double deltaTime)
     {
+        ImageTransparency(deltaTime);
+    }
+
+    IEnumerator Fade(double deltaTime)
+    {        
+        ImageTransparency(deltaTime);
+
+        yield return null;
+    }
+
+    private void ImageTransparency(double deltaTime)
+    {
+
         timer += (float)deltaTime;
-        
-        if (count > 1f)count = 1f;
-        if(reCount < 0)reCount = 0f;
 
+        if (count > 1f) count = 1f;
+        if (reCount < 0) reCount = 0f;
 
-        if(count != alphaColor)
+        //Debug.Log(count != alphaColor);
+        if (count != alphaColor)
         {
-            if(timer > speed)
+            
+            if (timer > speed)
             {
-                //Invoke("AlphaCount",speed);
                 AlphaCount();
                 timer = 0f;
             }
         }
 
-        if(reCount != reAlphaColor)
+        if (reCount != reAlphaColor)
         {
-            //Invoke("ReAlphaCount",speed);
+            
             if (timer > speed)
-            {
-                //Invoke("AlphaCount",speed);
+            {               
                 ReAlphaCount();
                 timer = 0f;
             }
@@ -75,14 +85,15 @@ public class ImageTransparencyAnimation : MonoBehaviour,IUpdateManager
     }
 
     private void AlphaCount()
-    {
-        count += 0.03f;
-        image.color = ColorChange.ColorChanes(image.color.r, image.color.g, image.color.b, count);
+    {      
+        count += 0.05f;
+        image.color = ColorChange.ColorChanes(image.color.r, image.color.g, image.color.b,count);
     }
 
     private void ReAlphaCount()
     {
-        reCount -= 0.03f;
+        
+        reCount -= 0.05f;
         image.color = ColorChange.ColorChanes(image.color.r, image.color.g, image.color.b, reCount);
     }
 }

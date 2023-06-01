@@ -18,10 +18,8 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     InputType inputType;
     [SerializeField, Header("googleスプレットシートのID")]
     string SHEET_ID = "IDを入れる";
-
     [SerializeField, Header("シート名")] 
     string SHEET_NAME = "シート名を入れる";
-
     //文字がテキストに書き込まれる速さ
     private float textInterval = 0f;
     [SerializeField, Header("表示されるテキスト")]
@@ -206,9 +204,10 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
             talkingCharaName.text = charaName[currentLineNum];
 
             setImage.ImageDatas[0] = backGroundImage[currentLineNum];
+
             setImage.ImageDatas[1] = displayCharaImage[currentLineNum];
             loadCheck = true;
-           
+        
             currentCharNum++;
             textInterval = charaSpeed * Time.deltaTime;
         }

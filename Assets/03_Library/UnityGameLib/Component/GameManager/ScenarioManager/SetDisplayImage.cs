@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 
 
-public class SetDisplayImage : MonoBehaviour, IUpdateManager
+public class SetDisplayImage : MonoBehaviour,IUpdateManager
 {
     [SerializeField, Header("入力端末")]
     InputType inputType;
@@ -22,14 +22,17 @@ public class SetDisplayImage : MonoBehaviour, IUpdateManager
     string[] iDatas;
 
     [SerializeField, Header("キャラの表示、非表示")]
-    GameObject charaImage;
+    Image charaImage;
 
+    [SerializeField]
+    ImageTransparencyAnimation charaAnimation;
     [SerializeField]
     ScenarioManager scenarioManager;
 
     bool fadeCheck = false;
 
-    WaitForSeconds w;
+    WaitForSeconds w; 
+
     public string[] ImageDatas
     {
         get { return iDatas; }
@@ -51,17 +54,6 @@ public class SetDisplayImage : MonoBehaviour, IUpdateManager
 
     public void OnUpdate(double deltaTime)
     {
-/*        switch(inputType)
-        {
-            case InputType.InputPC:
-                If = MobileInput.InputState(TouchPhase.Began);
-                break;
-
-            case InputType.MobileInput:
-                If = Input.GetMouseButtonDown(0);
-                break;
-
-        }*/
 
         if(scenarioManager.LoadCheck)
         {
@@ -71,23 +63,27 @@ public class SetDisplayImage : MonoBehaviour, IUpdateManager
             {
                 if (iDatas[i] != "" && iDatas[i] != "NONE")
                 {
-                    
-                    ImageLoading.ImageLoadingAsync(images[i], StringComponent.AddString(pathName,iDatas[i]));
+                    ImageLoading.ImageLoadingAsync(images[i], StringComponent.AddString(pathName, iDatas[i]));
                     StartCoroutine(WaitFadeTime());
                 }
 
                 if (iDatas[i] == "NONE")
                 {
-                    charaImage.SetActive(false);
+                    charaAnimation.enabled = false;
                 }
                 else
                 {
-                    charaImage.SetActive(true);
+                    string s = ImageDatas[1] + "(Clone)";
+
+                    if (charaImage.sprite.name == s.Replace(".png", ""))
+                    {
+                        charaAnimation.enabled = false;
+                        charaAnimation.enabled = true;
+                    }
                 }
             }
         }       
     }
-
     private IEnumerator WaitFadeTime()
     {
         yield return w;
