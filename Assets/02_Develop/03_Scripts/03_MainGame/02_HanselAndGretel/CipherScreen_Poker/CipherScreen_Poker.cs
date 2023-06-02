@@ -117,7 +117,7 @@ public class CipherScreen_Poker : MonoBehaviour, IUpdateManager
 
         yield return new WaitForSeconds(1f);
 
-        hansel.ScenarioItemGet(ScenarioSceneHansel.pokerGet,item4, "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/Black.png");
+        hansel.ScenarioItemGet(ScenarioSceneHansel.pokerGet,item4, "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/poker_Item.png");
     }
     private bool WhereIsTile(TileNumber tile)
     {

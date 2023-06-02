@@ -32,7 +32,7 @@ public class ImageTransparencyAnimation : MonoBehaviour,IUpdateManager
 
     private void OnDisable()
     {
-        reCount = 1f;
+        reCount = 1;
     }
 
     void Start() 
@@ -86,14 +86,13 @@ public class ImageTransparencyAnimation : MonoBehaviour,IUpdateManager
 
     private void AlphaCount()
     {      
-        count += 0.05f;
+        count += 0.1f;
         image.color = ColorChange.ColorChanes(image.color.r, image.color.g, image.color.b,count);
     }
 
     private void ReAlphaCount()
     {
-        
-        reCount -= 0.05f;
+        reCount -= 0.1f;
         image.color = ColorChange.ColorChanes(image.color.r, image.color.g, image.color.b, reCount);
     }
 }

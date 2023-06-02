@@ -406,8 +406,6 @@ public class ScenarioScreenPeterPan : MonoBehaviour, IUpdateManager
             {
                 charaMove.enabled = false;
                 charaMove.enabled = true;
-                charaAnimation.enabled = false;
-                charaAnimation.enabled = true;
             }
         }
 

@@ -176,11 +176,11 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                     //ƒoƒPƒc
                     if (hit.collider.gameObject.name == "Bucket")
                     {
-                        if(item4.sprite.name == "Black(Clone)")
+                        if(item4.sprite.name == "poker_Item(Clone)")
                         {
                             fade.FadeIn(2f);
 
-                            imageLoadings.AddList(item5,"Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/H&G‰Î‚©‚«–_‚Ì“ä‰Šú‘S‘Ì}.png");
+                            imageLoadings.AddList(item5, "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/bucket.png");
                             
                             bucket.SetActive(false);
                             scenarioState.scenarioSceneHansel = ScenarioSceneHansel.bucketGet;
@@ -208,7 +208,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                         StartCoroutine(Change_MainScreen());
                     }*/
 
-                    if (hit.collider.gameObject.name == "Poker")
+                    if (hit.collider.gameObject.name == "Poker" && item4.sprite.name != "poker_Item(Clone)")
                     {
                         poker.SetActive(true);
                         cipherScreen_Poker.enabled = false;
@@ -231,11 +231,11 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
 
                     if (hit.collider.gameObject.name == "…•r")
                     {
-                        if(item5.sprite.name == "H&G‰Î‚©‚«–_‚Ì“ä‰Šú‘S‘Ì}(Clone)")
+                        if(item5.sprite.name == "bucket(Clone)")
                         {
                             fade.FadeIn(2f);
 
-                            imageLoadings.AddList(item5, "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/H&G‰Î‚©‚«–_‚Ì“ä³‰ğ‘S‘Ì}.png");
+                            imageLoadings.AddList(item5, "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/waterBucket_Item.png");
 
                             scenarioState.scenarioSceneHansel = ScenarioSceneHansel.bucketOfWater;
                             ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -254,7 +254,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
 
                     if (hit.collider.gameObject.name == "d")
                     {
-                        if(item5.sprite.name == "H&G‰Î‚©‚«–_‚Ì“ä³‰ğ‘S‘Ì}(Clone)")
+                        if(item5.sprite.name == "waterBucket_Item(Clone)")
                         {
                             fade.FadeIn(2f);
 
@@ -275,10 +275,10 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
 
                     if (hit.collider.gameObject.name == "‚©‚Ü‚Ç")
                     {
-                        if(item5.sprite.name == "ƒ}ƒbƒ`(Clone)")
+                        if(item7.sprite.name == "ƒ}ƒbƒ`(Clone)")
                         {
                             fade.FadeIn(2f);
-
+                            fireEffect.SetActive(true);
                             scenarioState.scenarioSceneHansel = ScenarioSceneHansel.haveAMatch;
                             ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
                             StartCoroutine(Change_MainScreen());

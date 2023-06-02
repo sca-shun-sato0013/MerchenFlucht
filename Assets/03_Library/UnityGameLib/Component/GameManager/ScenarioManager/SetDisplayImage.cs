@@ -4,8 +4,7 @@ using UnityEngine;
 using GameManager;
 using CommonlyUsed;
 using UnityEngine.UI;
-
-
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class SetDisplayImage : MonoBehaviour,IUpdateManager
 {
@@ -23,7 +22,8 @@ public class SetDisplayImage : MonoBehaviour,IUpdateManager
 
     [SerializeField, Header("キャラの表示、非表示")]
     Image charaImage;
-
+    [SerializeField, Header("シナリオ背景")]
+    Image backGroundImage;
     [SerializeField]
     ImageTransparencyAnimation charaAnimation;
     [SerializeField]
@@ -31,7 +31,12 @@ public class SetDisplayImage : MonoBehaviour,IUpdateManager
 
     bool fadeCheck = false;
 
-    WaitForSeconds w; 
+    string past  = "";
+
+    AsyncOperationHandle<Sprite> sprite;
+    
+    WaitForSeconds w2;
+        
 
     public string[] ImageDatas
     {
@@ -47,24 +52,28 @@ public class SetDisplayImage : MonoBehaviour,IUpdateManager
 
     void Start()
     {
-        w = new WaitForSeconds(0.3f);
+        w2 = new WaitForSeconds(0.2f);
         iDatas = new string[images.Length];
         UpdateManager.Instance.Bind(this, FrameControl.ON);
     }
 
     public void OnUpdate(double deltaTime)
     {
-
-        if(scenarioManager.LoadCheck)
+        if (backGroundImage.sprite.name == "Black(Clone)")fadeCheck = true;
+        if (scenarioManager.LoadCheck)
         {
             scenarioManager.LoadCheck = false;
-
+            
             for (int i = 0; i < images.Length; i++)
             {
                 if (iDatas[i] != "" && iDatas[i] != "NONE")
                 {
-                    ImageLoading.ImageLoadingAsync(images[i], StringComponent.AddString(pathName, iDatas[i]));
-                    StartCoroutine(WaitFadeTime());
+                    if (iDatas[i] != past)
+                    {
+                        charaAnimation.enabled = false;
+                        ImageLoading.ImageLoadingAsync(images[i], StringComponent.AddString(pathName, iDatas[i]),sprite);
+                        past = iDatas[i];
+                    }
                 }
 
                 if (iDatas[i] == "NONE")
@@ -73,20 +82,27 @@ public class SetDisplayImage : MonoBehaviour,IUpdateManager
                 }
                 else
                 {
-                    string s = ImageDatas[1] + "(Clone)";
-
-                    if (charaImage.sprite.name == s.Replace(".png", ""))
-                    {
-                        charaAnimation.enabled = false;
-                        charaAnimation.enabled = true;
-                    }
+                    StartCoroutine(WaitLoad());
                 }
             }
-        }       
+        }
     }
-    private IEnumerator WaitFadeTime()
+
+    private IEnumerator WaitLoad()
     {
-        yield return w;
-        fadeCheck = true;
+        string s = iDatas[1] + "(Clone)";
+
+        yield return w2;
+
+        Debug.Log(charaImage.sprite.name == s.Replace(".png", ""));
+        Debug.Log(charaImage.sprite.name);
+        Debug.Log(s.Replace(".png", ""));
+
+        if (charaImage.sprite.name == s.Replace(".png", ""))
+        {
+            Debug.Log("CLONE");
+            charaAnimation.enabled = false;
+            charaAnimation.enabled = true;
+        }
     }
 }

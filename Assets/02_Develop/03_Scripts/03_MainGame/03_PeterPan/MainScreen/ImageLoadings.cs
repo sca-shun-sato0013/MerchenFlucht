@@ -5,11 +5,14 @@ using GameManager;
 using CommonlyUsed;
 using DesignPattern;
 using UnityEngine.UI;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class ImageLoadings : MonoBehaviour
 {
     [SerializeField] List<Image> images;
     [SerializeField] List<string> names;
+
+    AsyncOperationHandle<Sprite> sprite;
 
     void Start() 
     {
@@ -17,7 +20,7 @@ public class ImageLoadings : MonoBehaviour
 
         for (int i = 0; i < images.Count; i++)
         {
-            ImageLoading.ImageLoadingAsync(images[i], names[i]);
+            ImageLoading.ImageLoadingAsync(images[i], names[i],sprite);
         }
     }
 
@@ -28,7 +31,7 @@ public class ImageLoadings : MonoBehaviour
 
         for (int i = 0; i < images.Count; i++)
         {
-            ImageLoading.ImageLoadingAsync(images[i], names[i]);
+            ImageLoading.ImageLoadingAsync(images[i], names[i],sprite);
         }
     }
 
@@ -38,7 +41,7 @@ public class ImageLoadings : MonoBehaviour
 
         for (int i = 0; i < images.Count; i++)
         {
-            ImageLoading.ImageLoadingAsync(images[i], names[i]);
+            ImageLoading.ImageLoadingAsync(images[i], names[i],sprite);
         }
     }
 }

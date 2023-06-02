@@ -53,6 +53,8 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     //読み込みのチェック
     bool loadCheck = false;
 
+    bool imageLoadCheck = true;
+
     bool flag = false;
     public int CurrentLineNum => currentLineNum;
     public bool LoadCheck 
@@ -198,20 +200,29 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
     {
         if (textInterval <= 0)
         {
-            
+
             displayText.text += texts[currentLineNum][currentCharNum];
-            
-            talkingCharaName.text = charaName[currentLineNum];
 
-            setImage.ImageDatas[0] = backGroundImage[currentLineNum];
-
-            setImage.ImageDatas[1] = displayCharaImage[currentLineNum];
-            loadCheck = true;
-        
             currentCharNum++;
             textInterval = charaSpeed * Time.deltaTime;
+
+            if(imageLoadCheck)
+            {
+                imageLoadCheck = false;
+              
+                talkingCharaName.text = charaName[currentLineNum];
+
+                setImage.ImageDatas[0] = backGroundImage[currentLineNum];
+
+                setImage.ImageDatas[1] = displayCharaImage[currentLineNum];
+                
+                loadCheck = true;
+            }
         }
-        else textInterval--;
+        else 
+        {
+            textInterval--; 
+        }
     }
 
     private void NextLineWhenButton(bool input)
@@ -219,7 +230,10 @@ public class ScenarioManager : Singleton<ScenarioManager>,ISingleton,IUpdateMana
         if (input && !checkIfTheStoryIsOver)
         {
             SoundManager.Instance.PlaySE(0);
+
+            
             currentLineNum++;
+            imageLoadCheck = true;
 
             if (currentLineNum >= lineIsTheEnd)
             {

@@ -97,15 +97,21 @@ public class ShaftRotation_Hansel : MonoBehaviour, IUpdateManager
             upArrow.SetActive(false);
         }
 
-        if(mobile2DMainCamera.transform.position.y > 2f)
+        if(mobile2DMainCamera.transform.position.y > 1.4f)
         {
             justOnce = true;
             kitchenMoveButton.enabled = false;
+            upArrow.SetActive(false);
+            leftArrow.SetActive(false);
+            rightArrow.SetActive(false);
         }
         else if(justOnce)
         {
             justOnce = false;
             kitchenMoveButton.enabled = true;
+            upArrow.SetActive(true);
+            leftArrow.SetActive(true);
+            rightArrow.SetActive(true);
         }
     }
 
