@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: HanselAndGretel_BackGroundImage
+  m_EditorClassIdentifier: 
+  m_GroupName: HanselAndGretel_BackGroundImage
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 59b8d5f5be438a54a95da3cff0805a78
+  m_SerializeEntries:
+  - m_GUID: 2726e2441a35ec74ba552de3c76642c3
+    m_Address: Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/bucket.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 92234306ef26fbe46bb53cec321b9c06
+    m_Address: Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/cookingRoom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0ae5b39798ae6cf409f34d4b9b8db9a9
+    m_Address: Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/frontDoor.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fc36bc44693733140b885963ca0242d0
+    m_Address: Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/furnace.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1dc133f714423884d8e3d3933168eb58
+    m_Address: Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/furnace_Close.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 472c05c072ddf9b4d83aa259b6367a4f
+    m_Address: Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/furnace_CloseFire.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6a0aea7b76e90e447bfe6f5452496683
+    m_Address: Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/furnace_Fire.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 539ae77f658d83a4f952017b18bb2662
+    m_Address: Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/living.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 981b24f23527ae842876627c95927e6c
+    m_Address: Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/notReach.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 078596858cdb84745b9e413960efac7f
+    m_Address: Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/poker.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7f9878e305cd68447a9d88f6d9e5c188
+    m_Address: Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/waterKilin.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 487c27f8dad91dc429af27f7272d9386, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 446d6bba2ce8da142bd7e2777ddc7d36, type: 2}
+    - {fileID: 11400000, guid: 91151de427b15474eb0bc342413deac2, type: 2}

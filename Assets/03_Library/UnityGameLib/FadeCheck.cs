@@ -22,7 +22,7 @@ public class FadeCheck : MonoBehaviour
 
     void Start()
     {
-        w = new WaitUntil(()=> setDisplayImage.FadeCheck);
+        w = new WaitUntil(() => setDisplayImage.FadeCheck);
 
         switch (switchFadeType)
         {
@@ -50,7 +50,6 @@ public class FadeCheck : MonoBehaviour
     {
         obj.SetActive(true);
         yield return w;
-        setDisplayImage.FadeCheck = false;
         Invoke("wait", 0.1f);
         fade.FadeIn(0, () => fade.FadeOut(2));
     }
