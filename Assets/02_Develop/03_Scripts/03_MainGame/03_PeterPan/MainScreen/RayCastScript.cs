@@ -324,7 +324,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                     StartCoroutine(Change_MainScreen());
                 }
 
-                if (hit.collider.gameObject.name == "Cube.001")//‘‹
+                if (hit.collider.gameObject.name == "Window")//‘‹
                 {
                     if (shadowHumanWindow.activeSelf == true)
                     {

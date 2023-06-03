@@ -27,7 +27,9 @@ public class ShaftRotation : MonoBehaviour,IUpdateManager
     PlayableDirector downArrowTimeLine, down2ArrowTimeLine, upArrowTimeLine, up2ArrowTimeLine;
 
     [SerializeField]
-    BoxCollider painting;
+    BoxCollider painting,keyBox;
+    [SerializeField]
+    CipherScreen cipherScreen;
 
     int count = 0;
     int count2 = 1;
@@ -50,6 +52,7 @@ public class ShaftRotation : MonoBehaviour,IUpdateManager
     {
         if (!this.gameObject.activeInHierarchy) return;
 
+        Debug.Log(cipherScreen.KeyBox_Collider);
         if (count == 8 || count == -8) count = 0;
 
         if(count == 0 && count2 == 1)
@@ -70,6 +73,14 @@ public class ShaftRotation : MonoBehaviour,IUpdateManager
             shadowHumanChair.SetActive(false);
         }
 
+        if((count == 2 && cipherScreen.KeyBox_Collider) || (count == -6 && cipherScreen.KeyBox_Collider))
+        {
+            keyBox.enabled = true;
+        }
+        else
+        {
+            keyBox.enabled = false;
+        }
 
         Debug.Log(count);
         Debug.Log(count2);
