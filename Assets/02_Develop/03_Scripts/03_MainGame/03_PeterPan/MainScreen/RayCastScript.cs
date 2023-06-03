@@ -64,7 +64,13 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
     cipherScreenClose_TimeLine,
     keyBox_Open;
 
+    bool justOnceRanpu = true;
+    bool justOncePaitingMemo = true;
+    bool examineTheChair = true;
+
     ScenarioState scenarioState;
+
+    public bool ExamineTheChair => examineTheChair;
 
     void Start()
     {
@@ -90,8 +96,6 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                 {
                     if (memo1.activeSelf == false)
                     {
-
-
                         fade.FadeIn(2f);
 
                         imageLoadings.AddList(items[0], "Assets/LoadingDatas/ScenarioDatas/PeterPan/マッチ.png");
@@ -152,8 +156,9 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                             }
                             else
                             {
-                                if (items[0].sprite.name == "マッチ(Clone)")
+                                if (items[0].sprite.name == "マッチ(Clone)" && justOnceRanpu)
                                 {
+                                    justOnceRanpu = false;
                                     fireEffect.gameObject.SetActive(true);
                                     scenarioState.scenarioScenePeter = ScenarioScenePeter.haveAMatch;
                                     ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -189,6 +194,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                     if (shadowHumanChair.activeSelf == true)
                     {
                         fade.FadeIn(2f);
+                        examineTheChair = false;
                         imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ2.png");
 
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheChair;
@@ -241,12 +247,12 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                     }
                 }
 
-                if (hit.collider.gameObject.name == "Painting")
+                if (hit.collider.gameObject.name == "Painting" && justOncePaitingMemo)
                 {
                     if (shadowHumanStandUp.activeSelf == true)
                     {
                         fade.FadeIn(2f);
-
+                        justOncePaitingMemo = false;
                         imageLoadings.SetImage(3, "Assets/LoadingDatas/ScenarioDatas/PeterPan/ネズミ(紙持ち).png");
                         imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ4.png");
 

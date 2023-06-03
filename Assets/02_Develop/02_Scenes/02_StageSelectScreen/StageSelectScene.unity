@@ -8019,6 +8019,10 @@ PrefabInstance:
       propertyPath: mFrameRate
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 7281716702429674130, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7549464071349476872, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: SHEET_ID
       value: 1oN9KmRG5X-Ys5OPxQmS0w-OjsCr3g0norWfHwpIC1b0
