@@ -33,6 +33,9 @@ public class CipherScreen : MonoBehaviour,IUpdateManager
     [SerializeField, Header("ˆÃ†•\Ž¦‚ÌText")]
     Text[] texts;  
 
+    bool keyBox_Col = true;
+    public bool KeyBox_Collider => keyBox_Col;
+
     void Start() 
     {
         UpdateManager.Instance.Bind(this, FrameControl.ON);
@@ -119,7 +122,8 @@ public class CipherScreen : MonoBehaviour,IUpdateManager
     {
         yield return new WaitForSeconds(1f);
 
-        keyBox_Open.enabled = true; 
+        keyBox_Open.enabled = true;
+        keyBox_Col = false;
     }
 }
     
