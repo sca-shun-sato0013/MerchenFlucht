@@ -60,6 +60,7 @@ public class SetDisplayImage : MonoBehaviour,IUpdateManager
     public void OnUpdate(double deltaTime)
     {
         if (backGroundImage.sprite.name == "Black(Clone)")fadeCheck = true;
+        
         if (scenarioManager.LoadCheck)
         {
             scenarioManager.LoadCheck = false;
@@ -94,13 +95,8 @@ public class SetDisplayImage : MonoBehaviour,IUpdateManager
 
         yield return w2;
 
-        Debug.Log(charaImage.sprite.name == s.Replace(".png", ""));
-        Debug.Log(charaImage.sprite.name);
-        Debug.Log(s.Replace(".png", ""));
-
         if (charaImage.sprite.name == s.Replace(".png", ""))
         {
-            Debug.Log("CLONE");
             charaAnimation.enabled = false;
             charaAnimation.enabled = true;
         }
