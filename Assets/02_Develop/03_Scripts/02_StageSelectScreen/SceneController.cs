@@ -5,7 +5,60 @@ using GameManager;
 
 public class SceneController : MonoBehaviour
 {
+    [SerializeField]
+    GameObject loadingScreen;
+    [SerializeField]
+    GameObject obj;
+
     private int OnSelectButton = 0;
+
+    bool check = false;
+    private void Update()
+    {
+        if (check)
+        {
+            if (loadingScreen.activeSelf)
+            {
+                obj.SetActive(false);
+            }
+            else
+            {
+                obj.SetActive(true);
+            }
+        }
+
+        if (MobileInput.InputState(TouchPhase.Began)) // ç∂ÉNÉäÉbÉN
+        {
+            Touch touch = Input.GetTouch(0);
+
+            Ray ray = Camera.main.ScreenPointToRay(touch.position); // RayÇê∂ê¨
+
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit)) // RayÇìäéÀ
+            {
+                if (hit.collider.gameObject.name == "LittleRedRidingHoodBook")
+                {
+                    check = true;
+                    SceneManager.Instance.SceneLoadingAsync("LittleRedRidingHood");
+                }
+
+                if (hit.collider.gameObject.name == "HanselAndGretelBook")
+                {
+                    check = true;
+                    SceneManager.Instance.SceneLoadingAsync("HanselAndGretel");
+                }
+
+                if (hit.collider.gameObject.name == "PeterPanBook")
+                {
+                    check = true;
+                    SceneManager.Instance.SceneLoadingAsync("PeterPan");
+                }
+            }
+        }
+    }
+
     public void OnAkazukin()
     {
         OnSelectButton = 1;
