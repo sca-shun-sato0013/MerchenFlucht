@@ -68,6 +68,8 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
     
     bool flag = true;
 
+    bool justOnce = true;
+
     void Start()
     {
         UpdateManager.Instance.Bind(this, FrameControl.ON);
@@ -224,8 +226,9 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                         StartCoroutine(Change_MainScreen());
                     }
 
-                    if (hit.collider.gameObject.name == "GrandmotherFurnace")
+                    if (hit.collider.gameObject.name == "GrandmotherFurnace" && justOnce)
                     {
+                        justOnce = false;
                         StartCoroutine(Furnace_Close());
                     }
 
@@ -249,7 +252,6 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                             ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
                             StartCoroutine(Change_MainScreen());
                         }
-
                     }
 
                     if (hit.collider.gameObject.name == "êd")
