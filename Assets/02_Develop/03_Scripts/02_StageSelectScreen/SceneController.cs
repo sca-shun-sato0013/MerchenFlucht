@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GameManager;
+using UnityEngine.Playables;
 
 public class SceneController : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class SceneController : MonoBehaviour
     GameObject loadingScreen;
     [SerializeField]
     GameObject obj;
+    [SerializeField]
+    PlayableDirector stageSelect_LittleRed,stageSelect_Hansel,stageSelect_PeterPan;
+    [SerializeField,Header("各スクリーン系")]
+    GameObject littleScreen,hanselScreen,peterPanScreen;
 
     private int OnSelectButton = 0;
 
@@ -33,7 +38,6 @@ public class SceneController : MonoBehaviour
 
             Ray ray = Camera.main.ScreenPointToRay(touch.position); // Rayを生成
 
-
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit)) // Rayを投射
@@ -41,19 +45,27 @@ public class SceneController : MonoBehaviour
                 if (hit.collider.gameObject.name == "LittleRedRidingHoodBook")
                 {
                     check = true;
-                    SceneManager.Instance.SceneLoadingAsync("LittleRedRidingHood");
+
+                    hanselScreen.SetActive(false);
+                    peterPanScreen.SetActive(false);
+                    littleScreen.SetActive(true);
                 }
 
                 if (hit.collider.gameObject.name == "HanselAndGretelBook")
                 {
                     check = true;
-                    SceneManager.Instance.SceneLoadingAsync("HanselAndGretel");
+                    littleScreen.SetActive(false);
+                    peterPanScreen.SetActive(false);
+                    hanselScreen.SetActive(true);                    
                 }
 
                 if (hit.collider.gameObject.name == "PeterPanBook")
                 {
                     check = true;
-                    SceneManager.Instance.SceneLoadingAsync("PeterPan");
+
+                    littleScreen.SetActive(false);
+                    hanselScreen.SetActive(false);
+                    peterPanScreen.SetActive(true);
                 }
             }
         }
@@ -62,23 +74,30 @@ public class SceneController : MonoBehaviour
     public void OnAkazukin()
     {
         OnSelectButton = 1;
+        check = true;
         //赤ずきんシーン遷移
-        //SceneManager.LoadScene("LittleRedRidingHood");
-        //SceneManager.Instance.SceneLoadingAsync("LittleRedRidingHood");
+        stageSelect_LittleRed.enabled = false;
+        stageSelect_LittleRed.enabled = true;
+        StartCoroutine(TimeLine_Wait("LittleRedRidingHood"));
     }
     public void OnHengure()
     {
         OnSelectButton = 2;
+        check = true;
         //ヘン&グレシーン遷移
-        //SceneManager.LoadScene("HanselAndGretel");
-        //SceneManager.Instance.SceneLoadingAsync("HanselAndGretel");
+        stageSelect_Hansel.enabled = false;
+        stageSelect_Hansel.enabled = true;
+        StartCoroutine(TimeLine_Wait("HanselAndGretel"));
+
     }
     public void OnPeter()
     {
         OnSelectButton = 3;
+        check = true;
         //ピーターシーン遷移
-        //SceneManager.LoadScene("PeterPan");
-        //SceneManager.Instance.SceneLoadingAsync("PeterPan");
+        stageSelect_PeterPan.enabled = false;
+        stageSelect_PeterPan.enabled = true;
+        StartCoroutine(TimeLine_Wait("PeterPan"));
     }
 
     public void OnTitle()
@@ -86,6 +105,13 @@ public class SceneController : MonoBehaviour
         //タイトルシーン遷移
         //SceneManager.LoadScene("title");
         SceneManager.Instance.SceneLoadingAsync("title");
+    }
+
+    public void ReturnButton()
+    {
+        hanselScreen.SetActive(false);
+        peterPanScreen.SetActive(false);
+        littleScreen.SetActive(false);
     }
 
     public void OnDecideBoutton()
@@ -105,5 +131,12 @@ public class SceneController : MonoBehaviour
             Debug.Log("3");
             SceneManager.Instance.SceneLoadingAsync("PeterPan");
         }
+    }
+
+    IEnumerator TimeLine_Wait(string str)
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        SceneManager.Instance.SceneLoadingAsync(str);
     }
 }
