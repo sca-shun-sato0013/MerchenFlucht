@@ -49,7 +49,7 @@ public class CipherScreen_Shelf : MonoBehaviour,IUpdateManager
     {
         if (!this.gameObject.activeInHierarchy) return;
 
-
+        
     }
 
     private void Decryption()
@@ -72,10 +72,6 @@ public class CipherScreen_Shelf : MonoBehaviour,IUpdateManager
                 text2.enabled = true;
 
                 fade.FadeIn(2f);
-
-                //imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/ÉÅÉÇ1.png");
-                //imageLoadings.enabled = false;
-                //imageLoadings.enabled = true;
 
                 scenarioState.scenarioSceneHansel = ScenarioSceneHansel.shelfCipherAnswer;
                 ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -135,8 +131,9 @@ public class CipherScreen_Shelf : MonoBehaviour,IUpdateManager
                 img.color = ColorChange.ColorChanes(1f, 0.8f, 0.6f, 1);
                 break;
 
-            default:
-                count = 0;
+            case 8:
+                count = 1;
+                img.color = ColorChange.ColorChanes(1, 1, 0.5f, 1);
                 break;
         }
     }
