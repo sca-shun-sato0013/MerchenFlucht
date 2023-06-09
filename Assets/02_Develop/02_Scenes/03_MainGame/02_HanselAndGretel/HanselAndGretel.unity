@@ -7634,7 +7634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0db7e8df44cf84eb031292d744f335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 30
+  timeLimit: 600
   timerText: {fileID: 853988959}
   timerFlag: 0
 --- !u!114 &194396312
