@@ -199,7 +199,7 @@ public class ScenarioScreenPeterPan : MonoBehaviour, IUpdateManager
 
                 case ScenarioScenePeter.wallPaper:
 
-                    scenariosManager.PlayScenario(33, 35);
+                    scenariosManager.PlayScenario(33, 34);
 
                     break;
 
