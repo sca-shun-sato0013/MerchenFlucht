@@ -67,6 +67,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
     bool justOnceRanpu = true;
     bool justOncePaitingMemo = true;
     bool examineTheChair = true;
+    bool justOnceRanpu2 = true;
 
     ScenarioState scenarioState;
 
@@ -124,13 +125,12 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
 
                 if (hit.collider.gameObject.name == "ranpu")
                 {
-
-                    fade.FadeIn(0.5f);
-
+                    
                     if (clickScenario.DiaryFlag)
                     {
                         if (countDownTimer.TimerFlag)
                         {
+                            fade.FadeIn(0.5f);
                             scenarioState.trueEnd = true;
                             scenarioState.scenarioScenePeter = ScenarioScenePeter.diaryReadingLamp;
                             ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -141,6 +141,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                     {
                         if (countDownTimer.TimerFlag)
                         {
+                            fade.FadeIn(0.5f);
                             scenarioState.happyEnd = true;
                             scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheLampWithin;
                             ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -150,22 +151,26 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                         {
                             if (clickScenario.DevilBookFlag)
                             {
+                                fade.FadeIn(0.5f);
                                 scenarioState.scenarioScenePeter = ScenarioScenePeter.afterReadingTheDevilsBook;
                                 ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
                                 StartCoroutine(Change_MainScreen());
                             }
                             else
-                            {
+                            {                                
                                 if (items[0].sprite.name == "ƒ}ƒbƒ`(Clone)" && justOnceRanpu)
                                 {
+                                    fade.FadeIn(0.5f);
                                     justOnceRanpu = false;
                                     fireEffect.gameObject.SetActive(true);
                                     scenarioState.scenarioScenePeter = ScenarioScenePeter.haveAMatch;
                                     ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
                                     StartCoroutine(Change_MainScreen(shadowHumanChair));
                                 }
-                                else
+                                else if(justOnceRanpu2 && justOnceRanpu)
                                 {
+                                    fade.FadeIn(0.5f);
+                                    justOnceRanpu2 = false;
                                     scenarioState.scenarioScenePeter = ScenarioScenePeter.dontHaveMatch;
                                     ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
                                     StartCoroutine(Change_MainScreen());
