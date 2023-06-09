@@ -96,7 +96,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                 {
                     if (memo1.activeSelf == false)
                     {
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
 
                         imageLoadings.AddList(items[0], "Assets/LoadingDatas/ScenarioDatas/PeterPan/マッチ.png");
 
@@ -111,7 +111,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
 
                 if (hit.collider.gameObject.name == "memo1")
                 {
-                    fade.FadeIn(2f);
+                    fade.FadeIn(0.5f);
 
                     imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ1.png");
 
@@ -125,7 +125,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                 if (hit.collider.gameObject.name == "ranpu")
                 {
 
-                    fade.FadeIn(2f);
+                    fade.FadeIn(0.5f);
 
                     if (clickScenario.DiaryFlag)
                     {
@@ -177,7 +177,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
 
                 if (hit.collider.gameObject.name == "shadowHumanChair")
                 {
-                    fade.FadeIn(2f);
+                    fade.FadeIn(0.5f);
                     //imageLoadings.AddList(items[0], "Assets/LoadingDatas/ScenarioDatas/PeterPan/間違い探し.png");
                     //imageLoadings.enabled = false;
                     //imageLoadings.enabled = true;
@@ -193,7 +193,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                 {
                     if (shadowHumanChair.activeSelf == true)
                     {
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
                         examineTheChair = false;
                         imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ2.png");
 
@@ -206,7 +206,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
 
                 if (hit.collider.gameObject.name == "shadowHumanWall")
                 {
-                    fade.FadeIn(2f);
+                    fade.FadeIn(0.5f);
 
                     scenarioState.scenarioScenePeter = ScenarioScenePeter.shadowPointingToTheWall;
                     ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -218,7 +218,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                 {
                     if (shadowHumanWall.activeSelf == true)
                     {
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
 
                         imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ3.png");
 
@@ -231,7 +231,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
 
                 if (hit.collider.gameObject.name == "shadowHumanStandUp")
                 {
-                    fade.FadeIn(2f);
+                    fade.FadeIn(0.5f);
 
                     if (clickScenario.DiaryFlag)
                     {
@@ -251,7 +251,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                 {
                     if (shadowHumanStandUp.activeSelf == true)
                     {
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
                         justOncePaitingMemo = false;
                         imageLoadings.SetImage(3, "Assets/LoadingDatas/ScenarioDatas/PeterPan/ネズミ(紙持ち).png");
                         imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ4.png");
@@ -263,7 +263,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                     }
                     else
                     {
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
 
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.examineThePainting;
                         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -280,7 +280,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                         {
                             if (chesse.activeSelf == false)
                             {
-                                fade.FadeIn(2f);
+                                fade.FadeIn(0.5f);
 
                                 scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheMouseWithTheCheese;
                                 ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -288,7 +288,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                             }
                             else
                             {
-                                fade.FadeIn(2f);
+                                fade.FadeIn(0.5f);
 
                                 scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheRat;
                                 ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -302,7 +302,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                 {
                     if (mouseOrCatImage.sprite.name == "ネズミ(紙持ち)(Clone)")
                     {
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
 
                         imageLoadings.AddList(items[2], "Assets/LoadingDatas/ScenarioDatas/PeterPan/チーズ.png");
 
@@ -317,7 +317,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
 
                 if (hit.collider.gameObject.name == "shadowHumanWindow")
                 {
-                    fade.FadeIn(2f);
+                    fade.FadeIn(0.5f);
 
                     scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheShadowPointingWindow;
                     ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -328,7 +328,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                 {
                     if (shadowHumanWindow.activeSelf == true)
                     {
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
 
                         window.enabled = false;
                         imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ5.png");
@@ -363,7 +363,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                     if (keyBox_TimeLine.enabled == true)
                     {
                         hit.collider.gameObject.SetActive(false);
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
 
                         imageLoadings.AddList(items[2], "Assets/LoadingDatas/ScenarioDatas/PeterPan/悪魔の本(閉).png");
 
@@ -372,13 +372,11 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
 
                         StartCoroutine(Return_MainScreen());
                     }
-
                 }
 
                 if (hit.collider.gameObject.name == "Books2")
                 {
-
-                    fade.FadeIn(2f);
+                    fade.FadeIn(0.5f);
 
                     scenarioState.scenarioScenePeter = ScenarioScenePeter.tapTheAppropriateBookshelf;
                     ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -389,7 +387,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                 if (hit.collider.gameObject.name == "FairyTaleBook")
                 {
 
-                    fade.FadeIn(2f);
+                    fade.FadeIn(0.5f);
 
                     imageLoadings.AddList(items[3], "Assets/LoadingDatas/ScenarioDatas/PeterPan/絵本(閉).png");
 
@@ -403,7 +401,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                 {
                     if (item5.sprite.name == "絵本に挟まってる鍵(Clone)")
                     {
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
 
                         imageLoadings.AddList(items[5], "Assets/LoadingDatas/ScenarioDatas/PeterPan/ピーター日記(閉).png");
 
@@ -414,7 +412,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                     }
                     else
                     {
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
 
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.ifYouDontHaveTheKey;
                         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -426,7 +424,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
 
                 if (hit.collider.gameObject.name == "Fairy")
                 {
-                    fade.FadeIn(1f);
+                    fade.FadeIn(0.5f);
 
                     if (clickScenario.DiaryFlag)
                     {

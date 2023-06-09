@@ -119,7 +119,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                         {
                             if(item7.sprite.name == "マッチ(Clone)")
                             {
-                                fade.FadeIn(2f);
+                                fade.FadeIn(0.5f);
 
                                 scenarioState.trueEndHansel = true;
                                 scenarioState.scenarioSceneHansel = ScenarioSceneHansel.trueEnd;
@@ -128,7 +128,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                             }
                             else
                             {
-                                fade.FadeIn(2f);
+                                fade.FadeIn(0.5f);
 
                                 //imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ1.png");
                                 scenarioState.happyEndHansel = true;
@@ -140,7 +140,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                         }
                         else
                         {
-                            fade.FadeIn(2f);
+                            fade.FadeIn(0.5f);
 
                             //imageLoadings.AddList(items[1], "Assets/LoadingDatas/ScenarioDatas/PeterPan/メモ1.png")
                             scenarioState.scenarioSceneHansel = ScenarioSceneHansel.inspectFrontDoor;
@@ -166,7 +166,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
 
                     if (hit.collider.gameObject.name == "棚.001")
                     {
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
 
                         imageLoadings.AddList(item3, "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/H&G絵本(閉).png");
 
@@ -180,7 +180,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                     {
                         if(item4.sprite.name == "poker_Item(Clone)")
                         {
-                            fade.FadeIn(2f);
+                            fade.FadeIn(0.5f);
 
                             imageLoadings.AddList(item5, "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/bucket.png");
                             
@@ -192,7 +192,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                         }
                         else
                         {
-                            fade.FadeIn(2f);
+                            fade.FadeIn(0.5f);
 
                             scenarioState.scenarioSceneHansel = ScenarioSceneHansel.checkBucket;
                             ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -219,7 +219,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
 
                     if(hit.collider.gameObject.name == "GrandmotherKichen")
                     {
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
 
                         scenarioState.scenarioSceneHansel = ScenarioSceneHansel.grannykitchen;
                         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -236,7 +236,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                     {
                         if(item5.sprite.name == "bucket(Clone)")
                         {
-                            fade.FadeIn(2f);
+                            fade.FadeIn(0.5f);
 
                             imageLoadings.AddList(item5, "Assets/LoadingDatas/ScenarioDatas/HanselAndGretel/waterBucket_Item.png");
 
@@ -246,7 +246,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                         }
                         else
                         {
-                            fade.FadeIn(2f);
+                            fade.FadeIn(0.5f);
 
                             scenarioState.scenarioSceneHansel = ScenarioSceneHansel.waterKiln;
                             ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -258,7 +258,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                     {
                         if(item5.sprite.name == "waterBucket_Item(Clone)")
                         {
-                            fade.FadeIn(2f);
+                            fade.FadeIn(0.5f);
 
                             fireEffect.SetActive(false);
                             scenarioState.scenarioSceneHansel = ScenarioSceneHansel.fireFighting;
@@ -267,7 +267,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                         }
                         else
                         {
-                            fade.FadeIn(2f);
+                            fade.FadeIn(0.5f);
 
                             scenarioState.scenarioSceneHansel = ScenarioSceneHansel.bonFire;
                             ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -279,7 +279,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                     {
                         if(item7.sprite.name == "マッチ(Clone)")
                         {
-                            fade.FadeIn(2f);
+                            fade.FadeIn(0.5f);
                             fireEffect.SetActive(true);
                             scenarioState.scenarioSceneHansel = ScenarioSceneHansel.haveAMatch;
                             ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -287,7 +287,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
                         }
                         else
                         {
-                            fade.FadeIn(2f);
+                            fade.FadeIn(0.5f);
 
                             scenarioState.scenarioSceneHansel = ScenarioSceneHansel.noMatch;
                             ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -298,7 +298,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
 
                     if (hit.collider.gameObject.name == "Key")
                     {
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
 
                         key.SetActive(false);
                         imageLoadings.AddList(item6, "Assets/LoadingDatas/ScenarioDatas/PeterPan/絵本に挟まってる鍵.png");
@@ -311,7 +311,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
 
                     if (hit.collider.gameObject.name == "match")
                     {
-                        fade.FadeIn(2f);
+                        fade.FadeIn(0.5f);
 
                         imageLoadings.AddList(item7, "Assets/LoadingDatas/ScenarioDatas/PeterPan/マッチ.png");
 
@@ -328,7 +328,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
 
     public void Scenario(ScenarioSceneHansel scenario)
     {
-        fade.FadeIn(2f);
+        fade.FadeIn(0.5f);
 
         scenarioState.scenarioSceneHansel = scenario;
         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -337,7 +337,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
 
     public void ScenarioItemGet(ScenarioSceneHansel scenario ,Image img,string str)
     {
-        fade.FadeIn(2f);
+        fade.FadeIn(0.5f);
 
         scenarioState.scenarioSceneHansel = scenario;
         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
@@ -351,7 +351,7 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
 
         yield return new WaitForSeconds(2f);
 
-        fade.FadeIn(2f);
+        fade.FadeIn(0.5f);
 
         furnace_Col.enabled = true;
         match.SetActive(true);
