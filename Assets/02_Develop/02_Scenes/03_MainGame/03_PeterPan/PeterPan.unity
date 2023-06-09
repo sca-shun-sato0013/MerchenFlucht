@@ -323,7 +323,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1820815337}
   m_HandleRect: {fileID: 1820815336}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5276,7 +5276,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1096652274}
   m_HandleRect: {fileID: 1096652273}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5558,7 +5558,7 @@ PrefabInstance:
     - target: {fileID: 6734710342648883761, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: maskTexture
       value: 
-      objectReference: {fileID: 2800000, guid: cc2237369a9042b4fb6b9b9e1e91a16c, type: 3}
+      objectReference: {fileID: 2800000, guid: 258c75b9ea78dc6468582183d29250d4, type: 3}
     - target: {fileID: 6734710342648883762, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5878,7 +5878,7 @@ MonoBehaviour:
   setDisplayImage: {fileID: 32606881}
   volume: {fileID: 149975390}
   gameOver: {fileID: 397974617}
-  timer: 1
+  timer: 0.5
   scenarioScene: 0
 --- !u!114 &639147328
 MonoBehaviour:
@@ -6080,19 +6080,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.08925751
-      objectReference: {fileID: 0}
-    - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.12499997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.821485
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.75000006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}

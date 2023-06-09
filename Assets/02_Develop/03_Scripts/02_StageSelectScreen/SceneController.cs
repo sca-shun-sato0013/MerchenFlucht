@@ -135,7 +135,7 @@ public class SceneController : MonoBehaviour
 
     IEnumerator TimeLine_Wait(string str)
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.4f);
 
         SceneManager.Instance.SceneLoadingAsync(str);
     }

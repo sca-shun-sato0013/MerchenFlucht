@@ -7634,7 +7634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0db7e8df44cf84eb031292d744f335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 600
+  timeLimit: 30
   timerText: {fileID: 853988959}
   timerFlag: 0
 --- !u!114 &194396312
@@ -10308,7 +10308,6 @@ GameObject:
   m_Component:
   - component: {fileID: 397974616}
   - component: {fileID: 397974617}
-  - component: {fileID: 397974618}
   m_Layer: 0
   m_Name: GameOver
   m_TagString: Untagged
@@ -10337,12 +10336,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397974615}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 880c3c68a36ec424f92a8af6e86dd360, type: 3}
+  m_Script: {fileID: 11500000, guid: b6b5589953c31a64e8fbcca9ba69e9a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDowntimer: {fileID: 0}
+  countDowntimer: {fileID: 194396311}
   scenarioState:
     scenarioScenePeter: 0
     scenarioSceneHansel: 0
@@ -10356,25 +10355,7 @@ MonoBehaviour:
   fade: {fileID: 140941225}
   fadeImage: {fileID: 829167527}
   scenarioScreen: {fileID: 961807918}
-  peterPan: {fileID: 0}
---- !u!114 &397974618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397974615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3817d8cceeab544b9a639ee05e4e5ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shaderName: Light
-  strength: 0.3
-  samplerCnt: 6
-  blur: 20
-  threshold: 0.3
-  ratio: 1
+  hansel: {fileID: 961807923}
 --- !u!1 &401027621
 GameObject:
   m_ObjectHideFlags: 0
@@ -16972,7 +16953,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1096652274}
   m_HandleRect: {fileID: 1096652273}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -17629,7 +17610,7 @@ PrefabInstance:
     - target: {fileID: 6734710342648883761, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: maskTexture
       value: 
-      objectReference: {fileID: 2800000, guid: cc2237369a9042b4fb6b9b9e1e91a16c, type: 3}
+      objectReference: {fileID: 2800000, guid: 258c75b9ea78dc6468582183d29250d4, type: 3}
     - target: {fileID: 6734710342648883762, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -17981,19 +17962,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.08925751
-      objectReference: {fileID: 0}
-    - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.12499997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.821485
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2524376834901429963, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.75000006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f8ea2ccefaef64a90c137c77899dc0, type: 3}
@@ -21369,7 +21350,7 @@ MonoBehaviour:
   setDisplayImage: {fileID: 32606881}
   volume: {fileID: 149975390}
   gameOver: {fileID: 1563647604}
-  timer: 1
+  timer: 0.5
   scenarioScene: 0
 --- !u!114 &961807924
 MonoBehaviour:

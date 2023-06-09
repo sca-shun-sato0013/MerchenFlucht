@@ -199,7 +199,7 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
     public void ScenarioLoad(ScenarioSceneLittle scene)
     {
-        fade.FadeIn(1f);
+        fade.FadeIn(0.5f);
         scenarioState.scenarioSceneLittle = scene;
         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
         StartCoroutine(Change_MainScreen());
@@ -207,7 +207,7 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
     public void ScenarioLoad_ObjectActiv(ScenarioSceneLittle scene,GameObject obj)
     {
-        fade.FadeIn(1f);
+        fade.FadeIn(0.5f);
         scenarioState.scenarioSceneLittle = scene;
         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
         StartCoroutine(Change_MainScreen(obj));
@@ -215,7 +215,7 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
     public void ScenarioLoad_ItemGet(ScenarioSceneLittle scene,Image getItem,string str)
     {
-        fade.FadeIn(1f);
+        fade.FadeIn(0.5f);
         scenarioState.scenarioSceneLittle = scene;
         ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
         StartCoroutine(Change_MainScreen(getItem,str));
@@ -228,7 +228,7 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
         p.enabled = false;
         p.enabled = true;
 
-        fade.FadeOut(1f);
+        fade.FadeOut(0.5f);
     }
     private IEnumerator Change_MainScreen()
     {
@@ -240,7 +240,6 @@ public class RayCastScript_Little : MonoBehaviour, IUpdateManager
 
     private IEnumerator Change_MainScreen(Image img, string str)
     {
-        Debug.Log("フェードイン" + fadeImage.CutoutRange);
         yield return new WaitUntil(() => fadeImage.CutoutRange == 1f);
 
         imageLoadings.AddList(img, str);
