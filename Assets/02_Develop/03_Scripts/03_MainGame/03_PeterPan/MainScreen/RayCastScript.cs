@@ -138,8 +138,8 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                             StartCoroutine(Change_MainScreen());
                         }
                     }
-                    else
-                    {
+
+                        Debug.Log("’Ê‚Á‚½1");
                         if (countDownTimer.TimerFlag)
                         {
                             fade.FadeIn(0.5f);
@@ -150,6 +150,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                         }
                         else
                         {
+                            Debug.Log("’Ê‚Á‚½2");
                             if (clickScenario.DevilBookFlag)
                             {
                                 fade.FadeIn(0.5f);
@@ -160,6 +161,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                              
                                 if (items[0].sprite.name == "ƒ}ƒbƒ`(Clone)" && justOnceRanpu)
                                 {
+                                    Debug.Log("’Ê‚Á‚½3");
                                     fade.FadeIn(0.5f);
                                     justOnceRanpu = false;
                                     fireEffect.gameObject.SetActive(true);
@@ -177,7 +179,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                                 }
                             
                         }
-                    }
+                    
                 }
 
                 if (hit.collider.gameObject.name == "shadowHumanChair")

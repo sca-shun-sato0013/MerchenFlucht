@@ -70,6 +70,8 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
 
     bool justOnce = true;
 
+    bool flag1 = true;
+
     void Start()
     {
         UpdateManager.Instance.Bind(this, FrameControl.ON);
@@ -256,8 +258,9 @@ public class RayCastScriipt_HanselAndGretel : MonoBehaviour, IUpdateManager
 
                     if (hit.collider.gameObject.name == "êd")
                     {
-                        if(item5.sprite.name == "waterBucket_Item(Clone)")
+                        if(item5.sprite.name == "waterBucket_Item(Clone)" && flag1)
                         {
+                            flag1 = false;
                             fade.FadeIn(0.5f);
 
                             fireEffect.SetActive(false);
