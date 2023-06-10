@@ -68,6 +68,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
     bool justOncePaitingMemo = true;
     bool examineTheChair = true;
     bool justOnceRanpu2 = true;
+    bool flag = false;
 
     ScenarioState scenarioState;
 
@@ -98,7 +99,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                     if (memo1.activeSelf == false)
                     {
                         fade.FadeIn(0.5f);
-
+                        flag = true;
                         imageLoadings.AddList(items[0], "Assets/LoadingDatas/ScenarioDatas/PeterPan/マッチ.png");
 
                         scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheShelf;
@@ -156,8 +157,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                                 ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
                                 StartCoroutine(Change_MainScreen());
                             }
-                            else
-                            {                                
+                             
                                 if (items[0].sprite.name == "マッチ(Clone)" && justOnceRanpu)
                                 {
                                     fade.FadeIn(0.5f);
@@ -175,7 +175,7 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                                     ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
                                     StartCoroutine(Change_MainScreen());
                                 }
-                            }
+                            
                         }
                     }
                 }
