@@ -172,7 +172,7 @@ public class ScenarioScreenHansel : MonoBehaviour, IUpdateManager
 
                     case ScenarioSceneHansel.shelfCipherAnswer:
 
-                        scenariosManager.PlayScenario(53,55);
+                        scenariosManager.PlayScenario(53,54);
 
                         break;
 
