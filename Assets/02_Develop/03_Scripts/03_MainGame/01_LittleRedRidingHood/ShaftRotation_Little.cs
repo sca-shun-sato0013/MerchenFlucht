@@ -6,6 +6,7 @@ using CommonlyUsed;
 using DesignPattern;
 using UnityEngine.Playables;
 using UnityEngine.UI;
+using UnityEngine.Profiling;
 
 public class ShaftRotation_Little : MonoBehaviour, IUpdateManager
 {
@@ -27,6 +28,7 @@ public class ShaftRotation_Little : MonoBehaviour, IUpdateManager
     [SerializeField,Header("BoxColider")]
     BoxCollider frontDoor_BoxCol,wolf_BoxCol;
 
+    CustomSampler cs = CustomSampler.Create("Debug");
     int count = 0;
 
     bool flag = true;
@@ -58,8 +60,9 @@ public class ShaftRotation_Little : MonoBehaviour, IUpdateManager
         if (!this.gameObject.activeInHierarchy) return;
 
         if (count == -4 || count == 4) count = 0;
-
+        cs.Begin();
         Debug.Log(count);
+        cs.End();
         mobile2DMainCamera.transform.rotation = Quaternion.RotateTowards(mobile2DMainCamera.transform.rotation, targetRot, step);
 
         if (mainCamera.transform.position.y >= 2.0f)
