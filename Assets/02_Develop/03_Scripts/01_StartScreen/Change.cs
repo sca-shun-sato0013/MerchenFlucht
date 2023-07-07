@@ -6,14 +6,15 @@ using CommonlyUsed;
 
 public class Change : MonoBehaviour,IUpdateManager
 {
-    bool flag = true;
-    bool input = false;
+    [SerializeField]
+    ImageTransparencyAnimation transparencyAnimation;
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(Application.persistentDataPath);
-        UpdateManager.Instance.Bind(this,FrameControl.ON);   
+        UpdateManager.Instance.Bind(this,FrameControl.ON);
+
+        StartCoroutine(Flush());
     }
 
     // Update is called once per frame
@@ -21,13 +22,25 @@ public class Change : MonoBehaviour,IUpdateManager
     {
         if (!this.gameObject.activeInHierarchy) return;
 
-        input = Input.GetMouseButtonDown(0) || MobileInput.InputState(TouchPhase.Began);
-        
-        if (input && flag)
+
+    }
+
+    public void OnClick()
+    {
+        SceneManager.Instance.SceneLoadingAsync("StageSelectScene");
+    }
+
+    IEnumerator Flush()
+    {
+        while(true)
         {
-            Debug.Log(input);
-            flag = false;
-            SceneManager.Instance.SceneLoadingAsync("StageSelectScene");
+            yield return new WaitForSeconds(2f);
+
+            transparencyAnimation.enabled = false;
+
+            yield return new WaitForSeconds(0.5f);
+
+            transparencyAnimation.enabled = true;
         }
     }
 }

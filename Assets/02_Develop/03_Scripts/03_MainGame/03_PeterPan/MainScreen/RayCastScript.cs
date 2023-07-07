@@ -138,48 +138,44 @@ public class RayCastScript : MonoBehaviour, IUpdateManager
                             StartCoroutine(Change_MainScreen());
                         }
                     }
-
-                        Debug.Log("通った1");
-                        if (countDownTimer.TimerFlag)
+                    else if (countDownTimer.TimerFlag)
+                    {
+                        fade.FadeIn(0.5f);
+                        scenarioState.happyEnd = true;
+                        scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheLampWithin;
+                        ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
+                        StartCoroutine(Change_MainScreen());
+                    }
+                    else
+                    {
+                        Debug.Log("通った2");
+                        if (clickScenario.DevilBookFlag)
                         {
                             fade.FadeIn(0.5f);
-                            scenarioState.happyEnd = true;
-                            scenarioState.scenarioScenePeter = ScenarioScenePeter.examineTheLampWithin;
+                            scenarioState.scenarioScenePeter = ScenarioScenePeter.afterReadingTheDevilsBook;
                             ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
                             StartCoroutine(Change_MainScreen());
                         }
-                        else
+
+                        if (items[0].sprite.name == "マッチ(Clone)" && justOnceRanpu)
                         {
-                            Debug.Log("通った2");
-                            if (clickScenario.DevilBookFlag)
-                            {
-                                fade.FadeIn(0.5f);
-                                scenarioState.scenarioScenePeter = ScenarioScenePeter.afterReadingTheDevilsBook;
-                                ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                                StartCoroutine(Change_MainScreen());
-                            }
-                             
-                                if (items[0].sprite.name == "マッチ(Clone)" && justOnceRanpu)
-                                {
-                                    Debug.Log("通った3");
-                                    fade.FadeIn(0.5f);
-                                    justOnceRanpu = false;
-                                    fireEffect.gameObject.SetActive(true);
-                                    scenarioState.scenarioScenePeter = ScenarioScenePeter.haveAMatch;
-                                    ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                                    StartCoroutine(Change_MainScreen(shadowHumanChair));
-                                }
-                                else if(justOnceRanpu2 && justOnceRanpu)
-                                {
-                                    fade.FadeIn(0.5f);
-                                    justOnceRanpu2 = false;
-                                    scenarioState.scenarioScenePeter = ScenarioScenePeter.dontHaveMatch;
-                                    ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
-                                    StartCoroutine(Change_MainScreen());
-                                }
-                            
+                            Debug.Log("通った3");
+                            fade.FadeIn(0.5f);
+                            justOnceRanpu = false;
+                            fireEffect.gameObject.SetActive(true);
+                            scenarioState.scenarioScenePeter = ScenarioScenePeter.haveAMatch;
+                            ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
+                            StartCoroutine(Change_MainScreen(shadowHumanChair));
                         }
-                    
+                        else if (justOnceRanpu2 && justOnceRanpu)
+                        {
+                            fade.FadeIn(0.5f);
+                            justOnceRanpu2 = false;
+                            scenarioState.scenarioScenePeter = ScenarioScenePeter.dontHaveMatch;
+                            ServiceLocator<IJsonLoader>.Instance.SaveStatusData(scenarioState, "ScenarioState");
+                            StartCoroutine(Change_MainScreen());
+                        }
+                    }
                 }
 
                 if (hit.collider.gameObject.name == "shadowHumanChair")

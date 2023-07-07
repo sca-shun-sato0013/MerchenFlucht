@@ -345,7 +345,7 @@ public class ScenarioScreenHansel : MonoBehaviour, IUpdateManager
         {
             
         //        MobileInput.InputState(TouchPhase.Began) && !scenariosManager.LineEndCheck()
-        if (input && !scenariosManager.LineEndCheck())
+            if (input && !scenariosManager.LineEndCheck())
             {
                 if (gameOver.GameEnd && justOnce2)
                 {

@@ -800,7 +800,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4F01\u753B\n\n\u9ED2\u702C\u3000\u9054\u5E83\n\n\u6E6F\u5DDD \u7DBE\u5141\n\nCAST\u95A2\u4FC2\u8005\n"
+  m_Text: "\u4F01\u753B\n\n\u305A\u3093\u3060\u9905\n\n\u304A\u8336\n\nSTAFF\u95A2\u4FC2\u8005\n"
 --- !u!222 &778924781
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -913,7 +913,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "2D,3D\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3\n\n\u4F50\u85E4\u3000\u7AE3\n\n\u30A8\u30D5\u30A7\u30AF\u30C8\n\n\u4F50\u85E4\u3000\u7AE3"
+  m_Text: "\u30C7\u30D0\u30C3\u30B0\u30FB\u30C6\u30B9\u30C8\u30D7\u30EC\u30A4\n\n\u4E09\u5D8B\u3000\u6625\u8475\n\n\u305F\u3044\u304D\u3061"
 --- !u!222 &838139972
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1052,6 +1052,10 @@ PrefabInstance:
     - target: {fileID: 6734710341384660284, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734710341633969199, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6734710342027933524, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_Camera
@@ -1480,7 +1484,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30D7\u30ED\u30B0\u30E9\u30DE\n\n\u4F50\u3005\u6728\u3000\u6D77\n\n\u4F50\u85E4\u3000\u7AE3\n\n\u9AD8\u968E
+  m_Text: "\u30D7\u30ED\u30B0\u30E9\u30DE\n\numi\n\n\u4F50\u85E4\u3000\u7AE3\n\n\u9AD8\u968E
     \u84BC\u6674"
 --- !u!222 &1310977397
 CanvasRenderer:
@@ -1925,7 +1929,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "3DCG\n\n\u7B39\u5DDD \u6643\u6C70(\u30E1\u30A4\u30F3)\n\n\u4F50\u85E4\u3000\u7AE3(\u30B5\u30D6)\n"
+  m_Text: "3DCG\n\n???\n\n\u4F50\u85E4\u3000\u7AE3\n"
 --- !u!222 &1497916637
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2231,7 +2235,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u97F3\u697D\n\n\u9B54\u738B\u9B42(BGM)\n\n\u7518\u8336\u306E\u97F3\u697D\u5DE5\u623F(BGM)\n\n\u52B9\u679C\u97F3\u30E9\u30DC(SE)\n"
+  m_Text: "\u97F3\u697D\n\n\u9B54\u738B\u9B42\u3000\u69D8\n\n\u7518\u8336\u306E\u97F3\u697D\u5DE5\u623F\u3000\u69D8\n\n\u52B9\u679C\u97F3\u30E9\u30DC\u3000\u69D8\n"
 --- !u!222 &1799716436
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2373,7 +2377,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30D7\u30ED\u30C7\u30E5\u30FC\u30B5\u30FC\u517C\u30C7\u30A3\u30EC\u30AF\u30BF\u30FC\n\n\u4F50\u85E4\u3000\u7AE3\n\n\n"
+  m_Text: "\u30EB\u30FC\u30EB\u753B\u50CF\n\nFor You \u69D8\n\nhttps://4you.bz/"
 --- !u!222 &2057319187
 CanvasRenderer:
   m_ObjectHideFlags: 0
