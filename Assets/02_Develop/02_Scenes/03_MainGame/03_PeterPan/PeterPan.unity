@@ -5631,6 +5631,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6734710342684200891, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6734710342780571955, guid: 0893809c4c950c643bfcd8f8871e28fb, type: 3}
       propertyPath: m_Volume
       value: 0
