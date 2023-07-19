@@ -9,6 +9,9 @@ public class Change : MonoBehaviour,IUpdateManager
     [SerializeField]
     ImageTransparencyAnimation transparencyAnimation;
 
+    [SerializeField]
+    VersionCheck versionCheck;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +30,11 @@ public class Change : MonoBehaviour,IUpdateManager
 
     public void OnClick()
     {
-        SceneManager.Instance.SceneLoadingAsync("StageSelectScene");
+        versionCheck.Version();
+        if(versionCheck.UpdateCheck)
+        {
+            SceneManager.Instance.SceneLoadingAsync("StageSelectScene");
+        }
     }
 
     IEnumerator Flush()
